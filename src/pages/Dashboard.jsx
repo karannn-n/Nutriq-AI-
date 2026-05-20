@@ -11,11 +11,16 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchDashboard = async () => {
       try {
-        const response = await fetch(`${import.meta.env.VITE_API_URL}/api/dashboard`);
+        const apiURL = import.meta.env.VITE_API_URL;
+        if (!apiURL) throw new Error("VITE_API_URL environment variable is not defined");
+        const response = await fetch(`${apiURL}/api/dashboard`);
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
         const result = await response.json();
         setData(result);
       } catch (err) {
-        console.error("Dashboard API Error:", err);
+        console.warn("API Offline, falling back to local storage database:", err.message);
+        const { getOfflineDashboard } = await import('../utils/offlineDb');
+        setData(getOfflineDashboard());
       } finally {
         setLoading(false);
       }

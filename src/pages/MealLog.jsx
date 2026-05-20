@@ -15,17 +15,32 @@ const MealLog = () => {
 
     setIsSubmitting(true);
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/meals`, {
+      const apiURL = import.meta.env.VITE_API_URL;
+      if (!apiURL) throw new Error("VITE_API_URL environment variable is not defined");
+      const response = await fetch(`${apiURL}/api/meals`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ description: mealText })
       });
+      if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
       const data = await response.json();
       
       setSuccessData({ text: mealText, payload: data.data });
       setMealText('');
     } catch (err) {
-      console.error(err);
+      console.warn("API Offline, logging meal to local storage database:", err.message);
+      // Simulate delay for ultra-realistic response feel
+      await new Promise(r => setTimeout(r, 800));
+      try {
+        const { addOfflineMeal } = await import('../utils/offlineDb');
+        const newMeal = addOfflineMeal(mealText);
+        // Exclude unneeded fields for visualizer
+        const { id, description, created_at, ...payload } = newMeal;
+        setSuccessData({ text: mealText, payload });
+        setMealText('');
+      } catch (localErr) {
+        console.error("Local storage log failed:", localErr);
+      }
     } finally {
       setIsSubmitting(false);
     }

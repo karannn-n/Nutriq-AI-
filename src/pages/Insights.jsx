@@ -82,10 +82,27 @@ const Insights = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_API_URL}/api/insights`)
-      .then(r => r.json())
-      .then(d => { setData(d); setLoading(false); })
-      .catch(e => { setError(e.message); setLoading(false); });
+    const fetchInsights = async () => {
+      try {
+        const apiURL = import.meta.env.VITE_API_URL;
+        if (!apiURL) throw new Error("VITE_API_URL environment variable is not defined");
+        const response = await fetch(`${apiURL}/api/insights`);
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+        const result = await response.json();
+        setData(result);
+      } catch (err) {
+        console.warn("API Offline, falling back to local storage database:", err.message);
+        try {
+          const { getOfflineInsights } = await import('../utils/offlineDb');
+          setData(getOfflineInsights());
+        } catch (localErr) {
+          setError(err.message);
+        }
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchInsights();
   }, []);
 
   if (loading) return (

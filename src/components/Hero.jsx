@@ -1,181 +1,236 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import React, { useRef } from 'react';
+import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
+import { ArrowRight, ArrowDown, Plus, LayoutDashboard } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useAuth } from '../contexts/AuthContext';
+import MotionLink from './landing/MotionLink';
+import { Tomato, BasilLeaf, BasilSprig, AvocadoHalf, Peppercorns, Dish } from './landing/FoodArt';
+import { EASE, T, SOFT_SPRING, buttonHover, buttonTap, useMediaQuery } from './landing/motion';
 
-/* Animated floating pill stat */
-const Stat = ({ value, label, delay }) => (
+/*
+ * Decorative ingredients. `side` sets the entrance direction, `delay` staggers them so the
+ * scene assembles piece by piece, `depth` drives scroll parallax and `float` a gentle idle drift.
+ */
+const INGREDIENTS = [
+  { id: 'pepA', side: 'left', delay: 0.15, depth: 0.2, el: <Peppercorns /> },
+  { id: 'leafA', side: 'left', delay: 0.22, depth: 0.35, float: 6, rotate: -28, el: <BasilLeaf tone="deep" /> },
+  { id: 'leafB', side: 'left', delay: 0.3, depth: 0.25, float: 5, rotate: 38, el: <BasilLeaf /> },
+  { id: 'tomA', side: 'left', delay: 0.38, depth: 0.45, float: 5, el: <Tomato /> },
+  { id: 'leafC', side: 'left', delay: 0.5, depth: 0.3, float: 6, rotate: 64, el: <BasilLeaf /> },
+  { id: 'leafD', side: 'left', delay: 0.58, depth: 0.15, float: 4, rotate: -40, el: <BasilLeaf tone="deep" /> },
+  { id: 'sprig', side: 'right', delay: 0.2, depth: 0.3, float: 5, rotate: 0, el: <BasilSprig /> },
+  { id: 'leafE', side: 'right', delay: 0.28, depth: 0.4, float: 6, rotate: -22, el: <BasilLeaf /> },
+  { id: 'tomB', side: 'right', delay: 0.36, depth: 0.5, float: 6, el: <Tomato /> },
+  { id: 'pepB', side: 'right', delay: 0.44, depth: 0.2, el: <Peppercorns /> },
+  { id: 'tomC', side: 'right', delay: 0.52, depth: 0.35, float: 4, el: <Tomato /> },
+  { id: 'seeds', side: 'right', delay: 0.6, depth: 0.1, el: <Dish variant="seeds" /> },
+];
+const MOBILE_INGREDIENTS = ['leafA', 'tomB', 'leafD'];
+
+const MEALS = [
+  { name: 'Avocado Toast & Eggs', dish: 'toast', kcal: 410, protein: 18, micro: 'B12 rich' },
+  { name: 'Grilled Chicken Grain Bowl', dish: 'grain', kcal: 520, protein: 42, micro: 'Zinc 4mg', featured: true },
+  { name: 'Chickpea Spinach Salad', dish: 'greens', kcal: 380, protein: 16, micro: 'Iron 5mg' },
+  { name: 'Salmon Rice Bowl', dish: 'salmon', kcal: 480, protein: 34, micro: 'Vitamin D' },
+];
+
+const NUTRIENT_CHIPS = [
+  { label: 'D', bg: '#FCEFC7' },
+  { label: 'Fe', bg: '#F9DCD5' },
+  { label: 'Zn', bg: '#DDEBF7' },
+  { label: 'B12', bg: '#DFF0DC' },
+];
+
+const Ingredient = ({ item, progress, reduce }) => {
+  const y = useTransform(progress, [0, 1], [0, reduce ? 0 : -item.depth * 220]);
+  const dir = item.side === 'left' ? -1 : 1;
+  const rotate = item.rotate ?? 0;
+  return (
+    <motion.div className={`lp-ing lp-ing--${item.id}`} style={{ y }}>
+      <motion.div
+        initial={{ opacity: 0, x: dir * 70, y: 14, rotate: rotate + dir * 8 }}
+        animate={{ opacity: 1, x: 0, y: 0, rotate }}
+        transition={{ ...SOFT_SPRING, stiffness: 55, delay: T.ingredients + item.delay, opacity: { duration: 0.7, ease: 'easeOut', delay: T.ingredients + item.delay } }}
+      >
+        <motion.div
+          animate={reduce || !item.float ? undefined : { y: [0, -item.float, 0] }}
+          transition={{ duration: 5 + item.float * 0.4, repeat: Infinity, ease: 'easeInOut', delay: 1.8 + item.delay }}
+        >
+          {item.el}
+        </motion.div>
+      </motion.div>
+    </motion.div>
+  );
+};
+
+/* The large grain bowl (left) and avocado (right) — the hero's main food imagery. */
+const HeroFood = ({ progress, reduce }) => {
+  const bowlY = useTransform(progress, [0, 1], [0, reduce ? 0 : -90]);
+  const bowlRotate = useTransform(progress, [0, 1], [0, reduce ? 0 : 12]);
+  const avoY = useTransform(progress, [0, 1], [0, reduce ? 0 : -140]);
+  return (
+    <>
+      <motion.div className="lp-ing lp-ing--bowl" style={{ y: bowlY, rotate: bowlRotate }}>
+        <motion.div
+          initial={{ opacity: 0, x: -60, y: 40, rotate: -14 }}
+          animate={{ opacity: 1, x: 0, y: 0, rotate: 0 }}
+          transition={{ ...SOFT_SPRING, stiffness: 40, damping: 18, delay: T.food, opacity: { duration: 0.9, delay: T.food } }}
+        >
+          <Dish variant="grain" />
+        </motion.div>
+      </motion.div>
+      <motion.div className="lp-ing lp-ing--avo" style={{ y: avoY }}>
+        <motion.div
+          initial={{ opacity: 0, x: 60, y: 40, rotate: -6 }}
+          animate={{ opacity: 1, x: 0, y: 0, rotate: -18 }}
+          transition={{ ...SOFT_SPRING, stiffness: 45, damping: 18, delay: T.food + 0.12, opacity: { duration: 0.9, delay: T.food + 0.12 } }}
+        >
+          <AvocadoHalf />
+        </motion.div>
+      </motion.div>
+    </>
+  );
+};
+
+/* On phones the food composition moves into the flow, beneath the CTAs. */
+const MobilePlate = () => (
   <motion.div
-    initial={{ opacity: 0, y: 20 }}
+    className="lp-plate"
+    aria-hidden="true"
+    initial={{ opacity: 0, y: 30 }}
     animate={{ opacity: 1, y: 0 }}
-    transition={{ delay, duration: 0.6 }}
-    style={{
-      background: 'rgba(255,255,255,0.05)',
-      border: '1px solid rgba(255,255,255,0.1)',
-      borderRadius: '14px',
-      padding: '14px 22px',
-      textAlign: 'center',
-      backdropFilter: 'blur(12px)',
-    }}
+    transition={{ duration: 1, ease: EASE, delay: T.trust }}
   >
-    <div style={{ fontFamily: 'Outfit, sans-serif', fontSize: '1.6rem', fontWeight: 700, color: '#fff', lineHeight: 1 }}>{value}</div>
-    <div style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.45)', marginTop: '4px', letterSpacing: '0.03em' }}>{label}</div>
+    <motion.div style={{ left: '4%', top: 0, width: '82%' }}
+      initial={{ rotate: -12 }} animate={{ rotate: 0 }} transition={{ duration: 1.4, ease: EASE, delay: T.trust }}>
+      <Dish variant="grain" />
+    </motion.div>
+    <motion.div style={{ right: '-6%', bottom: '-4%', width: '42%' }}
+      initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} transition={{ ...SOFT_SPRING, delay: T.trust + 0.3 }}>
+      <AvocadoHalf style={{ transform: 'rotate(-20deg)' }} />
+    </motion.div>
+    <motion.div style={{ left: '-4%', bottom: '4%', width: '18%' }}
+      initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ ...SOFT_SPRING, delay: T.trust + 0.4 }}>
+      <Tomato />
+    </motion.div>
   </motion.div>
 );
 
+const mealVariants = {
+  hidden: { opacity: 0, y: 40 },
+  show: { opacity: 1, y: 0, transition: { ...SOFT_SPRING, stiffness: 60 } },
+};
+const dishVariants = {
+  hidden: { opacity: 0, scale: 0.88, rotate: -18 },
+  show: { opacity: 1, scale: 1, rotate: 0, transition: { duration: 1.1, ease: EASE } },
+};
+
 const Hero = () => {
+  const ref = useRef(null);
+  const reduce = useReducedMotion();
+  const isMobile = useMediaQuery('(max-width: 767px)');
+  const { user } = useAuth();
+  const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] });
+
+  const ingredients = isMobile ? INGREDIENTS.filter(i => MOBILE_INGREDIENTS.includes(i.id)) : INGREDIENTS;
+  const logTarget = user ? '/app/meal-log' : '/register';
+
   return (
-    <section style={{
-      minHeight: '100vh',
-      display: 'flex',
-      alignItems: 'center',
-      paddingTop: '90px',
-      overflow: 'hidden',
-      position: 'relative',
-      background: 'linear-gradient(165deg, #080a12 0%, #0d1117 55%, #0a1a12 100%)',
-    }}>
-      {/* Background grid */}
-      <div style={{
-        position: 'absolute', inset: 0, zIndex: 0,
-        backgroundImage: `
-          linear-gradient(rgba(52,211,153,0.04) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(52,211,153,0.04) 1px, transparent 1px)
-        `,
-        backgroundSize: '48px 48px',
-      }} />
+    <section id="top" className="lp-hero" ref={ref}>
+      <motion.div className="lp-hero-backdrop"
+        initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1.2, ease: 'easeOut', delay: T.backdrop }} />
 
-      {/* Glow orbs */}
-      <div style={{ position: 'absolute', top: '-10%', left: '20%', width: '500px', height: '500px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(52,211,153,0.12) 0%, transparent 70%)', pointerEvents: 'none' }} />
-      <div style={{ position: 'absolute', bottom: '0%', right: '10%', width: '420px', height: '420px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(99,102,241,0.10) 0%, transparent 70%)', pointerEvents: 'none' }} />
-
-      <div className="container" style={{ position: 'relative', zIndex: 10 }}>
-        <div style={{ maxWidth: '820px', margin: '0 auto', textAlign: 'center' }}>
-
-          {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
-            style={{
-              display: 'inline-flex', alignItems: 'center', gap: '8px',
-              padding: '7px 18px', borderRadius: '40px', marginBottom: '36px',
-              background: 'rgba(52,211,153,0.1)',
-              border: '1px solid rgba(52,211,153,0.25)',
-              color: '#34d399', fontSize: '0.83rem', fontWeight: 600, letterSpacing: '0.04em',
-            }}
-          >
-            <Sparkles size={14} />
-            Powered by Gemini AI · v2.0
-          </motion.div>
-
-          {/* Headline */}
-          <motion.h1
-            className="heading-font"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            style={{
-              fontSize: 'clamp(3rem, 8vw, 5.8rem)',
-              lineHeight: 1.05,
-              fontWeight: 700,
-              letterSpacing: '-2.5px',
-              color: '#fff',
-              marginBottom: '28px',
-            }}
-          >
-            Eat Smart.{' '}
-            <span style={{
-              background: 'linear-gradient(135deg, #34d399 0%, #059669 60%, #6ee7b7 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
-            }}>
-              Live Better.
-            </span>
-          </motion.h1>
-
-          {/* Subheading */}
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            style={{
-              fontSize: 'clamp(1.05rem, 2.5vw, 1.25rem)',
-              color: 'rgba(255,255,255,0.5)',
-              lineHeight: 1.7,
-              maxWidth: '580px',
-              margin: '0 auto 48px',
-            }}
-          >
-            Stop eating blindly. Log meals in plain English, predict deficiencies before they happen, and unlock your body's full potential with AI-driven nutritional insights.
-          </motion.p>
-
-          {/* CTA Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '64px' }}
-          >
-            <Link to="/register" style={{
-              textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '8px',
-              padding: '15px 36px', borderRadius: '14px', fontSize: '1rem', fontWeight: 600,
-              color: '#fff', background: 'linear-gradient(135deg, #34d399, #059669)',
-              boxShadow: '0 0 30px rgba(52,211,153,0.35)',
-              fontFamily: 'Outfit, sans-serif', transition: 'transform 0.2s, box-shadow 0.2s',
-            }}
-              onMouseOver={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 0 40px rgba(52,211,153,0.5)'; }}
-              onMouseOut={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 0 30px rgba(52,211,153,0.35)'; }}
-            >
-              Start for free <ArrowRight size={18} />
-            </Link>
-            <a href="#how-it-works" style={{
-              textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '8px',
-              padding: '15px 36px', borderRadius: '14px', fontSize: '1rem', fontWeight: 500,
-              color: 'rgba(255,255,255,0.75)',
-              background: 'rgba(255,255,255,0.06)',
-              border: '1px solid rgba(255,255,255,0.12)',
-              fontFamily: 'Outfit, sans-serif', transition: 'background 0.2s, color 0.2s',
-            }}
-              onMouseOver={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; e.currentTarget.style.color = '#fff'; }}
-              onMouseOut={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.06)'; e.currentTarget.style.color = 'rgba(255,255,255,0.75)'; }}
-            >
-              See how it works
-            </a>
-          </motion.div>
-
-          {/* Stats row */}
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', flexWrap: 'wrap' }}>
-            <Stat value="12K+" label="Active Users" delay={0.5} />
-            <Stat value="98%" label="Accuracy Rate" delay={0.6} />
-            <Stat value="4 Nutrients" label="Tracked Daily" delay={0.7} />
-            <Stat value="< 2s" label="AI Response" delay={0.8} />
-          </div>
-        </div>
+      <div className="lp-hero-deco" aria-hidden="true">
+        {!isMobile && <HeroFood progress={scrollYProgress} reduce={reduce} />}
+        {ingredients.map(item => (
+          <Ingredient key={item.id} item={item} progress={scrollYProgress} reduce={reduce} />
+        ))}
       </div>
 
-      {/* Floating orbs decoration */}
-      <motion.div
-        animate={{ y: [0, -18, 0] }}
-        transition={{ repeat: Infinity, duration: 6, ease: 'easeInOut' }}
-        style={{ position: 'absolute', top: '28%', left: '8%', width: '56px', height: '56px', borderRadius: '16px', background: 'rgba(52,211,153,0.1)', border: '1px solid rgba(52,211,153,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', backdropFilter: 'blur(8px)' }}
-      >
-        <span style={{ fontSize: '1.5rem' }}>🥗</span>
-      </motion.div>
-      <motion.div
-        animate={{ y: [0, 22, 0] }}
-        transition={{ repeat: Infinity, duration: 7, ease: 'easeInOut', delay: 1 }}
-        style={{ position: 'absolute', top: '60%', right: '8%', width: '56px', height: '56px', borderRadius: '16px', background: 'rgba(99,102,241,0.1)', border: '1px solid rgba(99,102,241,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', backdropFilter: 'blur(8px)' }}
-      >
-        <span style={{ fontSize: '1.5rem' }}>🧬</span>
-      </motion.div>
-      <motion.div
-        animate={{ y: [0, -14, 0] }}
-        transition={{ repeat: Infinity, duration: 5, ease: 'easeInOut', delay: 2 }}
-        style={{ position: 'absolute', bottom: '20%', left: '12%', width: '48px', height: '48px', borderRadius: '14px', background: 'rgba(232,200,106,0.1)', border: '1px solid rgba(232,200,106,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', backdropFilter: 'blur(8px)' }}
-      >
-        <span style={{ fontSize: '1.3rem' }}>⚡</span>
-      </motion.div>
+      <div className="lp-container">
+        <div className="lp-hero-copy">
+          <motion.span className="lp-eyebrow"
+            initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: EASE, delay: T.eyebrow }}>
+            AI-powered nutrition intelligence
+          </motion.span>
+
+          <h1 className="lp-display lp-hero-title">
+            <span className="lp-line">
+              <motion.span initial={{ y: '105%', opacity: 0 }} animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 1.1, ease: EASE, delay: T.heading }}>
+                Eat Smart.
+              </motion.span>
+            </span>
+            <span className="lp-line">
+              <motion.em initial={{ y: '105%', opacity: 0 }} animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 1.1, ease: EASE, delay: T.heading + 0.14 }}>
+                Live Better.
+              </motion.em>
+            </span>
+          </h1>
+
+          <motion.p className="lp-lead lp-hero-sub"
+            initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease: EASE, delay: T.desc }}>
+            Stop eating blindly. Log meals in plain English, predict deficiencies before they happen,
+            and unlock your body's full potential with AI-driven nutritional insights.
+          </motion.p>
+
+          <motion.div className="lp-hero-ctas"
+            initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease: EASE, delay: T.cta }}>
+            {user ? (
+              <MotionLink to="/app/dashboard" className="lp-btn lp-btn-primary" whileHover={buttonHover} whileTap={buttonTap}>
+                <LayoutDashboard size={17} /> Open Dashboard
+              </MotionLink>
+            ) : (
+              <MotionLink to="/register" className="lp-btn lp-btn-primary" whileHover={buttonHover} whileTap={buttonTap}>
+                Start for free <ArrowRight size={17} className="lp-btn-arrow" />
+              </MotionLink>
+            )}
+            <motion.a href="#how-it-works" className="lp-btn lp-btn-ghost" whileHover={buttonHover} whileTap={buttonTap}>
+              <span className="lp-btn-icon"><ArrowDown size={13} /></span> See how it works
+            </motion.a>
+          </motion.div>
+
+          <motion.div className="lp-trust"
+            initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.9, ease: 'easeOut', delay: T.trust }}>
+            <div className="lp-trust-stack" aria-hidden="true">
+              {NUTRIENT_CHIPS.map(c => (
+                <span key={c.label} className="lp-trust-chip" style={{ background: c.bg }}>{c.label}</span>
+              ))}
+            </div>
+            <div className="lp-trust-text">
+              <strong>Trusted by 12K+ users</strong>
+              Tracking Vitamin D, Iron, Zinc &amp; B12
+            </div>
+          </motion.div>
+        </div>
+
+        {isMobile && <MobilePlate />}
+
+        <motion.ul
+          className="lp-meals"
+          aria-label="Example meals"
+          initial="hidden"
+          animate="show"
+          variants={{ hidden: {}, show: { transition: { staggerChildren: 0.1, delayChildren: T.cards } } }}
+          style={{ listStyle: 'none' }}
+        >
+          {MEALS.map(m => (
+            <motion.li key={m.name} className={`lp-meal${m.featured ? ' is-featured' : ''}`}
+              variants={mealVariants} whileHover={{ y: -6, transition: { duration: 0.35, ease: EASE } }}>
+              <motion.div className="lp-meal-dish" variants={dishVariants}><Dish variant={m.dish} /></motion.div>
+              <h3 className="lp-meal-name">{m.name}</h3>
+              <p className="lp-meal-meta"><span>{m.protein}g protein</span><span>{m.micro}</span></p>
+              <div className="lp-meal-foot">
+                <span className="lp-meal-kcal">{m.kcal} kcal</span>
+                <Link to={logTarget} className="lp-meal-add" aria-label={`Log ${m.name}`}>
+                  <Plus size={17} />
+                </Link>
+              </div>
+            </motion.li>
+          ))}
+        </motion.ul>
+      </div>
     </section>
   );
 };

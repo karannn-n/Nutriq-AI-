@@ -1,16 +1,36 @@
 import React from 'react';
-import { Outlet, Link, useLocation } from 'react-router-dom';
-import { Activity, LayoutDashboard, Utensils, PieChart, Settings, LogOut, Bell } from 'lucide-react';
+import { Outlet, Link, useLocation, useNavigate } from 'react-router-dom';
+import { Activity, LayoutDashboard, Utensils, ClipboardList, PieChart, Settings, LogOut, Bell } from 'lucide-react';
+import { useAuth } from '../contexts/AuthContext';
+import { SyncStatusBadge } from '../components/SyncStatusBadge';
 
 const AppLayout = () => {
   const location = useLocation();
+  const navigate = useNavigate();
+  const { user, profile, signOut } = useAuth();
 
   const navItems = [
     { name: 'Dashboard', path: '/app/dashboard', icon: <LayoutDashboard size={20} /> },
     { name: 'Meal Log', path: '/app/meal-log', icon: <Utensils size={20} /> },
+    { name: 'Meal History', path: '/app/meals', icon: <ClipboardList size={20} /> },
     { name: 'Insights', path: '/app/insights', icon: <PieChart size={20} /> },
     { name: 'Settings', path: '/app/settings', icon: <Settings size={20} /> },
   ];
+
+  const handleSignOut = async (e) => {
+    e.preventDefault();
+    await signOut();
+    navigate('/login', { replace: true });
+  };
+
+  const displayName = profile?.full_name || user?.user_metadata?.full_name || user?.email?.split('@')[0] || 'User';
+  const initials = displayName
+    .split(' ')
+    .filter(Boolean)
+    .map((n) => n[0])
+    .join('')
+    .toUpperCase()
+    .slice(0, 2) || 'NQ';
 
   return (
     <div style={{ display: 'flex', minHeight: '100vh', background: 'var(--bg-color)' }}>
@@ -55,14 +75,24 @@ const AppLayout = () => {
         </nav>
 
         <div style={{ padding: '0 16px' }}>
-          <Link to="/" style={{
-            display: 'flex', alignItems: 'center', gap: '12px',
-            padding: '12px 16px', borderRadius: '12px',
-            textDecoration: 'none', color: '#ef4444', fontWeight: 500
-          }}>
+          <button 
+            onClick={handleSignOut}
+            style={{
+              width: '100%',
+              display: 'flex', alignItems: 'center', gap: '12px',
+              padding: '12px 16px', borderRadius: '12px',
+              background: 'transparent', border: 'none',
+              cursor: 'pointer',
+              color: '#ef4444', fontWeight: 500,
+              fontSize: '0.95rem',
+              transition: 'background 0.2s',
+            }}
+            onMouseOver={(e) => e.currentTarget.style.background = 'rgba(239, 68, 68, 0.1)'}
+            onMouseOut={(e) => e.currentTarget.style.background = 'transparent'}
+          >
             <LogOut size={20} />
             Sign Out
-          </Link>
+          </button>
         </div>
       </aside>
 
@@ -73,9 +103,12 @@ const AppLayout = () => {
         {/* Top Header */}
         <header style={{ 
           height: '70px', borderBottom: '1px solid var(--glass-border)',
-          display: 'flex', alignItems: 'center', justifyContent: 'flex-end',
+          display: 'flex', alignItems: 'center', justifyContent: 'space-between',
           padding: '0 32px'
         }}>
+          <div>
+            <SyncStatusBadge />
+          </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
             <button style={{ background: 'transparent', border: 'none', color: 'var(--text-muted)', cursor: 'pointer', position: 'relative' }}>
               <Bell size={20} />
@@ -83,11 +116,11 @@ const AppLayout = () => {
             </button>
             <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
               <div style={{ textAlign: 'right' }}>
-                <div style={{ fontSize: '0.9rem', fontWeight: 600 }}>Alex Chen</div>
-                <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Pro Plan</div>
+                <div style={{ fontSize: '0.9rem', fontWeight: 600 }}>{displayName}</div>
+                <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Pro Member</div>
               </div>
-              <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'var(--accent-gradient)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold' }}>
-                AC
+              <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'var(--accent-gradient)', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold' }}>
+                {initials}
               </div>
             </div>
           </div>

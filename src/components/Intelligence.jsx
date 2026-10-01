@@ -1,117 +1,198 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
+import {
+  Activity, ArrowRight, Check, ChevronDown, LayoutDashboard, PlusCircle, History,
+  Lightbulb, Settings, Zap, Flame, AlertTriangle,
+} from 'lucide-react';
+import { useAuth } from '../contexts/AuthContext';
+import MotionLink from './landing/MotionLink';
+import { EASE, VIEWPORT, fadeUp, stagger, buttonHover, buttonTap, useParallax } from './landing/motion';
 
-const Intelligence = () => (
-  <section id="intelligence" style={{ background: '#080a12', padding: '120px 0', overflow: 'hidden', position: 'relative' }}>
-    <div style={{ position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)', width: '600px', height: '1px', background: 'linear-gradient(90deg, transparent, rgba(245,158,11,0.3), transparent)' }} />
+const SIDEBAR = [
+  { icon: <LayoutDashboard size={13} />, label: 'Dashboard', active: true },
+  { icon: <PlusCircle size={13} />, label: 'Log Meal' },
+  { icon: <History size={13} />, label: 'Meal History' },
+  { icon: <Lightbulb size={13} />, label: 'Insights' },
+  { icon: <Settings size={13} />, label: 'Settings' },
+];
 
-    <div className="container" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+const MACROS = [
+  { label: 'Carbs', pct: 45, color: '#2F7A52' },
+  { label: 'Protein', pct: 25, color: '#5B8DEF' },
+  { label: 'Fat', pct: 30, color: '#F29A4B' },
+];
 
-      {/* Header */}
-      <div style={{ textAlign: 'center', marginBottom: '64px', maxWidth: '720px' }}>
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          style={{ color: '#f59e0b', fontWeight: 600, fontSize: '0.82rem', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '14px' }}
-        >
-          Intelligence Engine
-        </motion.p>
-        <motion.h2
-          className="heading-font"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.1 }}
-          style={{ fontSize: 'clamp(2.2rem, 5vw, 3.4rem)', color: '#fff', letterSpacing: '-1.5px', lineHeight: 1.1, marginBottom: '20px' }}
-        >
-          Insights that drive{' '}
-          <span style={{ background: 'linear-gradient(135deg, #f59e0b, #f97316)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-            action.
-          </span>
-        </motion.h2>
-        <p style={{ fontSize: '1.05rem', color: 'rgba(255,255,255,0.4)', lineHeight: 1.7 }}>
-          Our dashboard gives you a 360° view of your nutritional health — turning microscopic data into a complete picture of your biological state.
-        </p>
+/* Micronutrients Nutriq tracks, as % of weekly target */
+const MICROS = [
+  { label: 'Vitamin D', v: 0.42, low: true },
+  { label: 'Iron', v: 0.82 },
+  { label: 'Zinc', v: 0.7 },
+  { label: 'B12', v: 0.88 },
+];
+
+const item = { hidden: { opacity: 0, y: 14 }, show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: EASE } } };
+
+const MiniBars = ({ values, color }) => (
+  <svg className="lp-mock-bars" width="46" height="26" viewBox="0 0 46 26" aria-hidden="true">
+    {values.map((v, i) => (
+      <motion.rect key={i} x={i * 8} width="5" rx="1.5" fill={color} opacity={i === values.length - 1 ? 1 : 0.35}
+        initial={{ height: 0, y: 26 }} whileInView={{ height: v * 26, y: 26 - v * 26 }} viewport={VIEWPORT}
+        transition={{ duration: 0.8, ease: EASE, delay: 0.6 + i * 0.05 }} />
+    ))}
+  </svg>
+);
+
+/* Each segment starts where the previous one ended */
+const MACRO_STARTS = MACROS.map((_, i) => MACROS.slice(0, i).reduce((sum, m) => sum + m.pct / 100, 0));
+
+const Donut = () => {
+  const gap = 0.012;
+  return (
+    <svg width="96" height="96" viewBox="0 0 100 100" role="img" aria-label="Macros: 45% carbs, 25% protein, 30% fat">
+      <circle cx="50" cy="50" r="38" fill="none" stroke="#F1EEE8" strokeWidth="12" />
+      {MACROS.map((m, i) => {
+        const frac = m.pct / 100;
+        const rot = -90 + MACRO_STARTS[i] * 360;
+        return (
+          <g key={m.label} transform={`rotate(${rot} 50 50)`}>
+            <motion.circle cx="50" cy="50" r="38" fill="none" stroke={m.color} strokeWidth="12" strokeLinecap="butt"
+              initial={{ pathLength: 0 }} whileInView={{ pathLength: frac - gap }} viewport={VIEWPORT}
+              transition={{ duration: 1, ease: EASE, delay: 0.7 + i * 0.2 }} />
+          </g>
+        );
+      })}
+      <text x="50" y="49" textAnchor="middle" fontSize="13" fontWeight="700" fill="#14231A">1,820</text>
+      <text x="50" y="61" textAnchor="middle" fontSize="8" fill="#6B776F">kcal / day</text>
+    </svg>
+  );
+};
+
+const Radar = () => {
+  const c = 60, R = 38;
+  const pt = (i, v) => {
+    const a = (-90 + i * 90) * (Math.PI / 180);
+    return [c + Math.cos(a) * R * v, c + Math.sin(a) * R * v];
+  };
+  const poly = MICROS.map((m, i) => pt(i, m.v).join(',')).join(' ');
+  const labelPos = [[60, 12], [110, 63], [60, 116], [10, 63]];
+  return (
+    <svg className="lp-radar" viewBox="0 0 120 120" role="img" aria-label="Micronutrients: Vitamin D low, Iron, Zinc and B12 on track">
+      {[0.25, 0.5, 0.75, 1].map(s => (
+        <polygon key={s} points={MICROS.map((_, i) => pt(i, s).join(',')).join(' ')} fill="none" stroke="#E7E3DA" strokeWidth="0.8" />
+      ))}
+      {MICROS.map((_, i) => <line key={i} x1={c} y1={c} x2={pt(i, 1)[0]} y2={pt(i, 1)[1]} stroke="#E7E3DA" strokeWidth="0.8" />)}
+      <motion.polygon points={poly} fill="rgba(78,154,110,0.28)" stroke="#2F7A52" strokeWidth="1.4" strokeLinejoin="round"
+        style={{ transformOrigin: '60px 60px' }}
+        initial={{ scale: 0.3, opacity: 0 }} whileInView={{ scale: 1, opacity: 1 }} viewport={VIEWPORT}
+        transition={{ duration: 1.1, ease: EASE, delay: 0.8 }} />
+      {MICROS.map((m, i) => {
+        const [x, y] = pt(i, m.v);
+        return <circle key={m.label} cx={x} cy={y} r="2.2" fill={m.low ? '#F29A4B' : '#2F7A52'} />;
+      })}
+      {MICROS.map((m, i) => (
+        <text key={m.label} x={labelPos[i][0]} y={labelPos[i][1]} textAnchor="middle" fontSize="7"
+          fill={m.low ? '#C76A1C' : '#6B776F'} fontWeight={m.low ? 700 : 400}>{m.label}</text>
+      ))}
+    </svg>
+  );
+};
+
+const DashboardMockup = () => (
+  <motion.div className="lp-mock" aria-label="Preview of the Nutriq dashboard" role="img"
+    initial="hidden" whileInView="show" viewport={VIEWPORT} variants={stagger(0.08, 0.3)}>
+    <aside className="lp-mock-side">
+      <div className="lp-mock-brand"><span><Activity size={13} color="#fff" /></span>Nutriq</div>
+      <ul className="lp-mock-nav">
+        {SIDEBAR.map(s => (
+          <motion.li key={s.label} className={s.active ? 'is-active' : ''} variants={item}>{s.icon}{s.label}</motion.li>
+        ))}
+      </ul>
+    </aside>
+    <div className="lp-mock-main">
+      <motion.div className="lp-mock-head" variants={item}>
+        <h4>Your Nutrition Overview</h4>
+        <span className="lp-mock-pill">This Week <ChevronDown size={11} /></span>
+      </motion.div>
+
+      <div className="lp-mock-metrics">
+        <motion.div className="lp-mock-card" variants={item}>
+          <div className="lp-mock-label"><i style={{ background: '#E6F3E4', color: '#2F7A52' }}><Zap size={10} /></i>Weekly Score</div>
+          <div className="lp-mock-row">
+            <div><div className="lp-mock-value">88<small>%</small></div><div className="lp-mock-delta" style={{ color: '#2F7A52' }}>+ 6%</div></div>
+            <MiniBars values={[0.4, 0.55, 0.5, 0.7, 0.65, 0.9]} color="#2F7A52" />
+          </div>
+        </motion.div>
+        <motion.div className="lp-mock-card" variants={item}>
+          <div className="lp-mock-label"><i style={{ background: '#FDEBDD', color: '#E0762B' }}><Flame size={10} /></i>Avg Calories</div>
+          <div className="lp-mock-row">
+            <div><div className="lp-mock-value">1,820<small>kcal</small></div><div className="lp-mock-delta" style={{ color: '#E0762B' }}>7-day avg</div></div>
+            <MiniBars values={[0.7, 0.5, 0.8, 0.6, 0.75, 0.65]} color="#F29A4B" />
+          </div>
+        </motion.div>
+        <motion.div className="lp-mock-card" variants={item}>
+          <div className="lp-mock-label"><i style={{ background: '#FCEFC7', color: '#B7791F' }}><AlertTriangle size={10} /></i>Deficiency Risks</div>
+          <div className="lp-mock-value">1</div>
+          <div className="lp-mock-delta" style={{ color: '#B7791F' }}>Vitamin D low</div>
+        </motion.div>
       </div>
 
-      {/* Dashboard UI Mockup */}
-      <motion.div
-        initial={{ y: 60, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        viewport={{ once: true, margin: '-80px' }}
-        transition={{ duration: 0.9, type: 'spring', bounce: 0.15 }}
-        style={{ width: '100%', maxWidth: '900px', position: 'relative' }}
-      >
-        {/* Ambient glow under card */}
-        <div style={{ position: 'absolute', bottom: '-40px', left: '50%', transform: 'translateX(-50%)', width: '70%', height: '60px', background: 'rgba(52,211,153,0.15)', filter: 'blur(30px)', borderRadius: '50%', pointerEvents: 'none' }} />
-
-        <div style={{
-          width: '100%', borderRadius: '20px', overflow: 'hidden',
-          border: '1px solid rgba(255,255,255,0.08)',
-          boxShadow: '0 30px 80px rgba(0,0,0,0.6)',
-          background: '#0d1117',
-        }}>
-          {/* Titlebar */}
-          <div style={{ height: '52px', borderBottom: '1px solid rgba(255,255,255,0.07)', display: 'flex', alignItems: 'center', padding: '0 20px', gap: '8px', background: '#080a12' }}>
-            <div style={{ width: '11px', height: '11px', borderRadius: '50%', background: '#ef4444' }} />
-            <div style={{ width: '11px', height: '11px', borderRadius: '50%', background: '#eab308' }} />
-            <div style={{ width: '11px', height: '11px', borderRadius: '50%', background: '#22c55e' }} />
-            <div style={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
-              <div style={{ height: '22px', width: '180px', borderRadius: '6px', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.06)' }} />
-            </div>
+      <div className="lp-mock-charts">
+        <motion.div className="lp-mock-card" variants={item}>
+          <h5>Macronutrient Distribution</h5>
+          <div className="lp-donut-wrap">
+            <Donut />
+            <ul className="lp-legend">
+              {MACROS.map(m => <li key={m.label}><b style={{ background: m.color }} />{m.label} {m.pct}%</li>)}
+            </ul>
           </div>
-
-          {/* Body */}
-          <div style={{ display: 'flex', height: '400px' }}>
-            {/* Sidebar */}
-            <div style={{ width: '180px', borderRight: '1px solid rgba(255,255,255,0.06)', padding: '20px 14px', display: 'flex', flexDirection: 'column', gap: '10px', background: '#080a12', flexShrink: 0 }}>
-              {[['80%', '#34d399'], ['55%', null], ['65%', null], ['50%', null]].map(([w, active], i) => (
-                <div key={i} style={{ height: '36px', width: w, borderRadius: '8px', background: active ? 'rgba(52,211,153,0.15)' : 'rgba(255,255,255,0.04)', border: active ? '1px solid rgba(52,211,153,0.25)' : '1px solid transparent', display: 'flex', alignItems: 'center', padding: '0 10px', gap: '8px' }}>
-                  <div style={{ width: '8px', height: '8px', borderRadius: '2px', background: active ? '#34d399' : 'rgba(255,255,255,0.1)', flexShrink: 0 }} />
-                  <div style={{ height: '8px', flex: 1, borderRadius: '4px', background: active ? 'rgba(52,211,153,0.3)' : 'rgba(255,255,255,0.07)' }} />
-                </div>
-              ))}
-            </div>
-
-            {/* Main content */}
-            <div style={{ flex: 1, padding: '20px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
-              {/* Metric cards */}
-              <div style={{ display: 'flex', gap: '14px' }}>
-                {[
-                  { label: 'Vitamin D Alert', val: '-15%', color: '#f59e0b', bg: 'rgba(245,158,11,0.08)', border: 'rgba(245,158,11,0.2)' },
-                  { label: 'Weekly Score', val: '87', color: '#34d399', bg: 'rgba(52,211,153,0.08)', border: 'rgba(52,211,153,0.2)' },
-                  { label: 'Avg Calories', val: '1,820', color: '#818cf8', bg: 'rgba(129,140,248,0.08)', border: 'rgba(129,140,248,0.2)' },
-                ].map((m, i) => (
-                  <div key={i} style={{ flex: 1, height: '100px', borderRadius: '12px', background: m.bg, border: `1px solid ${m.border}`, padding: '14px' }}>
-                    <div style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.4)', marginBottom: '8px' }}>{m.label}</div>
-                    <div style={{ fontSize: '1.7rem', fontWeight: 700, color: m.color, fontFamily: 'Outfit, sans-serif', lineHeight: 1 }}>{m.val}</div>
-                  </div>
-                ))}
-              </div>
-
-              {/* Chart area */}
-              <div style={{ flex: 1, borderRadius: '12px', border: '1px solid rgba(255,255,255,0.06)', background: 'rgba(255,255,255,0.02)', position: 'relative', overflow: 'hidden' }}>
-                <svg viewBox="0 0 200 60" style={{ width: '100%', height: '100%', position: 'absolute', bottom: 0 }} preserveAspectRatio="none">
-                  <defs>
-                    <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="#34d399" stopOpacity="0.25" />
-                      <stop offset="100%" stopColor="#34d399" stopOpacity="0" />
-                    </linearGradient>
-                  </defs>
-                  <path d="M0 60 Q25 30, 50 40 T100 15 T150 25 T200 10 L200 60 L0 60 Z" fill="url(#chartGrad)" />
-                  <path d="M0 60 Q25 30, 50 40 T100 15 T150 25 T200 10" fill="none" stroke="#34d399" strokeWidth="1.5" />
-                  <path d="M0 60 Q25 50, 50 52 T100 45 T150 48 T200 42 L200 60 L0 60 Z" fill="rgba(129,140,248,0.08)" />
-                  <path d="M0 60 Q25 50, 50 52 T100 45 T150 48 T200 42" fill="none" stroke="#818cf8" strokeWidth="1" strokeDasharray="3 2" />
-                </svg>
-                <div style={{ position: 'absolute', top: '12px', left: '16px', fontSize: '0.72rem', color: 'rgba(255,255,255,0.4)' }}>Vitamin D — 7 day trend</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </motion.div>
+        </motion.div>
+        <motion.div className="lp-mock-card" variants={item}>
+          <h5>Micronutrient Status</h5>
+          <Radar />
+        </motion.div>
+      </div>
     </div>
-  </section>
+  </motion.div>
 );
+
+const Intelligence = () => {
+  const artRef = useRef(null);
+  const y = useParallax(artRef, 30);
+  const { user } = useAuth();
+
+  return (
+    <section id="intelligence" className="lp-intel">
+      <div className="lp-container lp-intel-grid">
+        <motion.div className="lp-intel-copy" initial="hidden" whileInView="show" viewport={VIEWPORT} variants={stagger(0.1)}>
+          <motion.span className="lp-eyebrow" variants={fadeUp}>Intelligence Engine</motion.span>
+          <motion.h2 className="lp-display lp-h2" variants={fadeUp}>
+            Insights that drive <em>action.</em>
+          </motion.h2>
+          <motion.p className="lp-lead" variants={fadeUp}>
+            Our dashboard gives you a 360° view of your nutritional health — turning microscopic data
+            into a complete picture of your biological state.
+          </motion.p>
+          <motion.ul className="lp-intel-points" variants={fadeUp}>
+            {['Weekly health score & calorie trends', 'Macro split for every meal you log', 'Vitamin D, Iron, Zinc & B12 status at a glance'].map(p => (
+              <li key={p}><span className="dot"><Check size={13} /></span>{p}</li>
+            ))}
+          </motion.ul>
+          <motion.div variants={fadeUp}>
+            <MotionLink to={user ? '/app/dashboard' : '/register'} className="lp-btn lp-btn-primary" whileHover={buttonHover} whileTap={buttonTap}>
+              {user ? 'Open your dashboard' : 'Explore your dashboard'} <ArrowRight size={16} className="lp-btn-arrow" />
+            </MotionLink>
+          </motion.div>
+        </motion.div>
+
+        <motion.div ref={artRef} style={{ y }}>
+          <motion.div initial={{ opacity: 0, x: 48 }} whileInView={{ opacity: 1, x: 0 }} viewport={VIEWPORT}
+            transition={{ duration: 1.1, ease: EASE }}>
+            <DashboardMockup />
+          </motion.div>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
 
 export default Intelligence;

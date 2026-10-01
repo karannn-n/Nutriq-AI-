@@ -1,67 +1,68 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { ArrowRight, Sparkles } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import React, { useRef } from 'react';
+import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
+import { ArrowRight, ArrowDown, LayoutDashboard } from 'lucide-react';
+import { useAuth } from '../contexts/AuthContext';
+import MotionLink from './landing/MotionLink';
+import { Dish, Tomato, BasilLeaf } from './landing/FoodArt';
+import { EASE, SOFT_SPRING, VIEWPORT, fadeUp, stagger, buttonHover, buttonTap } from './landing/motion';
 
-const CTA = () => (
-  <section style={{ background: '#0d1117', padding: '120px 0', position: 'relative', overflow: 'hidden' }}>
-    <div style={{ position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)', width: '600px', height: '1px', background: 'linear-gradient(90deg, transparent, rgba(52,211,153,0.3), transparent)' }} />
+const CTA = () => {
+  const ref = useRef(null);
+  const reduce = useReducedMotion();
+  const { user } = useAuth();
+  const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] });
+  const bowlRotate = useTransform(scrollYProgress, [0, 1], reduce ? [0, 0] : [-10, 10]);
+  const bowlY = useTransform(scrollYProgress, [0, 1], reduce ? [0, 0] : [40, -40]);
+  const garnishY = useTransform(scrollYProgress, [0, 1], reduce ? [0, 0] : [80, -80]);
 
-    {/* Background glow */}
-    <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', width: '700px', height: '400px', borderRadius: '50%', background: 'radial-gradient(ellipse, rgba(52,211,153,0.07) 0%, transparent 70%)', pointerEvents: 'none' }} />
+  return (
+    <section className="lp-cta" ref={ref} aria-label="Get started">
+      <div className="lp-container lp-cta-inner">
+        <motion.div className="lp-cta-copy" initial="hidden" whileInView="show" viewport={VIEWPORT} variants={stagger(0.1)}>
+          <motion.span className="lp-eyebrow" variants={fadeUp}>Free to start — no credit card required</motion.span>
+          <motion.h2 className="lp-display lp-h2" variants={fadeUp}>
+            Ready to change <em>how you eat?</em>
+          </motion.h2>
+          <motion.p className="lp-lead" variants={fadeUp}>
+            Join thousands of users who use AI to discover their perfect nutritional balance and unlock peak health.
+          </motion.p>
+          <motion.div className="lp-cta-ctas" variants={fadeUp}>
+            {user ? (
+              <MotionLink to="/app/dashboard" className="lp-btn lp-btn-primary" whileHover={buttonHover} whileTap={buttonTap}>
+                <LayoutDashboard size={17} /> Open Dashboard
+              </MotionLink>
+            ) : (
+              <MotionLink to="/register" className="lp-btn lp-btn-primary" whileHover={buttonHover} whileTap={buttonTap}>
+                Start your healthy journey <ArrowRight size={17} className="lp-btn-arrow" />
+              </MotionLink>
+            )}
+            <motion.a href="#how-it-works" className="lp-btn lp-btn-ghost" whileHover={buttonHover} whileTap={buttonTap}>
+              <span className="lp-btn-icon"><ArrowDown size={13} /></span> See how it works
+            </motion.a>
+          </motion.div>
+        </motion.div>
 
-    <div className="container" style={{ position: 'relative', zIndex: 10 }}>
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        style={{
-          textAlign: 'center',
-          padding: '80px 40px',
-          borderRadius: '28px',
-          border: '1px solid rgba(52,211,153,0.12)',
-          background: 'rgba(52,211,153,0.03)',
-          backdropFilter: 'blur(10px)',
-        }}
-      >
-        <div style={{
-          display: 'inline-flex', alignItems: 'center', gap: '8px',
-          padding: '7px 18px', borderRadius: '40px', marginBottom: '32px',
-          background: 'rgba(52,211,153,0.1)', border: '1px solid rgba(52,211,153,0.25)',
-          color: '#34d399', fontSize: '0.82rem', fontWeight: 600, letterSpacing: '0.05em',
-        }}>
-          <Sparkles size={13} /> Free to start — no credit card required
+        <div className="lp-cta-art" aria-hidden="true">
+          <motion.div style={{ inset: 0, y: bowlY, rotate: bowlRotate }}>
+            <motion.div initial={{ opacity: 0, x: 80, scale: 0.95 }} whileInView={{ opacity: 1, x: 0, scale: 1 }}
+              viewport={VIEWPORT} transition={{ duration: 1.3, ease: EASE }}>
+              <Dish variant="salmon" />
+            </motion.div>
+          </motion.div>
+          <motion.div style={{ left: '-4%', top: '8%', width: '12%', y: garnishY }}
+            initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={VIEWPORT}
+            transition={{ ...SOFT_SPRING, delay: 0.4 }}>
+            <Tomato />
+          </motion.div>
+          <motion.div style={{ left: '4%', bottom: '14%', width: '13%', y: garnishY }}
+            initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={VIEWPORT}
+            transition={{ ...SOFT_SPRING, delay: 0.55 }}>
+            <BasilLeaf rotate={-50} />
+          </motion.div>
         </div>
-
-        <h2 className="heading-font" style={{
-          fontSize: 'clamp(2.5rem, 6vw, 4rem)',
-          color: '#fff', letterSpacing: '-1.5px', lineHeight: 1.1, marginBottom: '20px',
-        }}>
-          Ready to change<br />
-          <span style={{ background: 'linear-gradient(135deg, #34d399, #059669)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-            how you eat?
-          </span>
-        </h2>
-        <p style={{ fontSize: '1.1rem', color: 'rgba(255,255,255,0.45)', maxWidth: '520px', margin: '0 auto 48px', lineHeight: 1.7 }}>
-          Join thousands of users who use AI to discover their perfect nutritional balance and unlock peak health.
-        </p>
-
-        <Link to="/register" style={{
-          display: 'inline-flex', alignItems: 'center', gap: '10px',
-          padding: '16px 44px', borderRadius: '14px', fontSize: '1.05rem', fontWeight: 600,
-          color: '#fff', textDecoration: 'none',
-          background: 'linear-gradient(135deg, #34d399, #059669)',
-          boxShadow: '0 0 40px rgba(52,211,153,0.35)',
-          fontFamily: 'Outfit, sans-serif', transition: 'transform 0.2s, box-shadow 0.2s',
-        }}
-          onMouseOver={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 0 55px rgba(52,211,153,0.5)'; }}
-          onMouseOut={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 0 40px rgba(52,211,153,0.35)'; }}
-        >
-          Start your healthy journey <ArrowRight size={19} />
-        </Link>
-      </motion.div>
-    </div>
-  </section>
-);
+      </div>
+    </section>
+  );
+};
 
 export default CTA;

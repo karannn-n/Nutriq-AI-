@@ -1,46 +1,62 @@
-name: Deploy Frontend to GitHub Pages
+name: Nutriq CI / CD Pipeline
 
 on:
   push:
     branches:
       - main
+  pull_request:
+    branches:
+      - main
 
-# Allow only one concurrent deployment
+# Prevent concurrent deployment collisions
 concurrency:
   group: "pages"
   cancel-in-progress: true
 
 jobs:
-  build-and-deploy:
+  test-and-deploy:
     runs-on: ubuntu-latest
     permissions:
       contents: write
 
     steps:
-      # 1. Checkout the repo
-      - name: Checkout
+      # 1. Checkout the repository
+      - name: Checkout Code
         uses: actions/checkout@v4
 
-      # 2. Setup Node.js
-      - name: Setup Node
+      # 2. Setup Node.js runtime
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: npm
 
-      # 3. Install frontend dependencies
-      - name: Install dependencies
-        run: npm install
+      # 3. Backend Verification
+      - name: Install Backend Dependencies
+        working-directory: ./backend
+        run: npm ci || npm install
 
-      # 4. Build the Vite app
-      #    VITE_API_URL must be added as a GitHub Secret (Settings → Secrets → Actions)
-      - name: Build
+      - name: Run Backend Test Suite
+        working-directory: ./backend
+        run: npm test
+
+      # 4. Frontend Verification
+      - name: Install Frontend Dependencies
+        run: npm ci || npm install
+
+      - name: Lint Frontend
+        run: npm run lint
+
+      - name: Build Frontend SPA
         run: npm run build
         env:
           VITE_API_URL: ${{ secrets.VITE_API_URL }}
+          VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
+          VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
 
-      # 5. Deploy dist/ to gh-pages branch
+      # 5. Deploy dist/ to gh-pages branch (Only on main push, not PRs)
       - name: Deploy to GitHub Pages
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}

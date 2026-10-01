@@ -1,0 +1,154 @@
+-- ==============================================================================
+-- Nutriq: Complete Database Schema for Supabase PostgreSQL
+-- Run this script in your Supabase Dashboard SQL Editor (or via Supabase CLI)
+-- ==============================================================================
+
+-- 1. Enable required extensions
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+CREATE EXTENSION IF NOT EXISTS "pgcrypto";
+
+-- 2. Profiles Table (Linked to auth.users)
+CREATE TABLE IF NOT EXISTS public.profiles (
+  id UUID PRIMARY KEY REFERENCES auth.users(id) ON DELETE CASCADE,
+  full_name TEXT,
+  email TEXT,
+  phone TEXT,
+  bio TEXT,
+  avatar_url TEXT,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT timezone('utc'::text, now()),
+  updated_at TIMESTAMPTZ NOT NULL DEFAULT timezone('utc'::text, now())
+);
+
+-- 3. User Settings Table
+CREATE TABLE IF NOT EXISTS public.user_settings (
+  user_id UUID PRIMARY KEY REFERENCES auth.users(id) ON DELETE CASCADE,
+  theme TEXT NOT NULL DEFAULT 'mint' CHECK (theme IN ('mint', 'lavender', 'sunset', 'ocean', 'rose', 'dark')),
+  target_calories INT NOT NULL DEFAULT 2000,
+  dietary_preference TEXT NOT NULL DEFAULT 'standard',
+  email_notifications BOOLEAN NOT NULL DEFAULT true,
+  deficiency_alerts_enabled BOOLEAN NOT NULL DEFAULT true,
+  daily_reminder_time TEXT NOT NULL DEFAULT '20:00',
+  updated_at TIMESTAMPTZ NOT NULL DEFAULT timezone('utc'::text, now())
+);
+
+-- 4. Meals Table
+CREATE TABLE IF NOT EXISTS public.meals (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id UUID NOT NULL REFERENCES auth.users(id) ON DELETE CASCADE,
+  client_id TEXT, -- Client-generated UUID for offline sync & duplicate prevention
+  description TEXT NOT NULL,
+  image_url TEXT,
+  logged_at TIMESTAMPTZ NOT NULL DEFAULT timezone('utc'::text, now()),
+  created_at TIMESTAMPTZ NOT NULL DEFAULT timezone('utc'::text, now())
+);
+
+-- 5. Nutrition Table (One-to-One with Meals for full micronutrient breakdown)
+CREATE TABLE IF NOT EXISTS public.nutrition (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  meal_id UUID NOT NULL UNIQUE REFERENCES public.meals(id) ON DELETE CASCADE,
+  user_id UUID NOT NULL REFERENCES auth.users(id) ON DELETE CASCADE,
+  calories NUMERIC(8,2) NOT NULL DEFAULT 0 CHECK (calories >= 0),
+  protein_g NUMERIC(8,2) NOT NULL DEFAULT 0 CHECK (protein_g >= 0),
+  carbs_g NUMERIC(8,2) NOT NULL DEFAULT 0 CHECK (carbs_g >= 0),
+  fat_g NUMERIC(8,2) NOT NULL DEFAULT 0 CHECK (fat_g >= 0),
+  vitamin_d_mcg NUMERIC(8,2) NOT NULL DEFAULT 0 CHECK (vitamin_d_mcg >= 0),
+  iron_mg NUMERIC(8,2) NOT NULL DEFAULT 0 CHECK (iron_mg >= 0),
+  zinc_mg NUMERIC(8,2) NOT NULL DEFAULT 0 CHECK (zinc_mg >= 0),
+  b12_mcg NUMERIC(8,2) NOT NULL DEFAULT 0 CHECK (b12_mcg >= 0),
+  created_at TIMESTAMPTZ NOT NULL DEFAULT timezone('utc'::text, now())
+);
+
+-- 6. Deficiency Alerts Table
+CREATE TABLE IF NOT EXISTS public.deficiency_alerts (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id UUID NOT NULL REFERENCES auth.users(id) ON DELETE CASCADE,
+  nutrient TEXT NOT NULL,
+  severity TEXT NOT NULL DEFAULT 'low' CHECK (severity IN ('low', 'deficient', 'critical')),
+  current_avg NUMERIC(8,2) NOT NULL DEFAULT 0,
+  target_rdi NUMERIC(8,2) NOT NULL DEFAULT 0,
+  message TEXT NOT NULL,
+  is_dismissed BOOLEAN NOT NULL DEFAULT false,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT timezone('utc'::text, now())
+);
+
+-- 7. Recommendations Table
+CREATE TABLE IF NOT EXISTS public.recommendations (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id UUID NOT NULL REFERENCES auth.users(id) ON DELETE CASCADE,
+  alert_id UUID REFERENCES public.deficiency_alerts(id) ON DELETE SET NULL,
+  nutrient TEXT NOT NULL,
+  recommendation TEXT NOT NULL,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT timezone('utc'::text, now())
+);
+
+-- ─── Indexes for High Performance ─────────────────────────────────────────────
+CREATE INDEX IF NOT EXISTS idx_meals_user_logged ON public.meals(user_id, logged_at DESC);
+CREATE INDEX IF NOT EXISTS idx_meals_user_client_id ON public.meals(user_id, client_id) WHERE client_id IS NOT NULL;
+CREATE INDEX IF NOT EXISTS idx_meals_user_desc ON public.meals(user_id, description);
+CREATE INDEX IF NOT EXISTS idx_nutrition_user_created ON public.nutrition(user_id, created_at DESC);
+CREATE INDEX IF NOT EXISTS idx_nutrition_meal_id ON public.nutrition(meal_id);
+CREATE INDEX IF NOT EXISTS idx_alerts_user_created ON public.deficiency_alerts(user_id, created_at DESC);
+CREATE INDEX IF NOT EXISTS idx_alerts_active ON public.deficiency_alerts(user_id, is_dismissed) WHERE is_dismissed = false;
+CREATE INDEX IF NOT EXISTS idx_recommendations_user_created ON public.recommendations(user_id, created_at DESC);
+
+-- ─── Automatic User Profile & Settings Trigger ─────────────────────────────────
+CREATE OR REPLACE FUNCTION public.handle_new_user()
+RETURNS trigger AS $$
+BEGIN
+  INSERT INTO public.profiles (id, full_name, email, avatar_url)
+  VALUES (
+    NEW.id,
+    COALESCE(NEW.raw_user_meta_data->>'full_name', NEW.raw_user_meta_data->>'name', split_part(NEW.email, '@', 1)),
+    NEW.email,
+    NEW.raw_user_meta_data->>'avatar_url'
+  )
+  ON CONFLICT (id) DO NOTHING;
+
+  INSERT INTO public.user_settings (user_id, theme, email_notifications, deficiency_alerts_enabled, daily_reminder_time)
+  VALUES (NEW.id, 'mint', true, true, '20:00')
+  ON CONFLICT (user_id) DO NOTHING;
+
+  RETURN NEW;
+END;
+$$ LANGUAGE plpgsql SECURITY DEFINER;
+
+DROP TRIGGER IF EXISTS on_auth_user_created ON auth.users;
+CREATE TRIGGER on_auth_user_created
+  AFTER INSERT ON auth.users
+  FOR EACH ROW EXECUTE PROCEDURE public.handle_new_user();
+
+-- ─── ROW LEVEL SECURITY (RLS) POLICIES ────────────────────────────────────────
+
+ALTER TABLE public.profiles ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "Users can view own profile" ON public.profiles FOR SELECT USING (auth.uid() = id);
+CREATE POLICY "Users can update own profile" ON public.profiles FOR UPDATE USING (auth.uid() = id) WITH CHECK (auth.uid() = id);
+CREATE POLICY "Users can insert own profile" ON public.profiles FOR INSERT WITH CHECK (auth.uid() = id);
+
+ALTER TABLE public.user_settings ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "Users can view own settings" ON public.user_settings FOR SELECT USING (auth.uid() = user_id);
+CREATE POLICY "Users can update own settings" ON public.user_settings FOR UPDATE USING (auth.uid() = user_id) WITH CHECK (auth.uid() = user_id);
+CREATE POLICY "Users can insert own settings" ON public.user_settings FOR INSERT WITH CHECK (auth.uid() = user_id);
+
+ALTER TABLE public.meals ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "Users can view own meals" ON public.meals FOR SELECT USING (auth.uid() = user_id);
+CREATE POLICY "Users can insert own meals" ON public.meals FOR INSERT WITH CHECK (auth.uid() = user_id);
+CREATE POLICY "Users can update own meals" ON public.meals FOR UPDATE USING (auth.uid() = user_id) WITH CHECK (auth.uid() = user_id);
+CREATE POLICY "Users can delete own meals" ON public.meals FOR DELETE USING (auth.uid() = user_id);
+
+ALTER TABLE public.nutrition ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "Users can view own nutrition" ON public.nutrition FOR SELECT USING (auth.uid() = user_id);
+CREATE POLICY "Users can insert own nutrition" ON public.nutrition FOR INSERT WITH CHECK (auth.uid() = user_id);
+CREATE POLICY "Users can update own nutrition" ON public.nutrition FOR UPDATE USING (auth.uid() = user_id) WITH CHECK (auth.uid() = user_id);
+CREATE POLICY "Users can delete own nutrition" ON public.nutrition FOR DELETE USING (auth.uid() = user_id);
+
+ALTER TABLE public.deficiency_alerts ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "Users can view own alerts" ON public.deficiency_alerts FOR SELECT USING (auth.uid() = user_id);
+CREATE POLICY "Users can insert own alerts" ON public.deficiency_alerts FOR INSERT WITH CHECK (auth.uid() = user_id);
+CREATE POLICY "Users can update own alerts" ON public.deficiency_alerts FOR UPDATE USING (auth.uid() = user_id) WITH CHECK (auth.uid() = user_id);
+CREATE POLICY "Users can delete own alerts" ON public.deficiency_alerts FOR DELETE USING (auth.uid() = user_id);
+
+ALTER TABLE public.recommendations ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "Users can view own recommendations" ON public.recommendations FOR SELECT USING (auth.uid() = user_id);
+CREATE POLICY "Users can insert own recommendations" ON public.recommendations FOR INSERT WITH CHECK (auth.uid() = user_id);
+CREATE POLICY "Users can update own recommendations" ON public.recommendations FOR UPDATE USING (auth.uid() = user_id) WITH CHECK (auth.uid() = user_id);
+CREATE POLICY "Users can delete own recommendations" ON public.recommendations FOR DELETE USING (auth.uid() = user_id);

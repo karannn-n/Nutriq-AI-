@@ -6,6 +6,7 @@ import {
   ResponsiveContainer, Cell, PieChart, Pie, Legend,
 } from 'recharts';
 import { Sparkles, Loader2, AlertTriangle, CheckCircle2, TrendingUp, Flame } from 'lucide-react';
+import { useAuth } from '../contexts/AuthContext';
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 const STATUS_COLOR = { good: '#2A8C6E', low: '#E8C86A', deficient: '#D4818A' };
@@ -79,31 +80,47 @@ const NutrientCard = ({ label, avg, rdi, unit, pct, status, delay }) => {
 const Insights = () => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [error] = useState(null);
+  const { session } = useAuth();
 
   useEffect(() => {
+    let isCancelled = false;
+
     const fetchInsights = async () => {
       try {
-        const apiURL = import.meta.env.VITE_API_URL;
-        if (!apiURL) throw new Error("VITE_API_URL environment variable is not defined");
-        const response = await fetch(`${apiURL}/api/insights`);
+        const apiURL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+        const headers = { 'Content-Type': 'application/json' };
+        if (session?.access_token) {
+          headers['Authorization'] = `Bearer ${session.access_token}`;
+        }
+
+        const response = await fetch(`${apiURL}/api/insights`, { headers });
         if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
         const result = await response.json();
-        setData(result);
+        if (!isCancelled) setData(result);
       } catch (err) {
-        console.warn("API Offline, falling back to local storage database:", err.message);
-        try {
-          const { getOfflineInsights } = await import('../utils/offlineDb');
-          setData(getOfflineInsights());
-        } catch (localErr) {
-          setError(err.message);
+        console.warn("API Offline or request error:", err.message);
+        if (!isCancelled) {
+          setData({
+            hasMeals: false,
+            totalMeals: 0,
+            dailyTrends: [],
+            nutrientStatus: [],
+            macros: { protein: 0, carbs: 0, fat: 0, calories: 0 },
+            aiSummary: null,
+            deficiencies: [],
+          });
         }
       } finally {
-        setLoading(false);
+        if (!isCancelled) setLoading(false);
       }
     };
     fetchInsights();
-  }, []);
+
+    return () => {
+      isCancelled = true;
+    };
+  }, [session]);
 
   if (loading) return (
     <div style={{ height: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -308,6 +325,20 @@ const Insights = () => {
           </div>
         </motion.div>
       )}
+
+      {/* ── Nutritional Disclaimer ── */}
+      <div style={{
+        marginTop: '28px',
+        padding: '16px 20px',
+        borderRadius: '14px',
+        background: 'rgba(42, 140, 110, 0.07)',
+        border: '1px solid rgba(42, 140, 110, 0.2)',
+        fontSize: '0.84rem',
+        color: 'var(--text-muted)',
+        lineHeight: 1.5,
+      }}>
+        <strong>Nutritional Disclaimer:</strong> Insights and deficiency predictions are calculated based on your logged food intake against standard Reference Daily Intakes (RDI). These indicators reflect nutritional trends and should not be used as clinical medical diagnoses.
+      </div>
 
     </div>
   );

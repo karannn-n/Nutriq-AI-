@@ -3,17 +3,19 @@ import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion
 import { ArrowRight, ArrowDown, LayoutDashboard } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 import MotionLink from './landing/MotionLink';
-import { Dish, Tomato, BasilLeaf } from './landing/FoodArt';
 import { EASE, SOFT_SPRING, VIEWPORT, fadeUp, stagger, buttonHover, buttonTap } from './landing/motion';
+
+const BASE = import.meta.env.BASE_URL || '/';
+const foodUrl = (file) => `${BASE.endsWith('/') ? BASE : BASE + '/'}food/${file}`;
 
 const CTA = () => {
   const ref = useRef(null);
   const reduce = useReducedMotion();
   const { user } = useAuth();
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] });
-  const bowlRotate = useTransform(scrollYProgress, [0, 1], reduce ? [0, 0] : [-10, 10]);
-  const bowlY = useTransform(scrollYProgress, [0, 1], reduce ? [0, 0] : [40, -40]);
-  const garnishY = useTransform(scrollYProgress, [0, 1], reduce ? [0, 0] : [80, -80]);
+  const bowlRotate = useTransform(scrollYProgress, [0, 1], reduce ? [0, 0] : [-8, 8]);
+  const bowlY = useTransform(scrollYProgress, [0, 1], reduce ? [0, 0] : [35, -35]);
+  const garnishY = useTransform(scrollYProgress, [0, 1], reduce ? [0, 0] : [60, -60]);
 
   return (
     <section className="lp-cta" ref={ref} aria-label="Get started">
@@ -44,20 +46,34 @@ const CTA = () => {
 
         <div className="lp-cta-art" aria-hidden="true">
           <motion.div style={{ inset: 0, y: bowlY, rotate: bowlRotate }}>
-            <motion.div initial={{ opacity: 0, x: 80, scale: 0.95 }} whileInView={{ opacity: 1, x: 0, scale: 1 }}
-              viewport={VIEWPORT} transition={{ duration: 1.3, ease: EASE }}>
-              <Dish variant="salmon" />
+            <motion.div initial={{ opacity: 0, x: 70, scale: 0.92 }} whileInView={{ opacity: 1, x: 0, scale: 1 }}
+              viewport={VIEWPORT} transition={{ duration: 1.1, ease: EASE }}>
+              <img
+                src={foodUrl('salmon_bowl.png')}
+                alt="Nutriq Salmon Rice Bowl"
+                className="lp-food-img"
+                style={{ width: '100%', filter: 'drop-shadow(0 26px 42px rgba(20, 35, 26, 0.22))' }}
+              />
             </motion.div>
           </motion.div>
-          <motion.div style={{ left: '-4%', top: '8%', width: '12%', y: garnishY }}
-            initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={VIEWPORT}
-            transition={{ ...SOFT_SPRING, delay: 0.4 }}>
-            <Tomato />
+          <motion.div style={{ left: '-3%', top: '10%', width: '14%', y: garnishY }}
+            initial={{ opacity: 0, x: -30, scale: 0.85 }} whileInView={{ opacity: 1, x: 0, scale: 1 }} viewport={VIEWPORT}
+            transition={{ ...SOFT_SPRING, delay: 0.35 }}>
+            <img
+              src={foodUrl('tomato_single.png')}
+              alt=""
+              className="lp-food-img lp-food-tom"
+            />
           </motion.div>
-          <motion.div style={{ left: '4%', bottom: '14%', width: '13%', y: garnishY }}
-            initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={VIEWPORT}
-            transition={{ ...SOFT_SPRING, delay: 0.55 }}>
-            <BasilLeaf rotate={-50} />
+          <motion.div style={{ left: '6%', bottom: '16%', width: '16%', y: garnishY }}
+            initial={{ opacity: 0, x: -30, scale: 0.85 }} whileInView={{ opacity: 1, x: 0, scale: 1 }} viewport={VIEWPORT}
+            transition={{ ...SOFT_SPRING, delay: 0.5 }}>
+            <img
+              src={foodUrl('basil_leaf.png')}
+              alt=""
+              className="lp-food-img lp-food-leaf"
+              style={{ transform: 'rotate(-48deg)' }}
+            />
           </motion.div>
         </div>
       </div>

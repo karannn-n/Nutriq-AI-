@@ -2,7 +2,9 @@ import React, { useEffect, useRef } from 'react';
 import { motion, animate, useInView, useReducedMotion } from 'framer-motion';
 import { Users, Target, FlaskConical, Zap } from 'lucide-react';
 import { EASE, VIEWPORT, fadeUp, stagger } from './landing/motion';
-import { BasilLeaf, Dish, Tomato } from './landing/FoodArt';
+
+const BASE = import.meta.env.BASE_URL || '/';
+const foodUrl = (file) => `${BASE.endsWith('/') ? BASE : BASE + '/'}food/${file}`;
 
 const stats = [
   { icon: <Users size={26} />, to: 12, suffix: 'K+', label: 'Active Users' },
@@ -33,10 +35,26 @@ const CountUp = ({ to, prefix = '', suffix = '' }) => {
 const Stats = () => (
   <section className="lp-stats" aria-label="Nutriq in numbers">
     <div className="lp-stats-art" aria-hidden="true">
-      <Dish variant="greens" size={260} style={{ left: '-60px', top: '-90px' }} />
-      <BasilLeaf size={120} rotate={40} style={{ left: '30%', top: '-40px' }} />
-      <Tomato size={90} style={{ right: '28%', bottom: '-30px' }} />
-      <Dish variant="salmon" size={240} style={{ right: '-50px', top: '-60px' }} />
+      <img
+        src={foodUrl('chickpea_salad.png')}
+        alt=""
+        style={{ position: 'absolute', width: 250, height: 250, left: '-60px', top: '-90px', objectFit: 'contain' }}
+      />
+      <img
+        src={foodUrl('basil_leaf.png')}
+        alt=""
+        style={{ position: 'absolute', width: 110, height: 110, left: '30%', top: '-40px', transform: 'rotate(40deg)', objectFit: 'contain' }}
+      />
+      <img
+        src={foodUrl('tomato_single.png')}
+        alt=""
+        style={{ position: 'absolute', width: 85, height: 85, right: '28%', bottom: '-30px', objectFit: 'contain' }}
+      />
+      <img
+        src={foodUrl('salmon_bowl.png')}
+        alt=""
+        style={{ position: 'absolute', width: 230, height: 230, right: '-50px', top: '-60px', objectFit: 'contain' }}
+      />
     </div>
     <motion.div className="lp-container lp-stats-grid" initial="hidden" whileInView="show" viewport={VIEWPORT} variants={stagger(0.1)}>
       {stats.map(s => (

@@ -168,6 +168,43 @@ export const AuthProvider = ({ children }) => {
     return data;
   };
 
+  // Google OAuth Login
+  const signInWithGoogle = async () => {
+    setAuthError(null);
+    if (!isSupabaseConfigured) {
+      throw new Error(
+        'Supabase is not configured yet. Please configure VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY in your .env file.'
+      );
+    }
+    const { data, error } = await supabase.auth.signInWithOAuth({
+      provider: 'google',
+      options: {
+        redirectTo: `${window.location.origin}${import.meta.env.BASE_URL}app/dashboard`,
+      },
+    });
+    if (error) {
+      setAuthError(error.message);
+      throw error;
+    }
+    return data;
+  };
+
+  // Password reset request
+  const resetPassword = async (email) => {
+    setAuthError(null);
+    if (!isSupabaseConfigured) {
+      throw new Error('Supabase is not configured yet.');
+    }
+    const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
+      redirectTo: `${window.location.origin}${import.meta.env.BASE_URL}login`,
+    });
+    if (error) {
+      setAuthError(error.message);
+      throw error;
+    }
+    return data;
+  };
+
   // Logout
   const signOut = async () => {
     setAuthError(null);
@@ -204,6 +241,8 @@ export const AuthProvider = ({ children }) => {
     isSupabaseConfigured,
     signUp,
     signIn,
+    signInWithGoogle,
+    resetPassword,
     signOut,
     getAuthHeaders,
     refreshProfile,

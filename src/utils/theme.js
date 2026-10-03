@@ -2,9 +2,9 @@ export const THEMES = [
   {
     id: 'mint',
     name: 'Mint Breeze',
-    bg: '#B8E0D2',
-    accent: '#2A8C6E',
-    preview: ['#B8E0D2', '#52C4A0', '#2A8C6E'],
+    bg: '#F4F7F5',
+    accent: '#10B981',
+    preview: ['#F4F7F5', '#EAF4EE', '#10B981'],
   },
   {
     id: 'lavender',
@@ -62,11 +62,11 @@ export const applyTheme = (themeId) => {
   } else {
     root.style.setProperty('--bg-color', theme.bg);
     root.style.setProperty('--bg-secondary', theme.preview[1]);
-    root.style.setProperty('--text-main', '#0E2820');
-    root.style.setProperty('--text-muted', '#3D7060');
+    root.style.setProperty('--text-main', '#0F241D');
+    root.style.setProperty('--text-muted', '#648275');
     root.style.setProperty('--accent-primary', theme.accent);
-    root.style.setProperty('--glass-bg', 'rgba(255,255,255,0.50)');
-    root.style.setProperty('--glass-border', `${theme.accent}30`);
+    root.style.setProperty('--glass-bg', 'rgba(255,255,255,0.95)');
+    root.style.setProperty('--glass-border', '#E5EBE7');
   }
 
   // Persist to local storage

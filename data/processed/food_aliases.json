@@ -1,0 +1,736 @@
+[
+  {
+    "alias": "dal",
+    "language": "hi",
+    "category": "Legumes & Pulses",
+    "ambiguous": true,
+    "clarification_prompt": "Which variety of dal / lentils are you having?",
+    "matches": [
+      {
+        "fdc_id": 172421,
+        "common_name": "Cooked Lentils (Brown/Masoor)",
+        "variety": "Masoor / Brown Dal",
+        "prep": "boiled without salt",
+        "confidence": 0.95
+      },
+      {
+        "fdc_id": 169137,
+        "common_name": "Cooked Mung Beans (Moong Dal)",
+        "variety": "Moong Dal",
+        "prep": "boiled drained",
+        "confidence": 0.9
+      },
+      {
+        "fdc_id": 170430,
+        "common_name": "Cooked Pigeonpeas (Toor / Arhar Dal)",
+        "variety": "Toor / Arhar Dal",
+        "prep": "boiled drained",
+        "confidence": 0.92
+      },
+      {
+        "fdc_id": 173757,
+        "common_name": "Cooked Chickpeas (Chana Dal)",
+        "variety": "Chana Dal",
+        "prep": "boiled without salt",
+        "confidence": 0.88
+      }
+    ]
+  },
+  {
+    "alias": "daal",
+    "language": "hi",
+    "category": "Legumes & Pulses",
+    "ambiguous": true,
+    "clarification_prompt": "Which variety of daal are you having?",
+    "matches": [
+      {
+        "fdc_id": 172421,
+        "common_name": "Cooked Lentils (Brown/Masoor)",
+        "variety": "Masoor / Brown Dal",
+        "confidence": 0.95
+      },
+      {
+        "fdc_id": 170430,
+        "common_name": "Cooked Pigeonpeas (Toor / Arhar Dal)",
+        "variety": "Toor / Arhar Dal",
+        "confidence": 0.92
+      },
+      {
+        "fdc_id": 169137,
+        "common_name": "Cooked Mung Beans (Moong Dal)",
+        "variety": "Moong Dal",
+        "confidence": 0.9
+      }
+    ]
+  },
+  {
+    "alias": "lentils",
+    "language": "en",
+    "category": "Legumes & Pulses",
+    "ambiguous": false,
+    "matches": [
+      {
+        "fdc_id": 172421,
+        "common_name": "Cooked Lentils",
+        "prep": "cooked, boiled, without salt",
+        "confidence": 0.98
+      }
+    ]
+  },
+  {
+    "alias": "toor dal",
+    "language": "hi",
+    "category": "Legumes & Pulses",
+    "ambiguous": false,
+    "matches": [
+      {
+        "fdc_id": 170430,
+        "common_name": "Cooked Pigeonpeas (Toor Dal)",
+        "prep": "cooked, boiled, drained, without salt",
+        "confidence": 0.96
+      }
+    ]
+  },
+  {
+    "alias": "arhar dal",
+    "language": "hi",
+    "category": "Legumes & Pulses",
+    "ambiguous": false,
+    "matches": [
+      {
+        "fdc_id": 170430,
+        "common_name": "Cooked Pigeonpeas (Arhar Dal)",
+        "prep": "cooked, boiled, drained, without salt",
+        "confidence": 0.96
+      }
+    ]
+  },
+  {
+    "alias": "moong dal",
+    "language": "hi",
+    "category": "Legumes & Pulses",
+    "ambiguous": false,
+    "matches": [
+      {
+        "fdc_id": 169137,
+        "common_name": "Cooked Mung Beans (Moong Dal)",
+        "prep": "cooked, boiled, drained, without salt",
+        "confidence": 0.96
+      }
+    ]
+  },
+  {
+    "alias": "masoor dal",
+    "language": "hi",
+    "category": "Legumes & Pulses",
+    "ambiguous": false,
+    "matches": [
+      {
+        "fdc_id": 172421,
+        "common_name": "Cooked Lentils (Masoor Dal)",
+        "prep": "cooked, boiled, without salt",
+        "confidence": 0.96
+      }
+    ]
+  },
+  {
+    "alias": "roti",
+    "language": "hi",
+    "category": "Breads & Grains",
+    "ambiguous": true,
+    "clarification_prompt": "Is the roti plain white flour or whole wheat?",
+    "matches": [
+      {
+        "fdc_id": 174075,
+        "common_name": "Whole Wheat Chapati / Roti",
+        "variety": "Whole Wheat (Atta)",
+        "confidence": 0.95
+      },
+      {
+        "fdc_id": 171844,
+        "common_name": "Plain Chapati / Roti",
+        "variety": "Plain Commercially Prepared",
+        "confidence": 0.9
+      }
+    ]
+  },
+  {
+    "alias": "chapati",
+    "language": "hi",
+    "category": "Breads & Grains",
+    "ambiguous": true,
+    "clarification_prompt": "Is the chapati whole wheat (atta) or plain flour?",
+    "matches": [
+      {
+        "fdc_id": 174075,
+        "common_name": "Whole Wheat Chapati / Roti",
+        "variety": "Whole Wheat (Atta)",
+        "confidence": 0.95
+      },
+      {
+        "fdc_id": 171844,
+        "common_name": "Plain Chapati / Roti",
+        "variety": "Plain",
+        "confidence": 0.9
+      }
+    ]
+  },
+  {
+    "alias": "phulka",
+    "language": "hi",
+    "category": "Breads & Grains",
+    "ambiguous": false,
+    "matches": [
+      {
+        "fdc_id": 174075,
+        "common_name": "Whole Wheat Chapati / Roti (Phulka)",
+        "prep": "puffed whole wheat",
+        "confidence": 0.95
+      }
+    ]
+  },
+  {
+    "alias": "naan",
+    "language": "hi",
+    "category": "Breads & Grains",
+    "ambiguous": true,
+    "clarification_prompt": "Is it plain naan, whole wheat naan, or butter naan?",
+    "matches": [
+      {
+        "fdc_id": 171845,
+        "common_name": "Naan Bread (Plain)",
+        "variety": "Plain",
+        "confidence": 0.95
+      },
+      {
+        "fdc_id": 174077,
+        "common_name": "Naan Bread (Whole Wheat)",
+        "variety": "Whole Wheat",
+        "confidence": 0.92
+      },
+      {
+        "fdc_id": 2707613,
+        "common_name": "Bread, naan (Survey recipe)",
+        "variety": "Survey standard",
+        "confidence": 0.88
+      }
+    ]
+  },
+  {
+    "alias": "chawal",
+    "language": "hi",
+    "category": "Breads & Grains",
+    "ambiguous": true,
+    "clarification_prompt": "Is it cooked white rice or brown rice?",
+    "matches": [
+      {
+        "fdc_id": 168878,
+        "common_name": "Cooked White Rice (Long-Grain)",
+        "variety": "White Rice",
+        "confidence": 0.95
+      },
+      {
+        "fdc_id": 169704,
+        "common_name": "Cooked Brown Rice (Long-Grain)",
+        "variety": "Brown Rice",
+        "confidence": 0.9
+      }
+    ]
+  },
+  {
+    "alias": "rice",
+    "language": "en",
+    "category": "Breads & Grains",
+    "ambiguous": true,
+    "clarification_prompt": "Are you having white rice or brown rice?",
+    "matches": [
+      {
+        "fdc_id": 168878,
+        "common_name": "Cooked White Rice",
+        "variety": "White Rice",
+        "confidence": 0.95
+      },
+      {
+        "fdc_id": 169704,
+        "common_name": "Cooked Brown Rice",
+        "variety": "Brown Rice",
+        "confidence": 0.9
+      }
+    ]
+  },
+  {
+    "alias": "white rice",
+    "language": "en",
+    "category": "Breads & Grains",
+    "ambiguous": false,
+    "matches": [
+      {
+        "fdc_id": 168878,
+        "common_name": "Cooked White Rice (Long-Grain)",
+        "prep": "cooked, boiled, regular",
+        "confidence": 0.98
+      }
+    ]
+  },
+  {
+    "alias": "brown rice",
+    "language": "en",
+    "category": "Breads & Grains",
+    "ambiguous": false,
+    "matches": [
+      {
+        "fdc_id": 169704,
+        "common_name": "Cooked Brown Rice (Long-Grain)",
+        "prep": "cooked, boiled",
+        "confidence": 0.98
+      }
+    ]
+  },
+  {
+    "alias": "chana",
+    "language": "hi",
+    "category": "Legumes & Pulses",
+    "ambiguous": true,
+    "clarification_prompt": "Are the chickpeas cooked/boiled or dried raw?",
+    "matches": [
+      {
+        "fdc_id": 173757,
+        "common_name": "Cooked Chickpeas (Boiled Chana)",
+        "prep": "cooked, boiled, without salt",
+        "confidence": 0.96
+      },
+      {
+        "fdc_id": 173756,
+        "common_name": "Raw Chickpeas (Dried Bengal Gram)",
+        "prep": "raw dried",
+        "confidence": 0.85
+      }
+    ]
+  },
+  {
+    "alias": "chhole",
+    "language": "hi",
+    "category": "Legumes & Pulses",
+    "ambiguous": false,
+    "matches": [
+      {
+        "fdc_id": 173757,
+        "common_name": "Cooked Chickpeas (Chhole)",
+        "prep": "boiled garbanzo beans / bengal gram",
+        "confidence": 0.95
+      }
+    ]
+  },
+  {
+    "alias": "chickpeas",
+    "language": "en",
+    "category": "Legumes & Pulses",
+    "ambiguous": false,
+    "matches": [
+      {
+        "fdc_id": 173757,
+        "common_name": "Cooked Chickpeas (Bengal Gram)",
+        "prep": "cooked, boiled, without salt",
+        "confidence": 0.98
+      }
+    ]
+  },
+  {
+    "alias": "palak",
+    "language": "hi",
+    "category": "Vegetables",
+    "ambiguous": true,
+    "clarification_prompt": "Is the spinach raw in a salad or cooked/boiled?",
+    "matches": [
+      {
+        "fdc_id": 170457,
+        "common_name": "Cooked Spinach (Boiled)",
+        "prep": "cooked, boiled, drained",
+        "confidence": 0.95
+      },
+      {
+        "fdc_id": 168462,
+        "common_name": "Raw Spinach",
+        "prep": "raw fresh",
+        "confidence": 0.92
+      }
+    ]
+  },
+  {
+    "alias": "spinach",
+    "language": "en",
+    "category": "Vegetables",
+    "ambiguous": true,
+    "clarification_prompt": "Is the spinach raw or cooked?",
+    "matches": [
+      {
+        "fdc_id": 168462,
+        "common_name": "Raw Spinach",
+        "prep": "raw",
+        "confidence": 0.95
+      },
+      {
+        "fdc_id": 170457,
+        "common_name": "Cooked Spinach",
+        "prep": "cooked, boiled, drained",
+        "confidence": 0.95
+      }
+    ]
+  },
+  {
+    "alias": "paneer",
+    "language": "hi",
+    "category": "Dairy",
+    "ambiguous": true,
+    "clarification_prompt": "Is it plain fresh paneer or cooked in a dish like Palak Paneer?",
+    "matches": [
+      {
+        "fdc_id": 2705740,
+        "common_name": "Cheese, paneer",
+        "variety": "Fresh Indian Cottage Cheese",
+        "confidence": 0.98
+      },
+      {
+        "fdc_id": 2709631,
+        "common_name": "Palak Paneer",
+        "variety": "Spinach Paneer Curry Dish",
+        "confidence": 0.9
+      },
+      {
+        "fdc_id": 2346384,
+        "common_name": "Cottage cheese (full fat)",
+        "variety": "Full Fat Cottage Cheese",
+        "confidence": 0.85
+      }
+    ]
+  },
+  {
+    "alias": "palak paneer",
+    "language": "hi",
+    "category": "Composite Dishes",
+    "ambiguous": false,
+    "matches": [
+      {
+        "fdc_id": 2709631,
+        "common_name": "Palak Paneer",
+        "prep": "cooked spinach and cheese curry",
+        "confidence": 0.99
+      }
+    ]
+  },
+  {
+    "alias": "rajma",
+    "language": "hi",
+    "category": "Legumes & Pulses",
+    "ambiguous": false,
+    "matches": [
+      {
+        "fdc_id": 2707381,
+        "common_name": "Cooked Kidney Beans (Rajma)",
+        "prep": "from dried, no added fat",
+        "confidence": 0.96
+      }
+    ]
+  },
+  {
+    "alias": "kidney beans",
+    "language": "en",
+    "category": "Legumes & Pulses",
+    "ambiguous": false,
+    "matches": [
+      {
+        "fdc_id": 2707381,
+        "common_name": "Kidney beans, from dried, no added fat",
+        "confidence": 0.97
+      }
+    ]
+  },
+  {
+    "alias": "ghee",
+    "language": "hi",
+    "category": "Fats & Oils",
+    "ambiguous": false,
+    "matches": [
+      {
+        "fdc_id": 171314,
+        "common_name": "Pure Ghee (Clarified Butter)",
+        "prep": "SR Legacy analytical butterfat",
+        "confidence": 0.98
+      },
+      {
+        "fdc_id": 2710168,
+        "common_name": "Ghee, clarified butter",
+        "variety": "Survey standard",
+        "confidence": 0.95
+      }
+    ]
+  },
+  {
+    "alias": "dosa",
+    "language": "hi",
+    "category": "Breakfast & Snacks",
+    "ambiguous": true,
+    "clarification_prompt": "Is it a plain dosa or a masala dosa with potato filling?",
+    "matches": [
+      {
+        "fdc_id": 2708347,
+        "common_name": "Dosa, plain",
+        "variety": "Plain fermented crepe",
+        "confidence": 0.96
+      },
+      {
+        "fdc_id": 2709129,
+        "common_name": "Dosa, with filling (Masala Dosa)",
+        "variety": "With filling",
+        "confidence": 0.94
+      }
+    ]
+  },
+  {
+    "alias": "samosa",
+    "language": "hi",
+    "category": "Breakfast & Snacks",
+    "ambiguous": false,
+    "matches": [
+      {
+        "fdc_id": 2708730,
+        "common_name": "Samosa",
+        "prep": "fried pastry with spiced savory filling",
+        "confidence": 0.98
+      }
+    ]
+  },
+  {
+    "alias": "biryani",
+    "language": "hi",
+    "category": "Composite Dishes",
+    "ambiguous": true,
+    "clarification_prompt": "Which kind of biryani: chicken, vegetable, or meat?",
+    "matches": [
+      {
+        "fdc_id": 2706538,
+        "common_name": "Biryani with chicken",
+        "variety": "Chicken Biryani",
+        "confidence": 0.96
+      },
+      {
+        "fdc_id": 2708985,
+        "common_name": "Biryani with vegetables",
+        "variety": "Veg Biryani",
+        "confidence": 0.94
+      },
+      {
+        "fdc_id": 2706490,
+        "common_name": "Biryani with meat",
+        "variety": "Mutton / Meat Biryani",
+        "confidence": 0.92
+      }
+    ]
+  },
+  {
+    "alias": "chicken curry",
+    "language": "en",
+    "category": "Composite Dishes",
+    "ambiguous": false,
+    "matches": [
+      {
+        "fdc_id": 2706437,
+        "common_name": "Chicken curry",
+        "variety": "Curry with gravy",
+        "confidence": 0.98
+      }
+    ]
+  },
+  {
+    "alias": "chutney",
+    "language": "hi",
+    "category": "Condiments",
+    "ambiguous": false,
+    "matches": [
+      {
+        "fdc_id": 2709309,
+        "common_name": "Chutney",
+        "prep": "sweet or savory condiment",
+        "confidence": 0.95
+      }
+    ]
+  },
+  {
+    "alias": "milk",
+    "language": "en",
+    "category": "Dairy",
+    "ambiguous": true,
+    "clarification_prompt": "Is it whole milk, reduced fat (2%), low fat (1%), or skim milk?",
+    "matches": [
+      {
+        "fdc_id": 2705385,
+        "common_name": "Milk, whole",
+        "variety": "Whole Milk (3.25%)",
+        "confidence": 0.95
+      },
+      {
+        "fdc_id": 2705386,
+        "common_name": "Milk, reduced fat (2%)",
+        "variety": "2% Milk",
+        "confidence": 0.92
+      },
+      {
+        "fdc_id": 2705388,
+        "common_name": "Milk, fat free (skim)",
+        "variety": "Skim Milk",
+        "confidence": 0.9
+      }
+    ]
+  },
+  {
+    "alias": "whole milk",
+    "language": "en",
+    "category": "Dairy",
+    "ambiguous": false,
+    "matches": [
+      {
+        "fdc_id": 2705385,
+        "common_name": "Milk, whole",
+        "confidence": 0.98
+      }
+    ]
+  },
+  {
+    "alias": "egg",
+    "language": "en",
+    "category": "Eggs & Poultry",
+    "ambiguous": true,
+    "clarification_prompt": "Is the egg whole, egg white only, boiled, or raw?",
+    "matches": [
+      {
+        "fdc_id": 323604,
+        "common_name": "Raw Whole Egg",
+        "variety": "Whole Egg",
+        "confidence": 0.95
+      },
+      {
+        "fdc_id": 323697,
+        "common_name": "Raw Egg White",
+        "variety": "Egg White Only",
+        "confidence": 0.9
+      }
+    ]
+  },
+  {
+    "alias": "egg white",
+    "language": "en",
+    "category": "Eggs & Poultry",
+    "ambiguous": false,
+    "matches": [
+      {
+        "fdc_id": 323697,
+        "common_name": "Raw Egg White",
+        "confidence": 0.98
+      }
+    ]
+  },
+  {
+    "alias": "banana",
+    "language": "en",
+    "category": "Fruits",
+    "ambiguous": false,
+    "matches": [
+      {
+        "fdc_id": 173944,
+        "common_name": "Raw Banana",
+        "confidence": 0.98
+      }
+    ]
+  },
+  {
+    "alias": "apple",
+    "language": "en",
+    "category": "Fruits",
+    "ambiguous": false,
+    "matches": [
+      {
+        "fdc_id": 171688,
+        "common_name": "Raw Apple (with skin)",
+        "confidence": 0.98
+      }
+    ]
+  },
+  {
+    "alias": "chicken breast",
+    "language": "en",
+    "category": "Poultry",
+    "ambiguous": false,
+    "matches": [
+      {
+        "fdc_id": 171077,
+        "common_name": "Cooked Chicken Breast (Roasted, Meat Only)",
+        "confidence": 0.98
+      }
+    ]
+  },
+  {
+    "alias": "almonds",
+    "language": "en",
+    "category": "Nuts & Seeds",
+    "ambiguous": false,
+    "matches": [
+      {
+        "fdc_id": 323294,
+        "common_name": "Dry Roasted Almonds",
+        "confidence": 0.98
+      }
+    ]
+  },
+  {
+    "alias": "peanut butter",
+    "language": "en",
+    "category": "Nuts & Seeds",
+    "ambiguous": false,
+    "matches": [
+      {
+        "fdc_id": 172462,
+        "common_name": "Peanut Butter (Smooth Style)",
+        "confidence": 0.98
+      }
+    ]
+  },
+  {
+    "alias": "oats",
+    "language": "en",
+    "category": "Breads & Grains",
+    "ambiguous": false,
+    "matches": [
+      {
+        "fdc_id": 169705,
+        "common_name": "Rolled Oats (Regular/Quick)",
+        "confidence": 0.98
+      }
+    ]
+  },
+  {
+    "alias": "oatmeal",
+    "language": "en",
+    "category": "Breads & Grains",
+    "ambiguous": false,
+    "matches": [
+      {
+        "fdc_id": 169705,
+        "common_name": "Cooked Oatmeal / Rolled Oats",
+        "confidence": 0.95
+      }
+    ]
+  },
+  {
+    "alias": "hummus",
+    "language": "en",
+    "category": "Legumes & Pulses",
+    "ambiguous": false,
+    "matches": [
+      {
+        "fdc_id": 321358,
+        "common_name": "Hummus (Commercial)",
+        "confidence": 0.99
+      }
+    ]
+  }
+]

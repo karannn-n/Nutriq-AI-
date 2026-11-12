@@ -1,0 +1,78 @@
+{
+  "execution_date": "2026-11-12 07:31:36 UTC",
+  "validation_status": "PASSED",
+  "total_records_processed": 13723,
+  "target_breakdown": {
+    "sr_legacy_food": 7793,
+    "foundation_food": 498,
+    "survey_fndds_food": 5432
+  },
+  "duplicate_fdc_ids": 0,
+  "food_portions_summary": {
+    "total_raw_portions_scanned": 36682,
+    "valid_portions_stored": 36681,
+    "invalid_portions_rejected_zero_weight": 1,
+    "foods_with_at_least_one_portion": 13044,
+    "portion_coverage_percentage": 95.05
+  },
+  "nutrient_coverage_summary": {
+    "calories": {
+      "populated_records": 13654,
+      "missing_records": 69,
+      "coverage_pct": 99.5
+    },
+    "protein_g": {
+      "populated_records": 13703,
+      "missing_records": 20,
+      "coverage_pct": 99.85
+    },
+    "carbs_g": {
+      "populated_records": 13643,
+      "missing_records": 80,
+      "coverage_pct": 99.42
+    },
+    "fat_g": {
+      "populated_records": 13689,
+      "missing_records": 34,
+      "coverage_pct": 99.75
+    },
+    "vitamin_d_mcg": {
+      "populated_records": 10704,
+      "missing_records": 3019,
+      "coverage_pct": 78.0
+    },
+    "iron_mg": {
+      "populated_records": 13612,
+      "missing_records": 111,
+      "coverage_pct": 99.19
+    },
+    "zinc_mg": {
+      "populated_records": 13305,
+      "missing_records": 418,
+      "coverage_pct": 96.95
+    },
+    "b12_mcg": {
+      "populated_records": 12641,
+      "missing_records": 1082,
+      "coverage_pct": 92.12
+    }
+  },
+  "completeness_distribution": {
+    "100%_complete_all_8_nutrients": 10608,
+    "87.5%_complete_7_of_8": 2054,
+    "75.0%_complete_6_of_8": 626,
+    "under_75%_complete": 435
+  },
+  "null_preservation_verification": {
+    "nulls_converted_to_zero": false,
+    "missing_values_preserved_as_null": true
+  },
+  "file_sizes": {
+    "foods.json": 11659808,
+    "food_portions.json": 9222921,
+    "food_aliases.json": 17688,
+    "nutrient_metadata.json": 3190,
+    "dataset_manifest.json": 2702,
+    "foods.db": 8036352
+  }
+}

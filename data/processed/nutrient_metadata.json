@@ -1,0 +1,84 @@
+{
+  "metadata_version": "1.0",
+  "reference_basis": "Per 100 grams of edible portion",
+  "nutrients": {
+    "calories": {
+      "key": "calories",
+      "display_name": "Calories",
+      "unit": "kcal",
+      "usda_primary_id": 1008,
+      "usda_fallback_ids": [
+        2047,
+        2048
+      ],
+      "description": "Gross energy content per 100g calculated from Atwater factors or bomb calorimetry.",
+      "nutriq_role": "Primary macronutrient energy balancing"
+    },
+    "protein_g": {
+      "key": "protein_g",
+      "display_name": "Protein",
+      "unit": "g",
+      "usda_primary_id": 1003,
+      "description": "Total protein content calculated from total nitrogen x protein conversion factor.",
+      "nutriq_role": "Macronutrient goal tracking and muscle synthesis"
+    },
+    "carbs_g": {
+      "key": "carbs_g",
+      "display_name": "Carbohydrates",
+      "unit": "g",
+      "usda_primary_id": 1005,
+      "description": "Total carbohydrates calculated by difference: 100 - (water + protein + fat + ash + alcohol).",
+      "nutriq_role": "Glycemic and macro distribution tracking"
+    },
+    "fat_g": {
+      "key": "fat_g",
+      "display_name": "Total Fat",
+      "unit": "g",
+      "usda_primary_id": 1004,
+      "description": "Total lipid content extracted through standard ether or saponification assay.",
+      "nutriq_role": "Essential fatty acids and lipid energy balance"
+    },
+    "vitamin_d_mcg": {
+      "key": "vitamin_d_mcg",
+      "display_name": "Vitamin D",
+      "unit": "mcg",
+      "usda_primary_id": 1114,
+      "usda_fallback_ids": [
+        1110,
+        1111,
+        1112
+      ],
+      "conversion_formula": "If ID 1114 is null and ID 1110 (IU) is present: mcg = IU / 40.0. If 1111 and 1112 present: mcg = D2 + D3.",
+      "description": "Ergocalciferol (D2) plus Cholecalciferol (D3) expressed in micrograms.",
+      "nutriq_role": "Critical tracked biomarker for bone health and deficiency risk modeling",
+      "recommended_daily_intake": 15.0
+    },
+    "iron_mg": {
+      "key": "iron_mg",
+      "display_name": "Iron",
+      "unit": "mg",
+      "usda_primary_id": 1089,
+      "description": "Elemental iron (heme + non-heme) measured via atomic absorption spectrophotometry / ICP-MS.",
+      "nutriq_role": "Critical tracked biomarker for anemia and oxygen transport",
+      "recommended_daily_intake": 18.0
+    },
+    "zinc_mg": {
+      "key": "zinc_mg",
+      "display_name": "Zinc",
+      "unit": "mg",
+      "usda_primary_id": 1095,
+      "description": "Elemental zinc measured via atomic absorption spectrophotometry / ICP-MS.",
+      "nutriq_role": "Critical tracked biomarker for immune function and cellular metabolism",
+      "recommended_daily_intake": 11.0
+    },
+    "b12_mcg": {
+      "key": "b12_mcg",
+      "display_name": "Vitamin B-12",
+      "unit": "mcg",
+      "usda_primary_id": 1178,
+      "description": "Total cobalamin compounds measured via microbiological assay or LC-MS.",
+      "nutriq_role": "Critical tracked biomarker for neurological health and red blood cell formation",
+      "recommended_daily_intake": 2.4
+    }
+  }
+}

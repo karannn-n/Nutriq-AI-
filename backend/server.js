@@ -15,6 +15,9 @@ const {
   generateInsightsSummary,
   validateAndSanitizeNutrition,
 } = require('./services/aiService');
+const { foodDatabase } = require('./services/foodDatabase');
+const { calculateFoodNutrients, convertToGrams, ValidationError } = require('./services/nutrientCalculator');
+const { calculateMealNutrition, parseMealDescription } = require('./services/mealComposition');
 
 // Ensure temporary uploads directory exists
 const uploadDir = path.join(__dirname, 'uploads_tmp');
@@ -109,23 +112,130 @@ app.get('/api/health', (req, res) => {
     timestamp: new Date().toISOString(),
     supabaseConfigured: isConfigured,
     geminiConfigured: Boolean(process.env.GEMINI_API_KEY),
+    localFoodDbLoaded: foodDatabase.count > 0,
+    localFoodsCount: foodDatabase.count,
   });
+});
+
+// ─── LOCAL FOOD NUTRITION ENGINE ENDPOINTS ──────────────────────────────────
+
+/**
+ * GET /api/nutrition/foods
+ * Search or list foods from the local USDA FoodData Central database.
+ */
+app.get('/api/nutrition/foods', (req, res) => {
+  const query = req.query.query ? String(req.query.query).trim() : '';
+  const limit = Math.min(100, Math.max(1, parseInt(req.query.limit, 10) || 20));
+
+  if (query) {
+    const results = foodDatabase.search(query, limit);
+    return res.json({
+      query,
+      count: results.length,
+      foods: results.map(r => ({
+        ...r.food,
+        match_score: Math.round(r.score * 100) / 100,
+      })),
+    });
+  }
+
+  const all = foodDatabase.getAllFoods();
+  res.json({
+    count: Math.min(limit, all.length),
+    total: all.length,
+    foods: all.slice(0, limit),
+  });
+});
+
+/**
+ * GET /api/nutrition/foods/:id
+ * Retrieve a single food with its full USDA composition and portions.
+ */
+app.get('/api/nutrition/foods/:id', (req, res) => {
+  const food = foodDatabase.getById(req.params.id);
+  if (!food) {
+    return res.status(404).json({ error: `Food with ID '${req.params.id}' not found.` });
+  }
+  res.json({ food });
+});
+
+/**
+ * POST /api/nutrition/calculate
+ * Deterministically calculate nutrients for an ingredient or multiple ingredients.
+ */
+app.post('/api/nutrition/calculate', (req, res) => {
+  try {
+    const { food_id, quantity, unit, ingredients } = req.body;
+
+    if (Array.isArray(ingredients) && ingredients.length > 0) {
+      const result = calculateMealNutrition(ingredients);
+      return res.json({
+        type: 'meal',
+        ...result,
+      });
+    }
+
+    if (food_id) {
+      const food = foodDatabase.getById(food_id);
+      if (!food) {
+        return res.status(404).json({ error: `Food '${food_id}' not found in database.` });
+      }
+      const result = calculateFoodNutrients(food, quantity, unit || 'g');
+      return res.json({
+        type: 'single_food',
+        ...result,
+      });
+    }
+
+    return res.status(400).json({
+      error: 'Please provide either food_id with quantity/unit, or an ingredients array.',
+    });
+  } catch (err) {
+    if (err instanceof ValidationError) {
+      return res.status(400).json({ error: err.message, field: err.field });
+    }
+    return res.status(500).json({ error: err.message });
+  }
+});
+
+/**
+ * POST /api/nutrition/parse-meal
+ * Decomposes natural language meal text, detects ambiguous ingredients,
+ * and deterministically calculates nutrients for confirmed ingredients.
+ */
+app.post('/api/nutrition/parse-meal', (req, res) => {
+  const { description } = req.body;
+  if (!description || typeof description !== 'string' || !description.trim()) {
+    return res.status(400).json({ error: 'Please provide meal description text to parse.' });
+  }
+
+  try {
+    const parseResult = parseMealDescription(description.trim());
+    res.json(parseResult);
+  } catch (err) {
+    if (err instanceof ValidationError) {
+      return res.status(400).json({ error: err.message, field: err.field });
+    }
+    return res.status(500).json({ error: err.message });
+  }
 });
 
 // ─── 1. MEAL CRUD ENDPOINTS ──────────────────────────────────────────────────
 
 /**
  * POST /api/meals
- * Creates a meal from natural language text using Gemini NLP.
+ * Creates a meal using either the deterministic local USDA engine (when ingredients or clean parse is available)
+ * or Google Gemini NLP as the existing fallback alternative.
  * Supports offline sync idempotency via client_id.
  */
 app.post('/api/meals', requireAuth, aiLimiter, async (req, res, next) => {
-  const { description, client_id, logged_at } = req.body;
-  if (!description || typeof description !== 'string' || !description.trim()) {
-    return res.status(400).json({ error: 'Please provide a valid meal description.' });
+  const { description, client_id, logged_at, ingredients, engine, useLocalEngine } = req.body;
+  
+  if ((!description || typeof description !== 'string' || !description.trim()) && (!Array.isArray(ingredients) || ingredients.length === 0)) {
+    return res.status(400).json({ error: 'Please provide a valid meal description or ingredients array.' });
   }
 
-  if (description.length > 1000) {
+  if (description && description.length > 1000) {
     return res.status(400).json({ error: 'Meal description cannot exceed 1,000 characters.' });
   }
 
@@ -152,14 +262,58 @@ app.post('/api/meals', requireAuth, aiLimiter, async (req, res, next) => {
       }
     }
 
-    const cleanDesc = description.trim();
-    const rawNutrition = await analyzeMeal(cleanDesc);
-    const n = validateAndSanitizeNutrition(rawNutrition, cleanDesc);
+    const cleanDesc = description ? description.trim() : '';
+    let n = null;
+    let engineUsed = 'gemini';
+    let localDetails = null;
 
-    // 1. Insert meal entry
+    // 1. Determine calculation path: Local Deterministic Engine vs Gemini
+    if (Array.isArray(ingredients) && ingredients.length > 0) {
+      // Direct confirmed multi-ingredient composition
+      const mealNut = calculateMealNutrition(ingredients);
+      n = {
+        description: cleanDesc || ingredients.map(i => `${i.quantity}${i.unit || 'g'} ${i.food?.common_name || i.food?.name || i.name || 'item'}`).join(', '),
+        ...mealNut.db_compatible_nutrition,
+      };
+      engineUsed = 'local_usda';
+      localDetails = mealNut;
+    } else if (useLocalEngine === true || engine === 'local') {
+      // Natural language decomposition via Local Engine
+      const parseResult = parseMealDescription(cleanDesc);
+
+      // If ambiguous or missing quantities, and caller did not bypass confirmation
+      if (parseResult.requires_user_confirmation && req.body.confirmAmbiguity !== true) {
+        return res.status(200).json({
+          requiresConfirmation: true,
+          message: 'Some ingredients in your meal require portion or variant confirmation.',
+          parseResult,
+        });
+      }
+
+      if (parseResult.nutrition) {
+        n = {
+          description: cleanDesc,
+          ...parseResult.nutrition.db_compatible_nutrition,
+        };
+        engineUsed = 'local_usda';
+        localDetails = parseResult.nutrition;
+      } else {
+        // Fall back to Gemini if no ingredients could be confirmed
+        const rawNutrition = await analyzeMeal(cleanDesc);
+        n = validateAndSanitizeNutrition(rawNutrition, cleanDesc);
+        engineUsed = 'gemini';
+      }
+    } else {
+      // Standard Gemini extraction (temporary existing alternative)
+      const rawNutrition = await analyzeMeal(cleanDesc);
+      n = validateAndSanitizeNutrition(rawNutrition, cleanDesc);
+      engineUsed = 'gemini';
+    }
+
+    // 2. Insert meal entry
     const mealPayload = {
       user_id: userId,
-      description: n.description || cleanDesc,
+      description: n.description || cleanDesc || 'Logged Meal',
       logged_at: logged_at ? new Date(logged_at).toISOString() : new Date().toISOString(),
     };
     if (client_id && typeof client_id === 'string' && client_id.trim()) {
@@ -174,7 +328,7 @@ app.post('/api/meals', requireAuth, aiLimiter, async (req, res, next) => {
 
     if (mealErr) throw mealErr;
 
-    // 2. Insert corresponding nutrition record
+    // 3. Insert corresponding nutrition record
     const { data: nutrition, error: nutErr } = await supabaseAdmin
       .from('nutrition')
       .insert({
@@ -201,8 +355,13 @@ app.post('/api/meals', requireAuth, aiLimiter, async (req, res, next) => {
         nutrition,
       },
       data: n,
+      engine: engineUsed,
+      engineDetails: localDetails,
     });
   } catch (error) {
+    if (error instanceof ValidationError) {
+      return res.status(400).json({ error: error.message, field: error.field });
+    }
     next(error);
   }
 });
@@ -926,3 +1085,5 @@ const gracefulShutdown = (signal) => {
 
 process.on('SIGTERM', () => gracefulShutdown('SIGTERM'));
 process.on('SIGINT', () => gracefulShutdown('SIGINT'));
+
+module.exports = { app, server };

@@ -6,7 +6,10 @@
   "scripts": {
     "start": "node server.js",
     "dev": "node --watch server.js",
-    "test": "node test_suite.js"
+    "test": "node test_suite.js && node test_nutrient_engine.js && node test_endpoints.js",
+    "test:engine": "node test_nutrient_engine.js",
+    "test:api": "node test_endpoints.js",
+    "import:foods": "node scripts/import_usda.js"
   },
   "keywords": [],
   "author": "",

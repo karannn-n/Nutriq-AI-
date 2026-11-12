@@ -1,0 +1,4721 @@
+[
+  {
+    "id": "usda_fdc_168878",
+    "name": "Rice, white, long-grain, regular, enriched, cooked",
+    "common_name": "Cooked White Rice",
+    "food_group": "Cereal Grains and Pasta",
+    "aliases": [
+      "cooked white rice",
+      "white rice",
+      "rice",
+      "boiled rice",
+      "steamed rice",
+      "chawal",
+      "cooked rice"
+    ],
+    "nutrients_per_100g": {
+      "calories": {
+        "value": 130,
+        "unit": "kcal"
+      },
+      "protein_g": {
+        "value": 2.69,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "value": 28.17,
+        "unit": "g"
+      },
+      "fat_g": {
+        "value": 0.28,
+        "unit": "g"
+      },
+      "vitamin_d_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      },
+      "iron_mg": {
+        "value": 1.2,
+        "unit": "mg"
+      },
+      "zinc_mg": {
+        "value": 0.49,
+        "unit": "mg"
+      },
+      "b12_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      }
+    },
+    "serving_weights_g": {
+      "g": 1,
+      "gram": 1,
+      "grams": 1,
+      "kg": 1000,
+      "kilogram": 1000,
+      "kilograms": 1000,
+      "oz": 28.3495,
+      "ounce": 28.3495,
+      "ounces": 28.3495,
+      "lb": 453.592,
+      "pound": 453.592,
+      "cup": 158,
+      "bowl": 200,
+      "serving": 158,
+      "tbsp": 14,
+      "plate": 250
+    },
+    "source": {
+      "name": "USDA FoodData Central",
+      "type": "SR Legacy",
+      "source_id": "168878",
+      "retrieval_date": "2026-11-12",
+      "citation": "U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2026."
+    }
+  },
+  {
+    "id": "usda_fdc_169703",
+    "name": "Rice, white, long-grain, basmati, cooked",
+    "common_name": "Cooked Basmati Rice",
+    "food_group": "Cereal Grains and Pasta",
+    "aliases": [
+      "cooked basmati rice",
+      "basmati rice",
+      "steamed basmati rice",
+      "basmati chawal"
+    ],
+    "nutrients_per_100g": {
+      "calories": {
+        "value": 121,
+        "unit": "kcal"
+      },
+      "protein_g": {
+        "value": 3.5,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "value": 25.2,
+        "unit": "g"
+      },
+      "fat_g": {
+        "value": 0.38,
+        "unit": "g"
+      },
+      "vitamin_d_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      },
+      "iron_mg": {
+        "value": 1.1,
+        "unit": "mg"
+      },
+      "zinc_mg": {
+        "value": 0.6,
+        "unit": "mg"
+      },
+      "b12_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      }
+    },
+    "serving_weights_g": {
+      "g": 1,
+      "gram": 1,
+      "grams": 1,
+      "kg": 1000,
+      "kilogram": 1000,
+      "kilograms": 1000,
+      "oz": 28.3495,
+      "ounce": 28.3495,
+      "ounces": 28.3495,
+      "lb": 453.592,
+      "pound": 453.592,
+      "cup": 160,
+      "bowl": 200,
+      "serving": 160
+    },
+    "source": {
+      "name": "USDA FoodData Central",
+      "type": "SR Legacy",
+      "source_id": "169703",
+      "retrieval_date": "2026-11-12",
+      "citation": "U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2026."
+    }
+  },
+  {
+    "id": "usda_fdc_169704",
+    "name": "Rice, brown, long-grain, cooked",
+    "common_name": "Cooked Brown Rice",
+    "food_group": "Cereal Grains and Pasta",
+    "aliases": [
+      "cooked brown rice",
+      "brown rice",
+      "steamed brown rice",
+      "whole grain rice"
+    ],
+    "nutrients_per_100g": {
+      "calories": {
+        "value": 123,
+        "unit": "kcal"
+      },
+      "protein_g": {
+        "value": 2.74,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "value": 25.58,
+        "unit": "g"
+      },
+      "fat_g": {
+        "value": 0.97,
+        "unit": "g"
+      },
+      "vitamin_d_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      },
+      "iron_mg": {
+        "value": 0.56,
+        "unit": "mg"
+      },
+      "zinc_mg": {
+        "value": 1.23,
+        "unit": "mg"
+      },
+      "b12_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      }
+    },
+    "serving_weights_g": {
+      "g": 1,
+      "gram": 1,
+      "grams": 1,
+      "kg": 1000,
+      "kilogram": 1000,
+      "kilograms": 1000,
+      "oz": 28.3495,
+      "ounce": 28.3495,
+      "ounces": 28.3495,
+      "lb": 453.592,
+      "pound": 453.592,
+      "cup": 195,
+      "bowl": 200,
+      "serving": 195
+    },
+    "source": {
+      "name": "USDA FoodData Central",
+      "type": "SR Legacy",
+      "source_id": "169704",
+      "retrieval_date": "2026-11-12",
+      "citation": "U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2026."
+    }
+  },
+  {
+    "id": "usda_fdc_169705",
+    "name": "Cereals, oats, regular and quick, unenriched, cooked with water (salt added)",
+    "common_name": "Cooked Oatmeal",
+    "food_group": "Breakfast Cereals",
+    "aliases": [
+      "cooked oatmeal",
+      "oats",
+      "oatmeal",
+      "cooked oats",
+      "porridge",
+      "rolled oats"
+    ],
+    "nutrients_per_100g": {
+      "calories": {
+        "value": 71,
+        "unit": "kcal"
+      },
+      "protein_g": {
+        "value": 2.54,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "value": 12,
+        "unit": "g"
+      },
+      "fat_g": {
+        "value": 1.52,
+        "unit": "g"
+      },
+      "vitamin_d_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      },
+      "iron_mg": {
+        "value": 1.15,
+        "unit": "mg"
+      },
+      "zinc_mg": {
+        "value": 0.62,
+        "unit": "mg"
+      },
+      "b12_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      }
+    },
+    "serving_weights_g": {
+      "g": 1,
+      "gram": 1,
+      "grams": 1,
+      "kg": 1000,
+      "kilogram": 1000,
+      "kilograms": 1000,
+      "oz": 28.3495,
+      "ounce": 28.3495,
+      "ounces": 28.3495,
+      "lb": 453.592,
+      "pound": 453.592,
+      "cup": 234,
+      "bowl": 240,
+      "serving": 234
+    },
+    "source": {
+      "name": "USDA FoodData Central",
+      "type": "SR Legacy",
+      "source_id": "169705",
+      "retrieval_date": "2026-11-12",
+      "citation": "U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2026."
+    }
+  },
+  {
+    "id": "usda_fdc_172688",
+    "name": "Bread, whole-wheat, commercially prepared",
+    "common_name": "Whole Wheat Bread",
+    "food_group": "Baked Products",
+    "aliases": [
+      "whole wheat bread",
+      "wheat bread",
+      "brown bread",
+      "bread slice",
+      "wholemeal bread",
+      "bread"
+    ],
+    "nutrients_per_100g": {
+      "calories": {
+        "value": 252,
+        "unit": "kcal"
+      },
+      "protein_g": {
+        "value": 12.48,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "value": 41.31,
+        "unit": "g"
+      },
+      "fat_g": {
+        "value": 3.55,
+        "unit": "g"
+      },
+      "vitamin_d_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      },
+      "iron_mg": {
+        "value": 2.57,
+        "unit": "mg"
+      },
+      "zinc_mg": {
+        "value": 1.83,
+        "unit": "mg"
+      },
+      "b12_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      }
+    },
+    "serving_weights_g": {
+      "g": 1,
+      "gram": 1,
+      "grams": 1,
+      "kg": 1000,
+      "kilogram": 1000,
+      "kilograms": 1000,
+      "oz": 28.3495,
+      "ounce": 28.3495,
+      "ounces": 28.3495,
+      "lb": 453.592,
+      "pound": 453.592,
+      "slice": 32,
+      "piece": 32,
+      "serving": 32
+    },
+    "source": {
+      "name": "USDA FoodData Central",
+      "type": "SR Legacy",
+      "source_id": "172688",
+      "retrieval_date": "2026-11-12",
+      "citation": "U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2026."
+    }
+  },
+  {
+    "id": "usda_fdc_172686",
+    "name": "Bread, white, commercially prepared (includes soft bread crumbs)",
+    "common_name": "White Bread",
+    "food_group": "Baked Products",
+    "aliases": [
+      "white bread",
+      "toast",
+      "bread",
+      "slice of bread"
+    ],
+    "nutrients_per_100g": {
+      "calories": {
+        "value": 266,
+        "unit": "kcal"
+      },
+      "protein_g": {
+        "value": 8.85,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "value": 49.2,
+        "unit": "g"
+      },
+      "fat_g": {
+        "value": 3.33,
+        "unit": "g"
+      },
+      "vitamin_d_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      },
+      "iron_mg": {
+        "value": 3.6,
+        "unit": "mg"
+      },
+      "zinc_mg": {
+        "value": 0.7,
+        "unit": "mg"
+      },
+      "b12_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      }
+    },
+    "serving_weights_g": {
+      "g": 1,
+      "gram": 1,
+      "grams": 1,
+      "kg": 1000,
+      "kilogram": 1000,
+      "kilograms": 1000,
+      "oz": 28.3495,
+      "ounce": 28.3495,
+      "ounces": 28.3495,
+      "lb": 453.592,
+      "pound": 453.592,
+      "slice": 25,
+      "piece": 25,
+      "serving": 25
+    },
+    "source": {
+      "name": "USDA FoodData Central",
+      "type": "SR Legacy",
+      "source_id": "172686",
+      "retrieval_date": "2026-11-12",
+      "citation": "U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2026."
+    }
+  },
+  {
+    "id": "usda_fdc_172844",
+    "name": "Bread, flatbread, whole wheat (Roti / Chapati)",
+    "common_name": "Roti / Chapati (Whole Wheat Flatbread)",
+    "food_group": "Baked Products",
+    "aliases": [
+      "roti / chapati (whole wheat flatbread)",
+      "roti",
+      "chapati",
+      "phulka",
+      "flatbread",
+      "indian flatbread",
+      "whole wheat roti"
+    ],
+    "nutrients_per_100g": {
+      "calories": {
+        "value": 264,
+        "unit": "kcal"
+      },
+      "protein_g": {
+        "value": 8.9,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "value": 48,
+        "unit": "g"
+      },
+      "fat_g": {
+        "value": 3.7,
+        "unit": "g"
+      },
+      "vitamin_d_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      },
+      "iron_mg": {
+        "value": 2.8,
+        "unit": "mg"
+      },
+      "zinc_mg": {
+        "value": 1.9,
+        "unit": "mg"
+      },
+      "b12_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      }
+    },
+    "serving_weights_g": {
+      "g": 1,
+      "gram": 1,
+      "grams": 1,
+      "kg": 1000,
+      "kilogram": 1000,
+      "kilograms": 1000,
+      "oz": 28.3495,
+      "ounce": 28.3495,
+      "ounces": 28.3495,
+      "lb": 453.592,
+      "pound": 453.592,
+      "piece": 40,
+      "roti": 40,
+      "serving": 40
+    },
+    "source": {
+      "name": "USDA FoodData Central",
+      "type": "SR Legacy",
+      "source_id": "172844",
+      "retrieval_date": "2026-11-12",
+      "citation": "U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2026."
+    }
+  },
+  {
+    "id": "usda_fdc_168917",
+    "name": "Quinoa, cooked",
+    "common_name": "Cooked Quinoa",
+    "food_group": "Cereal Grains and Pasta",
+    "aliases": [
+      "cooked quinoa",
+      "quinoa"
+    ],
+    "nutrients_per_100g": {
+      "calories": {
+        "value": 120,
+        "unit": "kcal"
+      },
+      "protein_g": {
+        "value": 4.4,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "value": 21.3,
+        "unit": "g"
+      },
+      "fat_g": {
+        "value": 1.92,
+        "unit": "g"
+      },
+      "vitamin_d_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      },
+      "iron_mg": {
+        "value": 1.49,
+        "unit": "mg"
+      },
+      "zinc_mg": {
+        "value": 1.09,
+        "unit": "mg"
+      },
+      "b12_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      }
+    },
+    "serving_weights_g": {
+      "g": 1,
+      "gram": 1,
+      "grams": 1,
+      "kg": 1000,
+      "kilogram": 1000,
+      "kilograms": 1000,
+      "oz": 28.3495,
+      "ounce": 28.3495,
+      "ounces": 28.3495,
+      "lb": 453.592,
+      "pound": 453.592,
+      "cup": 185,
+      "bowl": 185,
+      "serving": 185
+    },
+    "source": {
+      "name": "USDA FoodData Central",
+      "type": "SR Legacy",
+      "source_id": "168917",
+      "retrieval_date": "2026-11-12",
+      "citation": "U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2026."
+    }
+  },
+  {
+    "id": "usda_fdc_168933",
+    "name": "Pasta, cooked, unenriched, without added salt",
+    "common_name": "Cooked Pasta",
+    "food_group": "Cereal Grains and Pasta",
+    "aliases": [
+      "cooked pasta",
+      "pasta",
+      "spaghetti",
+      "boiled pasta",
+      "macaroni",
+      "noodles",
+      "penne"
+    ],
+    "nutrients_per_100g": {
+      "calories": {
+        "value": 158,
+        "unit": "kcal"
+      },
+      "protein_g": {
+        "value": 5.8,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "value": 30.86,
+        "unit": "g"
+      },
+      "fat_g": {
+        "value": 0.93,
+        "unit": "g"
+      },
+      "vitamin_d_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      },
+      "iron_mg": {
+        "value": 0.5,
+        "unit": "mg"
+      },
+      "zinc_mg": {
+        "value": 0.53,
+        "unit": "mg"
+      },
+      "b12_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      }
+    },
+    "serving_weights_g": {
+      "g": 1,
+      "gram": 1,
+      "grams": 1,
+      "kg": 1000,
+      "kilogram": 1000,
+      "kilograms": 1000,
+      "oz": 28.3495,
+      "ounce": 28.3495,
+      "ounces": 28.3495,
+      "lb": 453.592,
+      "pound": 453.592,
+      "cup": 140,
+      "bowl": 200,
+      "serving": 140
+    },
+    "source": {
+      "name": "USDA FoodData Central",
+      "type": "SR Legacy",
+      "source_id": "168933",
+      "retrieval_date": "2026-11-12",
+      "citation": "U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2026."
+    }
+  },
+  {
+    "id": "usda_fdc_172421",
+    "name": "Lentils, mature seeds, cooked, boiled, without salt",
+    "common_name": "Cooked Lentils (Brown / Green Dal)",
+    "food_group": "Legumes and Legume Products",
+    "aliases": [
+      "cooked lentils (brown / green dal)",
+      "lentils",
+      "cooked lentils",
+      "dal",
+      "daal",
+      "boiled lentils",
+      "dhal",
+      "brown lentils",
+      "yellow dal",
+      "cooked dal"
+    ],
+    "nutrients_per_100g": {
+      "calories": {
+        "value": 116,
+        "unit": "kcal"
+      },
+      "protein_g": {
+        "value": 9.02,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "value": 20.13,
+        "unit": "g"
+      },
+      "fat_g": {
+        "value": 0.38,
+        "unit": "g"
+      },
+      "vitamin_d_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      },
+      "iron_mg": {
+        "value": 3.33,
+        "unit": "mg"
+      },
+      "zinc_mg": {
+        "value": 1.27,
+        "unit": "mg"
+      },
+      "b12_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      }
+    },
+    "serving_weights_g": {
+      "g": 1,
+      "gram": 1,
+      "grams": 1,
+      "kg": 1000,
+      "kilogram": 1000,
+      "kilograms": 1000,
+      "oz": 28.3495,
+      "ounce": 28.3495,
+      "ounces": 28.3495,
+      "lb": 453.592,
+      "pound": 453.592,
+      "cup": 198,
+      "tbsp": 12.3,
+      "bowl": 200,
+      "serving": 198,
+      "ladle": 100
+    },
+    "source": {
+      "name": "USDA FoodData Central",
+      "type": "SR Legacy",
+      "source_id": "172421",
+      "retrieval_date": "2026-11-12",
+      "citation": "U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2026."
+    }
+  },
+  {
+    "id": "usda_fdc_172422",
+    "name": "Lentils, pink or red, mature seeds, cooked, boiled, without salt",
+    "common_name": "Cooked Red Lentils (Masoor Dal)",
+    "food_group": "Legumes and Legume Products",
+    "aliases": [
+      "cooked red lentils (masoor dal)",
+      "red lentils",
+      "masoor dal",
+      "masoor",
+      "cooked red lentils",
+      "red dal"
+    ],
+    "nutrients_per_100g": {
+      "calories": {
+        "value": 114,
+        "unit": "kcal"
+      },
+      "protein_g": {
+        "value": 9,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "value": 19.5,
+        "unit": "g"
+      },
+      "fat_g": {
+        "value": 0.35,
+        "unit": "g"
+      },
+      "vitamin_d_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      },
+      "iron_mg": {
+        "value": 3.2,
+        "unit": "mg"
+      },
+      "zinc_mg": {
+        "value": 1.3,
+        "unit": "mg"
+      },
+      "b12_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      }
+    },
+    "serving_weights_g": {
+      "g": 1,
+      "gram": 1,
+      "grams": 1,
+      "kg": 1000,
+      "kilogram": 1000,
+      "kilograms": 1000,
+      "oz": 28.3495,
+      "ounce": 28.3495,
+      "ounces": 28.3495,
+      "lb": 453.592,
+      "pound": 453.592,
+      "cup": 198,
+      "bowl": 200,
+      "serving": 198
+    },
+    "source": {
+      "name": "USDA FoodData Central",
+      "type": "SR Legacy",
+      "source_id": "172422",
+      "retrieval_date": "2026-11-12",
+      "citation": "U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2026."
+    }
+  },
+  {
+    "id": "usda_fdc_173757",
+    "name": "Chickpeas (garbanzo beans, bengal gram), mature seeds, cooked, boiled, without salt",
+    "common_name": "Cooked Chickpeas (Chana)",
+    "food_group": "Legumes and Legume Products",
+    "aliases": [
+      "cooked chickpeas (chana)",
+      "chickpeas",
+      "garbanzo beans",
+      "chana",
+      "chhole",
+      "boiled chickpeas",
+      "gram",
+      "safed chana",
+      "chickpea"
+    ],
+    "nutrients_per_100g": {
+      "calories": {
+        "value": 164,
+        "unit": "kcal"
+      },
+      "protein_g": {
+        "value": 8.86,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "value": 27.42,
+        "unit": "g"
+      },
+      "fat_g": {
+        "value": 2.59,
+        "unit": "g"
+      },
+      "vitamin_d_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      },
+      "iron_mg": {
+        "value": 2.89,
+        "unit": "mg"
+      },
+      "zinc_mg": {
+        "value": 1.53,
+        "unit": "mg"
+      },
+      "b12_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      }
+    },
+    "serving_weights_g": {
+      "g": 1,
+      "gram": 1,
+      "grams": 1,
+      "kg": 1000,
+      "kilogram": 1000,
+      "kilograms": 1000,
+      "oz": 28.3495,
+      "ounce": 28.3495,
+      "ounces": 28.3495,
+      "lb": 453.592,
+      "pound": 453.592,
+      "cup": 164,
+      "tbsp": 10.3,
+      "bowl": 180,
+      "serving": 164
+    },
+    "source": {
+      "name": "USDA FoodData Central",
+      "type": "SR Legacy",
+      "source_id": "173757",
+      "retrieval_date": "2026-11-12",
+      "citation": "U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2026."
+    }
+  },
+  {
+    "id": "usda_fdc_173735",
+    "name": "Beans, black, mature seeds, cooked, boiled, without salt",
+    "common_name": "Cooked Black Beans",
+    "food_group": "Legumes and Legume Products",
+    "aliases": [
+      "cooked black beans",
+      "black beans",
+      "boiled black beans"
+    ],
+    "nutrients_per_100g": {
+      "calories": {
+        "value": 132,
+        "unit": "kcal"
+      },
+      "protein_g": {
+        "value": 8.86,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "value": 23.71,
+        "unit": "g"
+      },
+      "fat_g": {
+        "value": 0.54,
+        "unit": "g"
+      },
+      "vitamin_d_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      },
+      "iron_mg": {
+        "value": 2.11,
+        "unit": "mg"
+      },
+      "zinc_mg": {
+        "value": 1.12,
+        "unit": "mg"
+      },
+      "b12_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      }
+    },
+    "serving_weights_g": {
+      "g": 1,
+      "gram": 1,
+      "grams": 1,
+      "kg": 1000,
+      "kilogram": 1000,
+      "kilograms": 1000,
+      "oz": 28.3495,
+      "ounce": 28.3495,
+      "ounces": 28.3495,
+      "lb": 453.592,
+      "pound": 453.592,
+      "cup": 172,
+      "bowl": 180,
+      "serving": 172
+    },
+    "source": {
+      "name": "USDA FoodData Central",
+      "type": "SR Legacy",
+      "source_id": "173735",
+      "retrieval_date": "2026-11-12",
+      "citation": "U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2026."
+    }
+  },
+  {
+    "id": "usda_fdc_173744",
+    "name": "Beans, kidney, red, mature seeds, cooked, boiled, without salt",
+    "common_name": "Cooked Kidney Beans (Rajma)",
+    "food_group": "Legumes and Legume Products",
+    "aliases": [
+      "cooked kidney beans (rajma)",
+      "kidney beans",
+      "rajma",
+      "red kidney beans",
+      "cooked kidney beans",
+      "boiled rajma"
+    ],
+    "nutrients_per_100g": {
+      "calories": {
+        "value": 127,
+        "unit": "kcal"
+      },
+      "protein_g": {
+        "value": 8.67,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "value": 22.8,
+        "unit": "g"
+      },
+      "fat_g": {
+        "value": 0.5,
+        "unit": "g"
+      },
+      "vitamin_d_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      },
+      "iron_mg": {
+        "value": 2.94,
+        "unit": "mg"
+      },
+      "zinc_mg": {
+        "value": 1.07,
+        "unit": "mg"
+      },
+      "b12_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      }
+    },
+    "serving_weights_g": {
+      "g": 1,
+      "gram": 1,
+      "grams": 1,
+      "kg": 1000,
+      "kilogram": 1000,
+      "kilograms": 1000,
+      "oz": 28.3495,
+      "ounce": 28.3495,
+      "ounces": 28.3495,
+      "lb": 453.592,
+      "pound": 453.592,
+      "cup": 177,
+      "bowl": 200,
+      "serving": 177
+    },
+    "source": {
+      "name": "USDA FoodData Central",
+      "type": "SR Legacy",
+      "source_id": "173744",
+      "retrieval_date": "2026-11-12",
+      "citation": "U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2026."
+    }
+  },
+  {
+    "id": "usda_fdc_172425",
+    "name": "Mung beans, mature seeds, cooked, boiled, without salt (Moong Dal)",
+    "common_name": "Cooked Moong Dal",
+    "food_group": "Legumes and Legume Products",
+    "aliases": [
+      "cooked moong dal",
+      "moong dal",
+      "mung bean",
+      "mung beans",
+      "cooked moong",
+      "yellow moong"
+    ],
+    "nutrients_per_100g": {
+      "calories": {
+        "value": 105,
+        "unit": "kcal"
+      },
+      "protein_g": {
+        "value": 7.02,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "value": 19.15,
+        "unit": "g"
+      },
+      "fat_g": {
+        "value": 0.38,
+        "unit": "g"
+      },
+      "vitamin_d_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      },
+      "iron_mg": {
+        "value": 1.4,
+        "unit": "mg"
+      },
+      "zinc_mg": {
+        "value": 0.84,
+        "unit": "mg"
+      },
+      "b12_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      }
+    },
+    "serving_weights_g": {
+      "g": 1,
+      "gram": 1,
+      "grams": 1,
+      "kg": 1000,
+      "kilogram": 1000,
+      "kilograms": 1000,
+      "oz": 28.3495,
+      "ounce": 28.3495,
+      "ounces": 28.3495,
+      "lb": 453.592,
+      "pound": 453.592,
+      "cup": 202,
+      "bowl": 200,
+      "serving": 202
+    },
+    "source": {
+      "name": "USDA FoodData Central",
+      "type": "SR Legacy",
+      "source_id": "172425",
+      "retrieval_date": "2026-11-12",
+      "citation": "U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2026."
+    }
+  },
+  {
+    "id": "usda_fdc_172448",
+    "name": "Tofu, firm, prepared with calcium sulfate and magnesium chloride (nigari)",
+    "common_name": "Firm Tofu",
+    "food_group": "Legumes and Legume Products",
+    "aliases": [
+      "firm tofu",
+      "tofu",
+      "bean curd",
+      "soy curd"
+    ],
+    "nutrients_per_100g": {
+      "calories": {
+        "value": 83,
+        "unit": "kcal"
+      },
+      "protein_g": {
+        "value": 9.98,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "value": 1.57,
+        "unit": "g"
+      },
+      "fat_g": {
+        "value": 5.26,
+        "unit": "g"
+      },
+      "vitamin_d_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      },
+      "iron_mg": {
+        "value": 1.62,
+        "unit": "mg"
+      },
+      "zinc_mg": {
+        "value": 0.83,
+        "unit": "mg"
+      },
+      "b12_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      }
+    },
+    "serving_weights_g": {
+      "g": 1,
+      "gram": 1,
+      "grams": 1,
+      "kg": 1000,
+      "kilogram": 1000,
+      "kilograms": 1000,
+      "oz": 28.3495,
+      "ounce": 28.3495,
+      "ounces": 28.3495,
+      "lb": 453.592,
+      "pound": 453.592,
+      "block": 126,
+      "slice": 45,
+      "piece": 30,
+      "cup": 252,
+      "serving": 126
+    },
+    "source": {
+      "name": "USDA FoodData Central",
+      "type": "SR Legacy",
+      "source_id": "172448",
+      "retrieval_date": "2026-11-12",
+      "citation": "U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2026."
+    }
+  },
+  {
+    "id": "usda_fdc_168411",
+    "name": "Edamame, frozen, prepared",
+    "common_name": "Cooked Edamame",
+    "food_group": "Legumes and Legume Products",
+    "aliases": [
+      "cooked edamame",
+      "edamame",
+      "soybeans",
+      "green soybeans",
+      "boiled edamame"
+    ],
+    "nutrients_per_100g": {
+      "calories": {
+        "value": 121,
+        "unit": "kcal"
+      },
+      "protein_g": {
+        "value": 11.91,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "value": 8.91,
+        "unit": "g"
+      },
+      "fat_g": {
+        "value": 5.2,
+        "unit": "g"
+      },
+      "vitamin_d_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      },
+      "iron_mg": {
+        "value": 2.27,
+        "unit": "mg"
+      },
+      "zinc_mg": {
+        "value": 1.37,
+        "unit": "mg"
+      },
+      "b12_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      }
+    },
+    "serving_weights_g": {
+      "g": 1,
+      "gram": 1,
+      "grams": 1,
+      "kg": 1000,
+      "kilogram": 1000,
+      "kilograms": 1000,
+      "oz": 28.3495,
+      "ounce": 28.3495,
+      "ounces": 28.3495,
+      "lb": 453.592,
+      "pound": 453.592,
+      "cup": 155,
+      "bowl": 155,
+      "serving": 155
+    },
+    "source": {
+      "name": "USDA FoodData Central",
+      "type": "SR Legacy",
+      "source_id": "168411",
+      "retrieval_date": "2026-11-12",
+      "citation": "U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2026."
+    }
+  },
+  {
+    "id": "usda_fdc_168462",
+    "name": "Spinach, raw",
+    "common_name": "Raw Spinach",
+    "food_group": "Vegetables and Vegetable Products",
+    "aliases": [
+      "raw spinach",
+      "spinach",
+      "fresh spinach",
+      "palak",
+      "spinach leaves"
+    ],
+    "nutrients_per_100g": {
+      "calories": {
+        "value": 23,
+        "unit": "kcal"
+      },
+      "protein_g": {
+        "value": 2.86,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "value": 3.63,
+        "unit": "g"
+      },
+      "fat_g": {
+        "value": 0.39,
+        "unit": "g"
+      },
+      "vitamin_d_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      },
+      "iron_mg": {
+        "value": 2.71,
+        "unit": "mg"
+      },
+      "zinc_mg": {
+        "value": 0.53,
+        "unit": "mg"
+      },
+      "b12_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      }
+    },
+    "serving_weights_g": {
+      "g": 1,
+      "gram": 1,
+      "grams": 1,
+      "kg": 1000,
+      "kilogram": 1000,
+      "kilograms": 1000,
+      "oz": 28.3495,
+      "ounce": 28.3495,
+      "ounces": 28.3495,
+      "lb": 453.592,
+      "pound": 453.592,
+      "cup": 30,
+      "bowl": 60,
+      "leaf": 10,
+      "serving": 30
+    },
+    "source": {
+      "name": "USDA FoodData Central",
+      "type": "SR Legacy",
+      "source_id": "168462",
+      "retrieval_date": "2026-11-12",
+      "citation": "U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2026."
+    }
+  },
+  {
+    "id": "usda_fdc_170460",
+    "name": "Spinach, cooked, boiled, drained, without salt",
+    "common_name": "Boiled Spinach",
+    "food_group": "Vegetables and Vegetable Products",
+    "aliases": [
+      "boiled spinach",
+      "cooked spinach",
+      "steamed spinach",
+      "cooked palak",
+      "saag",
+      "palak saag"
+    ],
+    "nutrients_per_100g": {
+      "calories": {
+        "value": 23,
+        "unit": "kcal"
+      },
+      "protein_g": {
+        "value": 2.97,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "value": 3.75,
+        "unit": "g"
+      },
+      "fat_g": {
+        "value": 0.26,
+        "unit": "g"
+      },
+      "vitamin_d_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      },
+      "iron_mg": {
+        "value": 3.57,
+        "unit": "mg"
+      },
+      "zinc_mg": {
+        "value": 0.76,
+        "unit": "mg"
+      },
+      "b12_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      }
+    },
+    "serving_weights_g": {
+      "g": 1,
+      "gram": 1,
+      "grams": 1,
+      "kg": 1000,
+      "kilogram": 1000,
+      "kilograms": 1000,
+      "oz": 28.3495,
+      "ounce": 28.3495,
+      "ounces": 28.3495,
+      "lb": 453.592,
+      "pound": 453.592,
+      "cup": 180,
+      "bowl": 180,
+      "tbsp": 15,
+      "serving": 180
+    },
+    "source": {
+      "name": "USDA FoodData Central",
+      "type": "SR Legacy",
+      "source_id": "170460",
+      "retrieval_date": "2026-11-12",
+      "citation": "U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2026."
+    }
+  },
+  {
+    "id": "usda_fdc_170379",
+    "name": "Broccoli, raw",
+    "common_name": "Raw Broccoli",
+    "food_group": "Vegetables and Vegetable Products",
+    "aliases": [
+      "raw broccoli",
+      "broccoli",
+      "fresh broccoli",
+      "broccoli florets"
+    ],
+    "nutrients_per_100g": {
+      "calories": {
+        "value": 34,
+        "unit": "kcal"
+      },
+      "protein_g": {
+        "value": 2.82,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "value": 6.64,
+        "unit": "g"
+      },
+      "fat_g": {
+        "value": 0.37,
+        "unit": "g"
+      },
+      "vitamin_d_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      },
+      "iron_mg": {
+        "value": 0.73,
+        "unit": "mg"
+      },
+      "zinc_mg": {
+        "value": 0.41,
+        "unit": "mg"
+      },
+      "b12_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      }
+    },
+    "serving_weights_g": {
+      "g": 1,
+      "gram": 1,
+      "grams": 1,
+      "kg": 1000,
+      "kilogram": 1000,
+      "kilograms": 1000,
+      "oz": 28.3495,
+      "ounce": 28.3495,
+      "ounces": 28.3495,
+      "lb": 453.592,
+      "pound": 453.592,
+      "cup": 91,
+      "stalk": 150,
+      "floret": 20,
+      "serving": 91
+    },
+    "source": {
+      "name": "USDA FoodData Central",
+      "type": "SR Legacy",
+      "source_id": "170379",
+      "retrieval_date": "2026-11-12",
+      "citation": "U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2026."
+    }
+  },
+  {
+    "id": "usda_fdc_170380",
+    "name": "Broccoli, cooked, boiled, drained, without salt",
+    "common_name": "Steamed Broccoli",
+    "food_group": "Vegetables and Vegetable Products",
+    "aliases": [
+      "steamed broccoli",
+      "cooked broccoli",
+      "boiled broccoli"
+    ],
+    "nutrients_per_100g": {
+      "calories": {
+        "value": 35,
+        "unit": "kcal"
+      },
+      "protein_g": {
+        "value": 2.38,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "value": 7.18,
+        "unit": "g"
+      },
+      "fat_g": {
+        "value": 0.41,
+        "unit": "g"
+      },
+      "vitamin_d_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      },
+      "iron_mg": {
+        "value": 0.67,
+        "unit": "mg"
+      },
+      "zinc_mg": {
+        "value": 0.45,
+        "unit": "mg"
+      },
+      "b12_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      }
+    },
+    "serving_weights_g": {
+      "g": 1,
+      "gram": 1,
+      "grams": 1,
+      "kg": 1000,
+      "kilogram": 1000,
+      "kilograms": 1000,
+      "oz": 28.3495,
+      "ounce": 28.3495,
+      "ounces": 28.3495,
+      "lb": 453.592,
+      "pound": 453.592,
+      "cup": 156,
+      "bowl": 150,
+      "serving": 156
+    },
+    "source": {
+      "name": "USDA FoodData Central",
+      "type": "SR Legacy",
+      "source_id": "170380",
+      "retrieval_date": "2026-11-12",
+      "citation": "U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2026."
+    }
+  },
+  {
+    "id": "usda_fdc_170393",
+    "name": "Carrots, raw",
+    "common_name": "Raw Carrots",
+    "food_group": "Vegetables and Vegetable Products",
+    "aliases": [
+      "raw carrots",
+      "carrot",
+      "carrots",
+      "baby carrots",
+      "gajar"
+    ],
+    "nutrients_per_100g": {
+      "calories": {
+        "value": 41,
+        "unit": "kcal"
+      },
+      "protein_g": {
+        "value": 0.93,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "value": 9.58,
+        "unit": "g"
+      },
+      "fat_g": {
+        "value": 0.24,
+        "unit": "g"
+      },
+      "vitamin_d_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      },
+      "iron_mg": {
+        "value": 0.3,
+        "unit": "mg"
+      },
+      "zinc_mg": {
+        "value": 0.24,
+        "unit": "mg"
+      },
+      "b12_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      }
+    },
+    "serving_weights_g": {
+      "g": 1,
+      "gram": 1,
+      "grams": 1,
+      "kg": 1000,
+      "kilogram": 1000,
+      "kilograms": 1000,
+      "oz": 28.3495,
+      "ounce": 28.3495,
+      "ounces": 28.3495,
+      "lb": 453.592,
+      "pound": 453.592,
+      "medium": 61,
+      "large": 72,
+      "cup": 128,
+      "slice": 5,
+      "serving": 61
+    },
+    "source": {
+      "name": "USDA FoodData Central",
+      "type": "SR Legacy",
+      "source_id": "170393",
+      "retrieval_date": "2026-11-12",
+      "citation": "U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2026."
+    }
+  },
+  {
+    "id": "usda_fdc_170108",
+    "name": "Peppers, sweet, red, raw",
+    "common_name": "Red Bell Pepper",
+    "food_group": "Vegetables and Vegetable Products",
+    "aliases": [
+      "red bell pepper",
+      "red pepper",
+      "bell pepper",
+      "capsicum",
+      "sweet pepper",
+      "red capsicum"
+    ],
+    "nutrients_per_100g": {
+      "calories": {
+        "value": 31,
+        "unit": "kcal"
+      },
+      "protein_g": {
+        "value": 0.99,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "value": 6.03,
+        "unit": "g"
+      },
+      "fat_g": {
+        "value": 0.3,
+        "unit": "g"
+      },
+      "vitamin_d_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      },
+      "iron_mg": {
+        "value": 0.43,
+        "unit": "mg"
+      },
+      "zinc_mg": {
+        "value": 0.25,
+        "unit": "mg"
+      },
+      "b12_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      }
+    },
+    "serving_weights_g": {
+      "g": 1,
+      "gram": 1,
+      "grams": 1,
+      "kg": 1000,
+      "kilogram": 1000,
+      "kilograms": 1000,
+      "oz": 28.3495,
+      "ounce": 28.3495,
+      "ounces": 28.3495,
+      "lb": 453.592,
+      "pound": 453.592,
+      "medium": 119,
+      "cup": 149,
+      "slice": 10,
+      "serving": 119
+    },
+    "source": {
+      "name": "USDA FoodData Central",
+      "type": "SR Legacy",
+      "source_id": "170108",
+      "retrieval_date": "2026-11-12",
+      "citation": "U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2026."
+    }
+  },
+  {
+    "id": "usda_fdc_170106",
+    "name": "Peppers, sweet, green, raw",
+    "common_name": "Green Bell Pepper",
+    "food_group": "Vegetables and Vegetable Products",
+    "aliases": [
+      "green bell pepper",
+      "green pepper",
+      "green capsicum",
+      "shimla mirch"
+    ],
+    "nutrients_per_100g": {
+      "calories": {
+        "value": 20,
+        "unit": "kcal"
+      },
+      "protein_g": {
+        "value": 0.86,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "value": 4.64,
+        "unit": "g"
+      },
+      "fat_g": {
+        "value": 0.17,
+        "unit": "g"
+      },
+      "vitamin_d_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      },
+      "iron_mg": {
+        "value": 0.34,
+        "unit": "mg"
+      },
+      "zinc_mg": {
+        "value": 0.13,
+        "unit": "mg"
+      },
+      "b12_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      }
+    },
+    "serving_weights_g": {
+      "g": 1,
+      "gram": 1,
+      "grams": 1,
+      "kg": 1000,
+      "kilogram": 1000,
+      "kilograms": 1000,
+      "oz": 28.3495,
+      "ounce": 28.3495,
+      "ounces": 28.3495,
+      "lb": 453.592,
+      "pound": 453.592,
+      "medium": 119,
+      "cup": 149,
+      "slice": 10,
+      "serving": 119
+    },
+    "source": {
+      "name": "USDA FoodData Central",
+      "type": "SR Legacy",
+      "source_id": "170106",
+      "retrieval_date": "2026-11-12",
+      "citation": "U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2026."
+    }
+  },
+  {
+    "id": "usda_fdc_170457",
+    "name": "Tomatoes, red, ripe, raw, year round average",
+    "common_name": "Raw Tomato",
+    "food_group": "Vegetables and Vegetable Products",
+    "aliases": [
+      "raw tomato",
+      "tomato",
+      "tomatoes",
+      "fresh tomato",
+      "tamatar"
+    ],
+    "nutrients_per_100g": {
+      "calories": {
+        "value": 18,
+        "unit": "kcal"
+      },
+      "protein_g": {
+        "value": 0.88,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "value": 3.89,
+        "unit": "g"
+      },
+      "fat_g": {
+        "value": 0.2,
+        "unit": "g"
+      },
+      "vitamin_d_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      },
+      "iron_mg": {
+        "value": 0.27,
+        "unit": "mg"
+      },
+      "zinc_mg": {
+        "value": 0.17,
+        "unit": "mg"
+      },
+      "b12_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      }
+    },
+    "serving_weights_g": {
+      "g": 1,
+      "gram": 1,
+      "grams": 1,
+      "kg": 1000,
+      "kilogram": 1000,
+      "kilograms": 1000,
+      "oz": 28.3495,
+      "ounce": 28.3495,
+      "ounces": 28.3495,
+      "lb": 453.592,
+      "pound": 453.592,
+      "medium": 123,
+      "large": 182,
+      "slice": 20,
+      "cup": 180,
+      "serving": 123
+    },
+    "source": {
+      "name": "USDA FoodData Central",
+      "type": "SR Legacy",
+      "source_id": "170457",
+      "retrieval_date": "2026-11-12",
+      "citation": "U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2026."
+    }
+  },
+  {
+    "id": "usda_fdc_170028",
+    "name": "Potatoes, boiled, cooked in skin, flesh, without salt",
+    "common_name": "Boiled Potato",
+    "food_group": "Vegetables and Vegetable Products",
+    "aliases": [
+      "boiled potato",
+      "potato",
+      "potatoes",
+      "cooked potato",
+      "aloo"
+    ],
+    "nutrients_per_100g": {
+      "calories": {
+        "value": 87,
+        "unit": "kcal"
+      },
+      "protein_g": {
+        "value": 1.87,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "value": 20.01,
+        "unit": "g"
+      },
+      "fat_g": {
+        "value": 0.1,
+        "unit": "g"
+      },
+      "vitamin_d_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      },
+      "iron_mg": {
+        "value": 0.31,
+        "unit": "mg"
+      },
+      "zinc_mg": {
+        "value": 0.29,
+        "unit": "mg"
+      },
+      "b12_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      }
+    },
+    "serving_weights_g": {
+      "g": 1,
+      "gram": 1,
+      "grams": 1,
+      "kg": 1000,
+      "kilogram": 1000,
+      "kilograms": 1000,
+      "oz": 28.3495,
+      "ounce": 28.3495,
+      "ounces": 28.3495,
+      "lb": 453.592,
+      "pound": 453.592,
+      "medium": 213,
+      "large": 299,
+      "small": 138,
+      "serving": 213
+    },
+    "source": {
+      "name": "USDA FoodData Central",
+      "type": "SR Legacy",
+      "source_id": "170028",
+      "retrieval_date": "2026-11-12",
+      "citation": "U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2026."
+    }
+  },
+  {
+    "id": "usda_fdc_168483",
+    "name": "Sweet potato, cooked, baked in skin, flesh, without salt",
+    "common_name": "Baked Sweet Potato",
+    "food_group": "Vegetables and Vegetable Products",
+    "aliases": [
+      "baked sweet potato",
+      "sweet potato",
+      "yam",
+      "cooked sweet potato",
+      "shakarkandi"
+    ],
+    "nutrients_per_100g": {
+      "calories": {
+        "value": 90,
+        "unit": "kcal"
+      },
+      "protein_g": {
+        "value": 2.01,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "value": 20.71,
+        "unit": "g"
+      },
+      "fat_g": {
+        "value": 0.15,
+        "unit": "g"
+      },
+      "vitamin_d_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      },
+      "iron_mg": {
+        "value": 0.69,
+        "unit": "mg"
+      },
+      "zinc_mg": {
+        "value": 0.32,
+        "unit": "mg"
+      },
+      "b12_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      }
+    },
+    "serving_weights_g": {
+      "g": 1,
+      "gram": 1,
+      "grams": 1,
+      "kg": 1000,
+      "kilogram": 1000,
+      "kilograms": 1000,
+      "oz": 28.3495,
+      "ounce": 28.3495,
+      "ounces": 28.3495,
+      "lb": 453.592,
+      "pound": 453.592,
+      "medium": 114,
+      "large": 180,
+      "cup": 200,
+      "serving": 114
+    },
+    "source": {
+      "name": "USDA FoodData Central",
+      "type": "SR Legacy",
+      "source_id": "168483",
+      "retrieval_date": "2026-11-12",
+      "citation": "U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2026."
+    }
+  },
+  {
+    "id": "usda_fdc_170000",
+    "name": "Onions, raw",
+    "common_name": "Raw Onion",
+    "food_group": "Vegetables and Vegetable Products",
+    "aliases": [
+      "raw onion",
+      "onion",
+      "onions",
+      "pyaz",
+      "sliced onion"
+    ],
+    "nutrients_per_100g": {
+      "calories": {
+        "value": 40,
+        "unit": "kcal"
+      },
+      "protein_g": {
+        "value": 1.1,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "value": 9.34,
+        "unit": "g"
+      },
+      "fat_g": {
+        "value": 0.1,
+        "unit": "g"
+      },
+      "vitamin_d_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      },
+      "iron_mg": {
+        "value": 0.21,
+        "unit": "mg"
+      },
+      "zinc_mg": {
+        "value": 0.17,
+        "unit": "mg"
+      },
+      "b12_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      }
+    },
+    "serving_weights_g": {
+      "g": 1,
+      "gram": 1,
+      "grams": 1,
+      "kg": 1000,
+      "kilogram": 1000,
+      "kilograms": 1000,
+      "oz": 28.3495,
+      "ounce": 28.3495,
+      "ounces": 28.3495,
+      "lb": 453.592,
+      "pound": 453.592,
+      "medium": 110,
+      "large": 150,
+      "slice": 10,
+      "cup": 160,
+      "serving": 110
+    },
+    "source": {
+      "name": "USDA FoodData Central",
+      "type": "SR Legacy",
+      "source_id": "170000",
+      "retrieval_date": "2026-11-12",
+      "citation": "U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2026."
+    }
+  },
+  {
+    "id": "usda_fdc_169230",
+    "name": "Garlic, raw",
+    "common_name": "Raw Garlic",
+    "food_group": "Vegetables and Vegetable Products",
+    "aliases": [
+      "raw garlic",
+      "garlic",
+      "garlic clove",
+      "lahsun"
+    ],
+    "nutrients_per_100g": {
+      "calories": {
+        "value": 149,
+        "unit": "kcal"
+      },
+      "protein_g": {
+        "value": 6.36,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "value": 33.06,
+        "unit": "g"
+      },
+      "fat_g": {
+        "value": 0.5,
+        "unit": "g"
+      },
+      "vitamin_d_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      },
+      "iron_mg": {
+        "value": 1.7,
+        "unit": "mg"
+      },
+      "zinc_mg": {
+        "value": 1.16,
+        "unit": "mg"
+      },
+      "b12_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      }
+    },
+    "serving_weights_g": {
+      "g": 1,
+      "gram": 1,
+      "grams": 1,
+      "kg": 1000,
+      "kilogram": 1000,
+      "kilograms": 1000,
+      "oz": 28.3495,
+      "ounce": 28.3495,
+      "ounces": 28.3495,
+      "lb": 453.592,
+      "pound": 453.592,
+      "clove": 3,
+      "tsp": 3,
+      "tbsp": 9,
+      "serving": 3
+    },
+    "source": {
+      "name": "USDA FoodData Central",
+      "type": "SR Legacy",
+      "source_id": "169230",
+      "retrieval_date": "2026-11-12",
+      "citation": "U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2026."
+    }
+  },
+  {
+    "id": "usda_fdc_169251",
+    "name": "Mushrooms, white, raw",
+    "common_name": "White Button Mushrooms",
+    "food_group": "Vegetables and Vegetable Products",
+    "aliases": [
+      "white button mushrooms",
+      "mushrooms",
+      "white mushrooms",
+      "button mushrooms",
+      "raw mushrooms",
+      "mushroom"
+    ],
+    "nutrients_per_100g": {
+      "calories": {
+        "value": 22,
+        "unit": "kcal"
+      },
+      "protein_g": {
+        "value": 3.09,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "value": 3.26,
+        "unit": "g"
+      },
+      "fat_g": {
+        "value": 0.34,
+        "unit": "g"
+      },
+      "vitamin_d_mcg": {
+        "value": 0.2,
+        "unit": "mcg"
+      },
+      "iron_mg": {
+        "value": 0.5,
+        "unit": "mg"
+      },
+      "zinc_mg": {
+        "value": 0.52,
+        "unit": "mg"
+      },
+      "b12_mcg": {
+        "value": 0.04,
+        "unit": "mcg"
+      }
+    },
+    "serving_weights_g": {
+      "g": 1,
+      "gram": 1,
+      "grams": 1,
+      "kg": 1000,
+      "kilogram": 1000,
+      "kilograms": 1000,
+      "oz": 28.3495,
+      "ounce": 28.3495,
+      "ounces": 28.3495,
+      "lb": 453.592,
+      "pound": 453.592,
+      "cup": 70,
+      "medium": 18,
+      "piece": 18,
+      "serving": 70
+    },
+    "source": {
+      "name": "USDA FoodData Central",
+      "type": "SR Legacy",
+      "source_id": "169251",
+      "retrieval_date": "2026-11-12",
+      "citation": "U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2026."
+    }
+  },
+  {
+    "id": "usda_fdc_169987",
+    "name": "Cauliflower, cooked, boiled, drained, without salt",
+    "common_name": "Cooked Cauliflower",
+    "food_group": "Vegetables and Vegetable Products",
+    "aliases": [
+      "cooked cauliflower",
+      "cauliflower",
+      "boiled cauliflower",
+      "gobi",
+      "steamed cauliflower"
+    ],
+    "nutrients_per_100g": {
+      "calories": {
+        "value": 23,
+        "unit": "kcal"
+      },
+      "protein_g": {
+        "value": 1.84,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "value": 4.11,
+        "unit": "g"
+      },
+      "fat_g": {
+        "value": 0.45,
+        "unit": "g"
+      },
+      "vitamin_d_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      },
+      "iron_mg": {
+        "value": 0.42,
+        "unit": "mg"
+      },
+      "zinc_mg": {
+        "value": 0.27,
+        "unit": "mg"
+      },
+      "b12_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      }
+    },
+    "serving_weights_g": {
+      "g": 1,
+      "gram": 1,
+      "grams": 1,
+      "kg": 1000,
+      "kilogram": 1000,
+      "kilograms": 1000,
+      "oz": 28.3495,
+      "ounce": 28.3495,
+      "ounces": 28.3495,
+      "lb": 453.592,
+      "pound": 453.592,
+      "cup": 124,
+      "piece": 25,
+      "bowl": 150,
+      "serving": 124
+    },
+    "source": {
+      "name": "USDA FoodData Central",
+      "type": "SR Legacy",
+      "source_id": "169987",
+      "retrieval_date": "2026-11-12",
+      "citation": "U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2026."
+    }
+  },
+  {
+    "id": "usda_fdc_169225",
+    "name": "Cucumber, with peel, raw",
+    "common_name": "Raw Cucumber",
+    "food_group": "Vegetables and Vegetable Products",
+    "aliases": [
+      "raw cucumber",
+      "cucumber",
+      "kheera",
+      "cucumber slices"
+    ],
+    "nutrients_per_100g": {
+      "calories": {
+        "value": 15,
+        "unit": "kcal"
+      },
+      "protein_g": {
+        "value": 0.65,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "value": 3.63,
+        "unit": "g"
+      },
+      "fat_g": {
+        "value": 0.11,
+        "unit": "g"
+      },
+      "vitamin_d_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      },
+      "iron_mg": {
+        "value": 0.28,
+        "unit": "mg"
+      },
+      "zinc_mg": {
+        "value": 0.2,
+        "unit": "mg"
+      },
+      "b12_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      }
+    },
+    "serving_weights_g": {
+      "g": 1,
+      "gram": 1,
+      "grams": 1,
+      "kg": 1000,
+      "kilogram": 1000,
+      "kilograms": 1000,
+      "oz": 28.3495,
+      "ounce": 28.3495,
+      "ounces": 28.3495,
+      "lb": 453.592,
+      "pound": 453.592,
+      "medium": 201,
+      "slice": 8,
+      "cup": 104,
+      "serving": 104
+    },
+    "source": {
+      "name": "USDA FoodData Central",
+      "type": "SR Legacy",
+      "source_id": "169225",
+      "retrieval_date": "2026-11-12",
+      "citation": "U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2026."
+    }
+  },
+  {
+    "id": "usda_fdc_170419",
+    "name": "Peas, green, cooked, boiled, drained, without salt",
+    "common_name": "Cooked Green Peas",
+    "food_group": "Vegetables and Vegetable Products",
+    "aliases": [
+      "cooked green peas",
+      "green peas",
+      "peas",
+      "matar",
+      "boiled peas",
+      "cooked peas"
+    ],
+    "nutrients_per_100g": {
+      "calories": {
+        "value": 84,
+        "unit": "kcal"
+      },
+      "protein_g": {
+        "value": 5.36,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "value": 15.63,
+        "unit": "g"
+      },
+      "fat_g": {
+        "value": 0.22,
+        "unit": "g"
+      },
+      "vitamin_d_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      },
+      "iron_mg": {
+        "value": 1.47,
+        "unit": "mg"
+      },
+      "zinc_mg": {
+        "value": 1.19,
+        "unit": "mg"
+      },
+      "b12_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      }
+    },
+    "serving_weights_g": {
+      "g": 1,
+      "gram": 1,
+      "grams": 1,
+      "kg": 1000,
+      "kilogram": 1000,
+      "kilograms": 1000,
+      "oz": 28.3495,
+      "ounce": 28.3495,
+      "ounces": 28.3495,
+      "lb": 453.592,
+      "pound": 453.592,
+      "cup": 160,
+      "bowl": 160,
+      "tbsp": 15,
+      "serving": 160
+    },
+    "source": {
+      "name": "USDA FoodData Central",
+      "type": "SR Legacy",
+      "source_id": "170419",
+      "retrieval_date": "2026-11-12",
+      "citation": "U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2026."
+    }
+  },
+  {
+    "id": "usda_fdc_171688",
+    "name": "Apples, raw, with skin",
+    "common_name": "Raw Apple with Skin",
+    "food_group": "Fruits and Fruit Juices",
+    "aliases": [
+      "raw apple with skin",
+      "apple",
+      "apples",
+      "fresh apple",
+      "red apple",
+      "seb"
+    ],
+    "nutrients_per_100g": {
+      "calories": {
+        "value": 52,
+        "unit": "kcal"
+      },
+      "protein_g": {
+        "value": 0.26,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "value": 13.81,
+        "unit": "g"
+      },
+      "fat_g": {
+        "value": 0.17,
+        "unit": "g"
+      },
+      "vitamin_d_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      },
+      "iron_mg": {
+        "value": 0.12,
+        "unit": "mg"
+      },
+      "zinc_mg": {
+        "value": 0.04,
+        "unit": "mg"
+      },
+      "b12_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      }
+    },
+    "serving_weights_g": {
+      "g": 1,
+      "gram": 1,
+      "grams": 1,
+      "kg": 1000,
+      "kilogram": 1000,
+      "kilograms": 1000,
+      "oz": 28.3495,
+      "ounce": 28.3495,
+      "ounces": 28.3495,
+      "lb": 453.592,
+      "pound": 453.592,
+      "medium": 182,
+      "large": 223,
+      "small": 149,
+      "cup": 125,
+      "slice": 20,
+      "serving": 182
+    },
+    "source": {
+      "name": "USDA FoodData Central",
+      "type": "SR Legacy",
+      "source_id": "171688",
+      "retrieval_date": "2026-11-12",
+      "citation": "U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2026."
+    }
+  },
+  {
+    "id": "usda_fdc_173944",
+    "name": "Bananas, raw",
+    "common_name": "Raw Banana",
+    "food_group": "Fruits and Fruit Juices",
+    "aliases": [
+      "raw banana",
+      "banana",
+      "bananas",
+      "fresh banana",
+      "kela"
+    ],
+    "nutrients_per_100g": {
+      "calories": {
+        "value": 89,
+        "unit": "kcal"
+      },
+      "protein_g": {
+        "value": 1.09,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "value": 22.84,
+        "unit": "g"
+      },
+      "fat_g": {
+        "value": 0.33,
+        "unit": "g"
+      },
+      "vitamin_d_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      },
+      "iron_mg": {
+        "value": 0.26,
+        "unit": "mg"
+      },
+      "zinc_mg": {
+        "value": 0.15,
+        "unit": "mg"
+      },
+      "b12_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      }
+    },
+    "serving_weights_g": {
+      "g": 1,
+      "gram": 1,
+      "grams": 1,
+      "kg": 1000,
+      "kilogram": 1000,
+      "kilograms": 1000,
+      "oz": 28.3495,
+      "ounce": 28.3495,
+      "ounces": 28.3495,
+      "lb": 453.592,
+      "pound": 453.592,
+      "medium": 118,
+      "large": 136,
+      "small": 101,
+      "serving": 118
+    },
+    "source": {
+      "name": "USDA FoodData Central",
+      "type": "SR Legacy",
+      "source_id": "173944",
+      "retrieval_date": "2026-11-12",
+      "citation": "U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2026."
+    }
+  },
+  {
+    "id": "usda_fdc_169097",
+    "name": "Oranges, raw, all commercial varieties",
+    "common_name": "Raw Orange",
+    "food_group": "Fruits and Fruit Juices",
+    "aliases": [
+      "raw orange",
+      "orange",
+      "oranges",
+      "fresh orange",
+      "santra"
+    ],
+    "nutrients_per_100g": {
+      "calories": {
+        "value": 47,
+        "unit": "kcal"
+      },
+      "protein_g": {
+        "value": 0.94,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "value": 11.75,
+        "unit": "g"
+      },
+      "fat_g": {
+        "value": 0.12,
+        "unit": "g"
+      },
+      "vitamin_d_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      },
+      "iron_mg": {
+        "value": 0.1,
+        "unit": "mg"
+      },
+      "zinc_mg": {
+        "value": 0.07,
+        "unit": "mg"
+      },
+      "b12_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      }
+    },
+    "serving_weights_g": {
+      "g": 1,
+      "gram": 1,
+      "grams": 1,
+      "kg": 1000,
+      "kilogram": 1000,
+      "kilograms": 1000,
+      "oz": 28.3495,
+      "ounce": 28.3495,
+      "ounces": 28.3495,
+      "lb": 453.592,
+      "pound": 453.592,
+      "medium": 131,
+      "large": 184,
+      "small": 96,
+      "serving": 131
+    },
+    "source": {
+      "name": "USDA FoodData Central",
+      "type": "SR Legacy",
+      "source_id": "169097",
+      "retrieval_date": "2026-11-12",
+      "citation": "U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2026."
+    }
+  },
+  {
+    "id": "usda_fdc_171711",
+    "name": "Blueberries, raw",
+    "common_name": "Fresh Blueberries",
+    "food_group": "Fruits and Fruit Juices",
+    "aliases": [
+      "fresh blueberries",
+      "blueberries",
+      "berries"
+    ],
+    "nutrients_per_100g": {
+      "calories": {
+        "value": 57,
+        "unit": "kcal"
+      },
+      "protein_g": {
+        "value": 0.74,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "value": 14.49,
+        "unit": "g"
+      },
+      "fat_g": {
+        "value": 0.33,
+        "unit": "g"
+      },
+      "vitamin_d_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      },
+      "iron_mg": {
+        "value": 0.28,
+        "unit": "mg"
+      },
+      "zinc_mg": {
+        "value": 0.16,
+        "unit": "mg"
+      },
+      "b12_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      }
+    },
+    "serving_weights_g": {
+      "g": 1,
+      "gram": 1,
+      "grams": 1,
+      "kg": 1000,
+      "kilogram": 1000,
+      "kilograms": 1000,
+      "oz": 28.3495,
+      "ounce": 28.3495,
+      "ounces": 28.3495,
+      "lb": 453.592,
+      "pound": 453.592,
+      "cup": 148,
+      "handful": 40,
+      "serving": 148
+    },
+    "source": {
+      "name": "USDA FoodData Central",
+      "type": "SR Legacy",
+      "source_id": "171711",
+      "retrieval_date": "2026-11-12",
+      "citation": "U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2026."
+    }
+  },
+  {
+    "id": "usda_fdc_167762",
+    "name": "Strawberries, raw",
+    "common_name": "Fresh Strawberries",
+    "food_group": "Fruits and Fruit Juices",
+    "aliases": [
+      "fresh strawberries",
+      "strawberries",
+      "strawberry"
+    ],
+    "nutrients_per_100g": {
+      "calories": {
+        "value": 32,
+        "unit": "kcal"
+      },
+      "protein_g": {
+        "value": 0.67,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "value": 7.68,
+        "unit": "g"
+      },
+      "fat_g": {
+        "value": 0.3,
+        "unit": "g"
+      },
+      "vitamin_d_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      },
+      "iron_mg": {
+        "value": 0.41,
+        "unit": "mg"
+      },
+      "zinc_mg": {
+        "value": 0.14,
+        "unit": "mg"
+      },
+      "b12_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      }
+    },
+    "serving_weights_g": {
+      "g": 1,
+      "gram": 1,
+      "grams": 1,
+      "kg": 1000,
+      "kilogram": 1000,
+      "kilograms": 1000,
+      "oz": 28.3495,
+      "ounce": 28.3495,
+      "ounces": 28.3495,
+      "lb": 453.592,
+      "pound": 453.592,
+      "cup": 152,
+      "berry": 18,
+      "large": 20,
+      "serving": 152
+    },
+    "source": {
+      "name": "USDA FoodData Central",
+      "type": "SR Legacy",
+      "source_id": "167762",
+      "retrieval_date": "2026-11-12",
+      "citation": "U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2026."
+    }
+  },
+  {
+    "id": "usda_fdc_169910",
+    "name": "Mangos, raw",
+    "common_name": "Fresh Mango",
+    "food_group": "Fruits and Fruit Juices",
+    "aliases": [
+      "fresh mango",
+      "mango",
+      "mangos",
+      "aam"
+    ],
+    "nutrients_per_100g": {
+      "calories": {
+        "value": 60,
+        "unit": "kcal"
+      },
+      "protein_g": {
+        "value": 0.82,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "value": 14.98,
+        "unit": "g"
+      },
+      "fat_g": {
+        "value": 0.38,
+        "unit": "g"
+      },
+      "vitamin_d_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      },
+      "iron_mg": {
+        "value": 0.16,
+        "unit": "mg"
+      },
+      "zinc_mg": {
+        "value": 0.09,
+        "unit": "mg"
+      },
+      "b12_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      }
+    },
+    "serving_weights_g": {
+      "g": 1,
+      "gram": 1,
+      "grams": 1,
+      "kg": 1000,
+      "kilogram": 1000,
+      "kilograms": 1000,
+      "oz": 28.3495,
+      "ounce": 28.3495,
+      "ounces": 28.3495,
+      "lb": 453.592,
+      "pound": 453.592,
+      "medium": 200,
+      "cup": 165,
+      "slice": 25,
+      "serving": 165
+    },
+    "source": {
+      "name": "USDA FoodData Central",
+      "type": "SR Legacy",
+      "source_id": "169910",
+      "retrieval_date": "2026-11-12",
+      "citation": "U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2026."
+    }
+  },
+  {
+    "id": "usda_fdc_171705",
+    "name": "Avocados, raw, all commercial varieties",
+    "common_name": "Fresh Avocado",
+    "food_group": "Fruits and Fruit Juices",
+    "aliases": [
+      "fresh avocado",
+      "avocado",
+      "avocados",
+      "guacamole"
+    ],
+    "nutrients_per_100g": {
+      "calories": {
+        "value": 160,
+        "unit": "kcal"
+      },
+      "protein_g": {
+        "value": 2,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "value": 8.53,
+        "unit": "g"
+      },
+      "fat_g": {
+        "value": 14.66,
+        "unit": "g"
+      },
+      "vitamin_d_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      },
+      "iron_mg": {
+        "value": 0.55,
+        "unit": "mg"
+      },
+      "zinc_mg": {
+        "value": 0.64,
+        "unit": "mg"
+      },
+      "b12_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      }
+    },
+    "serving_weights_g": {
+      "g": 1,
+      "gram": 1,
+      "grams": 1,
+      "kg": 1000,
+      "kilogram": 1000,
+      "kilograms": 1000,
+      "oz": 28.3495,
+      "ounce": 28.3495,
+      "ounces": 28.3495,
+      "lb": 453.592,
+      "pound": 453.592,
+      "medium": 150,
+      "slice": 25,
+      "half": 75,
+      "cup": 150,
+      "serving": 150
+    },
+    "source": {
+      "name": "USDA FoodData Central",
+      "type": "SR Legacy",
+      "source_id": "171705",
+      "retrieval_date": "2026-11-12",
+      "citation": "U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2026."
+    }
+  },
+  {
+    "id": "usda_fdc_171265",
+    "name": "Milk, whole, 3.25% milkfat, with added vitamin D",
+    "common_name": "Whole Milk (3.25%)",
+    "food_group": "Dairy and Egg Products",
+    "aliases": [
+      "whole milk (3.25%)",
+      "whole milk",
+      "milk",
+      "cow milk",
+      "full cream milk",
+      "doodh"
+    ],
+    "nutrients_per_100g": {
+      "calories": {
+        "value": 61,
+        "unit": "kcal"
+      },
+      "protein_g": {
+        "value": 3.15,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "value": 4.8,
+        "unit": "g"
+      },
+      "fat_g": {
+        "value": 3.25,
+        "unit": "g"
+      },
+      "vitamin_d_mcg": {
+        "value": 1.25,
+        "unit": "mcg"
+      },
+      "iron_mg": {
+        "value": 0.03,
+        "unit": "mg"
+      },
+      "zinc_mg": {
+        "value": 0.4,
+        "unit": "mg"
+      },
+      "b12_mcg": {
+        "value": 0.45,
+        "unit": "mcg"
+      }
+    },
+    "serving_weights_g": {
+      "g": 1,
+      "gram": 1,
+      "grams": 1,
+      "kg": 1000,
+      "kilogram": 1000,
+      "kilograms": 1000,
+      "oz": 28.3495,
+      "ounce": 28.3495,
+      "ounces": 28.3495,
+      "lb": 453.592,
+      "pound": 453.592,
+      "cup": 244,
+      "glass": 250,
+      "tbsp": 15,
+      "serving": 244
+    },
+    "source": {
+      "name": "USDA FoodData Central",
+      "type": "SR Legacy",
+      "source_id": "171265",
+      "retrieval_date": "2026-11-12",
+      "citation": "U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2026."
+    }
+  },
+  {
+    "id": "usda_fdc_171269",
+    "name": "Milk, nonfat, fluid, with added vitamin A and vitamin D (fat free or skim)",
+    "common_name": "Skim Milk / Nonfat Milk",
+    "food_group": "Dairy and Egg Products",
+    "aliases": [
+      "skim milk / nonfat milk",
+      "skim milk",
+      "milk",
+      "nonfat milk",
+      "fat free milk",
+      "skimmed milk"
+    ],
+    "nutrients_per_100g": {
+      "calories": {
+        "value": 34,
+        "unit": "kcal"
+      },
+      "protein_g": {
+        "value": 3.37,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "value": 4.96,
+        "unit": "g"
+      },
+      "fat_g": {
+        "value": 0.08,
+        "unit": "g"
+      },
+      "vitamin_d_mcg": {
+        "value": 1.3,
+        "unit": "mcg"
+      },
+      "iron_mg": {
+        "value": 0.03,
+        "unit": "mg"
+      },
+      "zinc_mg": {
+        "value": 0.42,
+        "unit": "mg"
+      },
+      "b12_mcg": {
+        "value": 0.46,
+        "unit": "mcg"
+      }
+    },
+    "serving_weights_g": {
+      "g": 1,
+      "gram": 1,
+      "grams": 1,
+      "kg": 1000,
+      "kilogram": 1000,
+      "kilograms": 1000,
+      "oz": 28.3495,
+      "ounce": 28.3495,
+      "ounces": 28.3495,
+      "lb": 453.592,
+      "pound": 453.592,
+      "cup": 245,
+      "glass": 250,
+      "tbsp": 15,
+      "serving": 245
+    },
+    "source": {
+      "name": "USDA FoodData Central",
+      "type": "SR Legacy",
+      "source_id": "171269",
+      "retrieval_date": "2026-11-12",
+      "citation": "U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2026."
+    }
+  },
+  {
+    "id": "usda_fdc_174833",
+    "name": "Soymilk (all flavors), enhanced",
+    "common_name": "Fortified Soy Milk",
+    "food_group": "Legumes and Legume Products",
+    "aliases": [
+      "fortified soy milk",
+      "soy milk",
+      "soymilk",
+      "soya milk"
+    ],
+    "nutrients_per_100g": {
+      "calories": {
+        "value": 45,
+        "unit": "kcal"
+      },
+      "protein_g": {
+        "value": 2.94,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "value": 3.45,
+        "unit": "g"
+      },
+      "fat_g": {
+        "value": 1.98,
+        "unit": "g"
+      },
+      "vitamin_d_mcg": {
+        "value": 1.15,
+        "unit": "mcg"
+      },
+      "iron_mg": {
+        "value": 0.6,
+        "unit": "mg"
+      },
+      "zinc_mg": {
+        "value": 0.25,
+        "unit": "mg"
+      },
+      "b12_mcg": {
+        "value": 1.11,
+        "unit": "mcg"
+      }
+    },
+    "serving_weights_g": {
+      "g": 1,
+      "gram": 1,
+      "grams": 1,
+      "kg": 1000,
+      "kilogram": 1000,
+      "kilograms": 1000,
+      "oz": 28.3495,
+      "ounce": 28.3495,
+      "ounces": 28.3495,
+      "lb": 453.592,
+      "pound": 453.592,
+      "cup": 243,
+      "glass": 250,
+      "serving": 243
+    },
+    "source": {
+      "name": "USDA FoodData Central",
+      "type": "SR Legacy",
+      "source_id": "174833",
+      "retrieval_date": "2026-11-12",
+      "citation": "U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2026."
+    }
+  },
+  {
+    "id": "usda_fdc_174832",
+    "name": "Beverages, almond milk, unsweetened, shelf stable",
+    "common_name": "Unsweetened Almond Milk",
+    "food_group": "Legumes and Legume Products",
+    "aliases": [
+      "unsweetened almond milk",
+      "almond milk"
+    ],
+    "nutrients_per_100g": {
+      "calories": {
+        "value": 15,
+        "unit": "kcal"
+      },
+      "protein_g": {
+        "value": 0.55,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "value": 0.34,
+        "unit": "g"
+      },
+      "fat_g": {
+        "value": 1.1,
+        "unit": "g"
+      },
+      "vitamin_d_mcg": {
+        "value": 1.07,
+        "unit": "mcg"
+      },
+      "iron_mg": {
+        "value": 0.28,
+        "unit": "mg"
+      },
+      "zinc_mg": {
+        "value": 0.04,
+        "unit": "mg"
+      },
+      "b12_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      }
+    },
+    "serving_weights_g": {
+      "g": 1,
+      "gram": 1,
+      "grams": 1,
+      "kg": 1000,
+      "kilogram": 1000,
+      "kilograms": 1000,
+      "oz": 28.3495,
+      "ounce": 28.3495,
+      "ounces": 28.3495,
+      "lb": 453.592,
+      "pound": 453.592,
+      "cup": 240,
+      "glass": 250,
+      "serving": 240
+    },
+    "source": {
+      "name": "USDA FoodData Central",
+      "type": "SR Legacy",
+      "source_id": "174832",
+      "retrieval_date": "2026-11-12",
+      "citation": "U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2026."
+    }
+  },
+  {
+    "id": "usda_fdc_171284",
+    "name": "Yogurt, Greek, plain, whole milk",
+    "common_name": "Greek Yogurt (Plain)",
+    "food_group": "Dairy and Egg Products",
+    "aliases": [
+      "greek yogurt (plain)",
+      "greek yogurt",
+      "plain greek yogurt",
+      "dahi",
+      "curd",
+      "hung curd",
+      "yogurt"
+    ],
+    "nutrients_per_100g": {
+      "calories": {
+        "value": 97,
+        "unit": "kcal"
+      },
+      "protein_g": {
+        "value": 9,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "value": 3.98,
+        "unit": "g"
+      },
+      "fat_g": {
+        "value": 5,
+        "unit": "g"
+      },
+      "vitamin_d_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      },
+      "iron_mg": {
+        "value": 0.05,
+        "unit": "mg"
+      },
+      "zinc_mg": {
+        "value": 0.52,
+        "unit": "mg"
+      },
+      "b12_mcg": {
+        "value": 0.75,
+        "unit": "mcg"
+      }
+    },
+    "serving_weights_g": {
+      "g": 1,
+      "gram": 1,
+      "grams": 1,
+      "kg": 1000,
+      "kilogram": 1000,
+      "kilograms": 1000,
+      "oz": 28.3495,
+      "ounce": 28.3495,
+      "ounces": 28.3495,
+      "lb": 453.592,
+      "pound": 453.592,
+      "cup": 200,
+      "container": 150,
+      "tbsp": 15,
+      "bowl": 200,
+      "serving": 150
+    },
+    "source": {
+      "name": "USDA FoodData Central",
+      "type": "SR Legacy",
+      "source_id": "171284",
+      "retrieval_date": "2026-11-12",
+      "citation": "U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2026."
+    }
+  },
+  {
+    "id": "usda_fdc_173414",
+    "name": "Cheese, cheddar",
+    "common_name": "Cheddar Cheese",
+    "food_group": "Dairy and Egg Products",
+    "aliases": [
+      "cheddar cheese",
+      "cheddar",
+      "cheese",
+      "cheese slice"
+    ],
+    "nutrients_per_100g": {
+      "calories": {
+        "value": 403,
+        "unit": "kcal"
+      },
+      "protein_g": {
+        "value": 24.9,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "value": 1.28,
+        "unit": "g"
+      },
+      "fat_g": {
+        "value": 33.14,
+        "unit": "g"
+      },
+      "vitamin_d_mcg": {
+        "value": 0.6,
+        "unit": "mcg"
+      },
+      "iron_mg": {
+        "value": 0.68,
+        "unit": "mg"
+      },
+      "zinc_mg": {
+        "value": 3.11,
+        "unit": "mg"
+      },
+      "b12_mcg": {
+        "value": 0.83,
+        "unit": "mcg"
+      }
+    },
+    "serving_weights_g": {
+      "g": 1,
+      "gram": 1,
+      "grams": 1,
+      "kg": 1000,
+      "kilogram": 1000,
+      "kilograms": 1000,
+      "oz": 28.35,
+      "ounce": 28.3495,
+      "ounces": 28.3495,
+      "lb": 453.592,
+      "pound": 453.592,
+      "slice": 28,
+      "cup": 132,
+      "serving": 28
+    },
+    "source": {
+      "name": "USDA FoodData Central",
+      "type": "SR Legacy",
+      "source_id": "173414",
+      "retrieval_date": "2026-11-12",
+      "citation": "U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2026."
+    }
+  },
+  {
+    "id": "usda_fdc_173417",
+    "name": "Cheese, cottage, creamed, with fruit (Paneer profile)",
+    "common_name": "Paneer / Cottage Cheese",
+    "food_group": "Dairy and Egg Products",
+    "aliases": [
+      "paneer / cottage cheese",
+      "paneer",
+      "cottage cheese",
+      "indian cheese"
+    ],
+    "nutrients_per_100g": {
+      "calories": {
+        "value": 265,
+        "unit": "kcal"
+      },
+      "protein_g": {
+        "value": 18.3,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "value": 3.4,
+        "unit": "g"
+      },
+      "fat_g": {
+        "value": 20.8,
+        "unit": "g"
+      },
+      "vitamin_d_mcg": {
+        "value": 0.5,
+        "unit": "mcg"
+      },
+      "iron_mg": {
+        "value": 0.2,
+        "unit": "mg"
+      },
+      "zinc_mg": {
+        "value": 1.1,
+        "unit": "mg"
+      },
+      "b12_mcg": {
+        "value": 0.9,
+        "unit": "mcg"
+      }
+    },
+    "serving_weights_g": {
+      "g": 1,
+      "gram": 1,
+      "grams": 1,
+      "kg": 1000,
+      "kilogram": 1000,
+      "kilograms": 1000,
+      "oz": 28.3495,
+      "ounce": 28.3495,
+      "ounces": 28.3495,
+      "lb": 453.592,
+      "pound": 453.592,
+      "cup": 226,
+      "piece": 30,
+      "cube": 20,
+      "serving": 100
+    },
+    "source": {
+      "name": "USDA FoodData Central",
+      "type": "SR Legacy",
+      "source_id": "173417",
+      "retrieval_date": "2026-11-12",
+      "citation": "U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2026."
+    }
+  },
+  {
+    "id": "usda_fdc_173410",
+    "name": "Butter, without salt",
+    "common_name": "Unsalted Butter",
+    "food_group": "Dairy and Egg Products",
+    "aliases": [
+      "unsalted butter",
+      "butter",
+      "makhan"
+    ],
+    "nutrients_per_100g": {
+      "calories": {
+        "value": 717,
+        "unit": "kcal"
+      },
+      "protein_g": {
+        "value": 0.85,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "value": 0.06,
+        "unit": "g"
+      },
+      "fat_g": {
+        "value": 81.11,
+        "unit": "g"
+      },
+      "vitamin_d_mcg": {
+        "value": 1.5,
+        "unit": "mcg"
+      },
+      "iron_mg": {
+        "value": 0.02,
+        "unit": "mg"
+      },
+      "zinc_mg": {
+        "value": 0.09,
+        "unit": "mg"
+      },
+      "b12_mcg": {
+        "value": 0.17,
+        "unit": "mcg"
+      }
+    },
+    "serving_weights_g": {
+      "g": 1,
+      "gram": 1,
+      "grams": 1,
+      "kg": 1000,
+      "kilogram": 1000,
+      "kilograms": 1000,
+      "oz": 28.3495,
+      "ounce": 28.3495,
+      "ounces": 28.3495,
+      "lb": 453.592,
+      "pound": 453.592,
+      "tbsp": 14.2,
+      "tsp": 4.7,
+      "pat": 5,
+      "serving": 14.2
+    },
+    "source": {
+      "name": "USDA FoodData Central",
+      "type": "SR Legacy",
+      "source_id": "173410",
+      "retrieval_date": "2026-11-12",
+      "citation": "U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2026."
+    }
+  },
+  {
+    "id": "usda_fdc_171314",
+    "name": "Butter oil, anhydrous (Ghee)",
+    "common_name": "Ghee / Clarified Butter",
+    "food_group": "Dairy and Egg Products",
+    "aliases": [
+      "ghee / clarified butter",
+      "ghee",
+      "clarified butter",
+      "desi ghee"
+    ],
+    "nutrients_per_100g": {
+      "calories": {
+        "value": 876,
+        "unit": "kcal"
+      },
+      "protein_g": {
+        "value": 0.28,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "value": 0,
+        "unit": "g"
+      },
+      "fat_g": {
+        "value": 99.48,
+        "unit": "g"
+      },
+      "vitamin_d_mcg": {
+        "value": 1.5,
+        "unit": "mcg"
+      },
+      "iron_mg": {
+        "value": 0,
+        "unit": "mg"
+      },
+      "zinc_mg": {
+        "value": 0.01,
+        "unit": "mg"
+      },
+      "b12_mcg": {
+        "value": 0.01,
+        "unit": "mcg"
+      }
+    },
+    "serving_weights_g": {
+      "g": 1,
+      "gram": 1,
+      "grams": 1,
+      "kg": 1000,
+      "kilogram": 1000,
+      "kilograms": 1000,
+      "oz": 28.3495,
+      "ounce": 28.3495,
+      "ounces": 28.3495,
+      "lb": 453.592,
+      "pound": 453.592,
+      "tbsp": 14,
+      "tsp": 4.5,
+      "serving": 14
+    },
+    "source": {
+      "name": "USDA FoodData Central",
+      "type": "SR Legacy",
+      "source_id": "171314",
+      "retrieval_date": "2026-11-12",
+      "citation": "U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2026."
+    }
+  },
+  {
+    "id": "usda_fdc_171077",
+    "name": "Chicken, broiler or fryers, breast, skinless, boneless, meat only, cooked, roasted",
+    "common_name": "Cooked Chicken Breast",
+    "food_group": "Poultry Products",
+    "aliases": [
+      "cooked chicken breast",
+      "chicken breast",
+      "grilled chicken",
+      "roasted chicken",
+      "chicken"
+    ],
+    "nutrients_per_100g": {
+      "calories": {
+        "value": 165,
+        "unit": "kcal"
+      },
+      "protein_g": {
+        "value": 31.02,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "value": 0,
+        "unit": "g"
+      },
+      "fat_g": {
+        "value": 3.57,
+        "unit": "g"
+      },
+      "vitamin_d_mcg": {
+        "value": 0.1,
+        "unit": "mcg"
+      },
+      "iron_mg": {
+        "value": 1.04,
+        "unit": "mg"
+      },
+      "zinc_mg": {
+        "value": 1,
+        "unit": "mg"
+      },
+      "b12_mcg": {
+        "value": 0.34,
+        "unit": "mcg"
+      }
+    },
+    "serving_weights_g": {
+      "g": 1,
+      "gram": 1,
+      "grams": 1,
+      "kg": 1000,
+      "kilogram": 1000,
+      "kilograms": 1000,
+      "oz": 28.35,
+      "ounce": 28.3495,
+      "ounces": 28.3495,
+      "lb": 453.592,
+      "pound": 453.592,
+      "breast": 174,
+      "piece": 85,
+      "cup": 140,
+      "serving": 85
+    },
+    "source": {
+      "name": "USDA FoodData Central",
+      "type": "SR Legacy",
+      "source_id": "171077",
+      "retrieval_date": "2026-11-12",
+      "citation": "U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2026."
+    }
+  },
+  {
+    "id": "usda_fdc_171457",
+    "name": "Chicken, broilers or fryers, thigh, meat only, cooked, roasted",
+    "common_name": "Roasted Chicken Thigh",
+    "food_group": "Poultry Products",
+    "aliases": [
+      "roasted chicken thigh",
+      "chicken thigh",
+      "chicken thighs"
+    ],
+    "nutrients_per_100g": {
+      "calories": {
+        "value": 179,
+        "unit": "kcal"
+      },
+      "protein_g": {
+        "value": 24.7,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "value": 0,
+        "unit": "g"
+      },
+      "fat_g": {
+        "value": 8.21,
+        "unit": "g"
+      },
+      "vitamin_d_mcg": {
+        "value": 0.2,
+        "unit": "mcg"
+      },
+      "iron_mg": {
+        "value": 1.15,
+        "unit": "mg"
+      },
+      "zinc_mg": {
+        "value": 1.95,
+        "unit": "mg"
+      },
+      "b12_mcg": {
+        "value": 0.44,
+        "unit": "mcg"
+      }
+    },
+    "serving_weights_g": {
+      "g": 1,
+      "gram": 1,
+      "grams": 1,
+      "kg": 1000,
+      "kilogram": 1000,
+      "kilograms": 1000,
+      "oz": 28.3495,
+      "ounce": 28.3495,
+      "ounces": 28.3495,
+      "lb": 453.592,
+      "pound": 453.592,
+      "thigh": 100,
+      "piece": 85,
+      "serving": 85
+    },
+    "source": {
+      "name": "USDA FoodData Central",
+      "type": "SR Legacy",
+      "source_id": "171457",
+      "retrieval_date": "2026-11-12",
+      "citation": "U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2026."
+    }
+  },
+  {
+    "id": "usda_fdc_171287",
+    "name": "Egg, whole, cooked, hard-boiled",
+    "common_name": "Hard Boiled Egg",
+    "food_group": "Dairy and Egg Products",
+    "aliases": [
+      "hard boiled egg",
+      "egg",
+      "eggs",
+      "boiled egg",
+      "anda"
+    ],
+    "nutrients_per_100g": {
+      "calories": {
+        "value": 155,
+        "unit": "kcal"
+      },
+      "protein_g": {
+        "value": 12.58,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "value": 1.12,
+        "unit": "g"
+      },
+      "fat_g": {
+        "value": 10.61,
+        "unit": "g"
+      },
+      "vitamin_d_mcg": {
+        "value": 2.2,
+        "unit": "mcg"
+      },
+      "iron_mg": {
+        "value": 1.19,
+        "unit": "mg"
+      },
+      "zinc_mg": {
+        "value": 1.05,
+        "unit": "mg"
+      },
+      "b12_mcg": {
+        "value": 1.11,
+        "unit": "mcg"
+      }
+    },
+    "serving_weights_g": {
+      "g": 1,
+      "gram": 1,
+      "grams": 1,
+      "kg": 1000,
+      "kilogram": 1000,
+      "kilograms": 1000,
+      "oz": 28.3495,
+      "ounce": 28.3495,
+      "ounces": 28.3495,
+      "lb": 453.592,
+      "pound": 453.592,
+      "large": 50,
+      "medium": 44,
+      "egg": 50,
+      "serving": 50
+    },
+    "source": {
+      "name": "USDA FoodData Central",
+      "type": "SR Legacy",
+      "source_id": "171287",
+      "retrieval_date": "2026-11-12",
+      "citation": "U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2026."
+    }
+  },
+  {
+    "id": "usda_fdc_172183",
+    "name": "Egg, white, raw, fresh",
+    "common_name": "Egg White",
+    "food_group": "Dairy and Egg Products",
+    "aliases": [
+      "egg white",
+      "egg whites"
+    ],
+    "nutrients_per_100g": {
+      "calories": {
+        "value": 52,
+        "unit": "kcal"
+      },
+      "protein_g": {
+        "value": 10.9,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "value": 0.73,
+        "unit": "g"
+      },
+      "fat_g": {
+        "value": 0.17,
+        "unit": "g"
+      },
+      "vitamin_d_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      },
+      "iron_mg": {
+        "value": 0.08,
+        "unit": "mg"
+      },
+      "zinc_mg": {
+        "value": 0.03,
+        "unit": "mg"
+      },
+      "b12_mcg": {
+        "value": 0.09,
+        "unit": "mcg"
+      }
+    },
+    "serving_weights_g": {
+      "g": 1,
+      "gram": 1,
+      "grams": 1,
+      "kg": 1000,
+      "kilogram": 1000,
+      "kilograms": 1000,
+      "oz": 28.3495,
+      "ounce": 28.3495,
+      "ounces": 28.3495,
+      "lb": 453.592,
+      "pound": 453.592,
+      "large": 33,
+      "white": 33,
+      "serving": 33
+    },
+    "source": {
+      "name": "USDA FoodData Central",
+      "type": "SR Legacy",
+      "source_id": "172183",
+      "retrieval_date": "2026-11-12",
+      "citation": "U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2026."
+    }
+  },
+  {
+    "id": "usda_fdc_170597",
+    "name": "Beef, top sirloin, steak, separable lean and fat, trimmed to 0\" fat, all grades, cooked, broiled",
+    "common_name": "Sirloin Steak (Cooked)",
+    "food_group": "Beef Products",
+    "aliases": [
+      "sirloin steak (cooked)",
+      "steak",
+      "beef steak",
+      "sirloin steak",
+      "lean beef",
+      "cooked beef"
+    ],
+    "nutrients_per_100g": {
+      "calories": {
+        "value": 204,
+        "unit": "kcal"
+      },
+      "protein_g": {
+        "value": 30.64,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "value": 0,
+        "unit": "g"
+      },
+      "fat_g": {
+        "value": 8.16,
+        "unit": "g"
+      },
+      "vitamin_d_mcg": {
+        "value": 0.1,
+        "unit": "mcg"
+      },
+      "iron_mg": {
+        "value": 2.6,
+        "unit": "mg"
+      },
+      "zinc_mg": {
+        "value": 5.68,
+        "unit": "mg"
+      },
+      "b12_mcg": {
+        "value": 2.12,
+        "unit": "mcg"
+      }
+    },
+    "serving_weights_g": {
+      "g": 1,
+      "gram": 1,
+      "grams": 1,
+      "kg": 1000,
+      "kilogram": 1000,
+      "kilograms": 1000,
+      "oz": 28.35,
+      "ounce": 28.3495,
+      "ounces": 28.3495,
+      "lb": 453.592,
+      "pound": 453.592,
+      "steak": 214,
+      "piece": 85,
+      "serving": 85
+    },
+    "source": {
+      "name": "USDA FoodData Central",
+      "type": "SR Legacy",
+      "source_id": "170597",
+      "retrieval_date": "2026-11-12",
+      "citation": "U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2026."
+    }
+  },
+  {
+    "id": "usda_fdc_172600",
+    "name": "Lamb, domestic, leg, whole (shank and sirloin), separable lean only, trimmed to 1/4\" fat, choice, cooked, roasted",
+    "common_name": "Cooked Lamb / Mutton",
+    "food_group": "Lamb, Veal, and Game Products",
+    "aliases": [
+      "cooked lamb / mutton",
+      "lamb",
+      "mutton",
+      "cooked lamb",
+      "cooked mutton",
+      "gosht"
+    ],
+    "nutrients_per_100g": {
+      "calories": {
+        "value": 191,
+        "unit": "kcal"
+      },
+      "protein_g": {
+        "value": 28.27,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "value": 0,
+        "unit": "g"
+      },
+      "fat_g": {
+        "value": 7.78,
+        "unit": "g"
+      },
+      "vitamin_d_mcg": {
+        "value": 0.1,
+        "unit": "mcg"
+      },
+      "iron_mg": {
+        "value": 1.88,
+        "unit": "mg"
+      },
+      "zinc_mg": {
+        "value": 4.46,
+        "unit": "mg"
+      },
+      "b12_mcg": {
+        "value": 2.57,
+        "unit": "mcg"
+      }
+    },
+    "serving_weights_g": {
+      "g": 1,
+      "gram": 1,
+      "grams": 1,
+      "kg": 1000,
+      "kilogram": 1000,
+      "kilograms": 1000,
+      "oz": 28.35,
+      "ounce": 28.3495,
+      "ounces": 28.3495,
+      "lb": 453.592,
+      "pound": 453.592,
+      "piece": 85,
+      "serving": 85
+    },
+    "source": {
+      "name": "USDA FoodData Central",
+      "type": "SR Legacy",
+      "source_id": "172600",
+      "retrieval_date": "2026-11-12",
+      "citation": "U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2026."
+    }
+  },
+  {
+    "id": "usda_fdc_173686",
+    "name": "Fish, salmon, Atlantic, farmed, cooked, dry heat",
+    "common_name": "Cooked Salmon Fillet",
+    "food_group": "Finfish and Shellfish Products",
+    "aliases": [
+      "cooked salmon fillet",
+      "salmon",
+      "cooked salmon",
+      "grilled salmon",
+      "baked salmon",
+      "salmon fillet"
+    ],
+    "nutrients_per_100g": {
+      "calories": {
+        "value": 206,
+        "unit": "kcal"
+      },
+      "protein_g": {
+        "value": 22.1,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "value": 0,
+        "unit": "g"
+      },
+      "fat_g": {
+        "value": 12.35,
+        "unit": "g"
+      },
+      "vitamin_d_mcg": {
+        "value": 10.9,
+        "unit": "mcg"
+      },
+      "iron_mg": {
+        "value": 0.34,
+        "unit": "mg"
+      },
+      "zinc_mg": {
+        "value": 0.36,
+        "unit": "mg"
+      },
+      "b12_mcg": {
+        "value": 3.18,
+        "unit": "mcg"
+      }
+    },
+    "serving_weights_g": {
+      "g": 1,
+      "gram": 1,
+      "grams": 1,
+      "kg": 1000,
+      "kilogram": 1000,
+      "kilograms": 1000,
+      "oz": 28.35,
+      "ounce": 28.3495,
+      "ounces": 28.3495,
+      "lb": 453.592,
+      "pound": 453.592,
+      "fillet": 178,
+      "piece": 100,
+      "serving": 100
+    },
+    "source": {
+      "name": "USDA FoodData Central",
+      "type": "SR Legacy",
+      "source_id": "173686",
+      "retrieval_date": "2026-11-12",
+      "citation": "U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2026."
+    }
+  },
+  {
+    "id": "usda_fdc_173709",
+    "name": "Fish, tuna, light, canned in water, drained solids",
+    "common_name": "Canned Light Tuna",
+    "food_group": "Finfish and Shellfish Products",
+    "aliases": [
+      "canned light tuna",
+      "tuna",
+      "canned tuna",
+      "tuna in water",
+      "tuna fish"
+    ],
+    "nutrients_per_100g": {
+      "calories": {
+        "value": 116,
+        "unit": "kcal"
+      },
+      "protein_g": {
+        "value": 25.51,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "value": 0,
+        "unit": "g"
+      },
+      "fat_g": {
+        "value": 0.82,
+        "unit": "g"
+      },
+      "vitamin_d_mcg": {
+        "value": 2,
+        "unit": "mcg"
+      },
+      "iron_mg": {
+        "value": 1.49,
+        "unit": "mg"
+      },
+      "zinc_mg": {
+        "value": 0.86,
+        "unit": "mg"
+      },
+      "b12_mcg": {
+        "value": 2.99,
+        "unit": "mcg"
+      }
+    },
+    "serving_weights_g": {
+      "g": 1,
+      "gram": 1,
+      "grams": 1,
+      "kg": 1000,
+      "kilogram": 1000,
+      "kilograms": 1000,
+      "oz": 28.3495,
+      "ounce": 28.3495,
+      "ounces": 28.3495,
+      "lb": 453.592,
+      "pound": 453.592,
+      "can": 165,
+      "cup": 146,
+      "tbsp": 15,
+      "serving": 100
+    },
+    "source": {
+      "name": "USDA FoodData Central",
+      "type": "SR Legacy",
+      "source_id": "173709",
+      "retrieval_date": "2026-11-12",
+      "citation": "U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2026."
+    }
+  },
+  {
+    "id": "usda_fdc_171960",
+    "name": "Fish, cod, Atlantic, cooked, dry heat",
+    "common_name": "Cooked Atlantic Cod",
+    "food_group": "Finfish and Shellfish Products",
+    "aliases": [
+      "cooked atlantic cod",
+      "cod",
+      "cooked cod",
+      "white fish"
+    ],
+    "nutrients_per_100g": {
+      "calories": {
+        "value": 105,
+        "unit": "kcal"
+      },
+      "protein_g": {
+        "value": 22.83,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "value": 0,
+        "unit": "g"
+      },
+      "fat_g": {
+        "value": 0.86,
+        "unit": "g"
+      },
+      "vitamin_d_mcg": {
+        "value": 1.1,
+        "unit": "mcg"
+      },
+      "iron_mg": {
+        "value": 0.49,
+        "unit": "mg"
+      },
+      "zinc_mg": {
+        "value": 0.5,
+        "unit": "mg"
+      },
+      "b12_mcg": {
+        "value": 0.91,
+        "unit": "mcg"
+      }
+    },
+    "serving_weights_g": {
+      "g": 1,
+      "gram": 1,
+      "grams": 1,
+      "kg": 1000,
+      "kilogram": 1000,
+      "kilograms": 1000,
+      "oz": 28.3495,
+      "ounce": 28.3495,
+      "ounces": 28.3495,
+      "lb": 453.592,
+      "pound": 453.592,
+      "fillet": 180,
+      "piece": 100,
+      "serving": 100
+    },
+    "source": {
+      "name": "USDA FoodData Central",
+      "type": "SR Legacy",
+      "source_id": "171960",
+      "retrieval_date": "2026-11-12",
+      "citation": "U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2026."
+    }
+  },
+  {
+    "id": "usda_fdc_175179",
+    "name": "Crustaceans, shrimp, mixed species, cooked, moist heat",
+    "common_name": "Cooked Shrimp / Prawns",
+    "food_group": "Finfish and Shellfish Products",
+    "aliases": [
+      "cooked shrimp / prawns",
+      "shrimp",
+      "prawns",
+      "cooked shrimp",
+      "jheenga"
+    ],
+    "nutrients_per_100g": {
+      "calories": {
+        "value": 99,
+        "unit": "kcal"
+      },
+      "protein_g": {
+        "value": 24,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "value": 0.2,
+        "unit": "g"
+      },
+      "fat_g": {
+        "value": 0.28,
+        "unit": "g"
+      },
+      "vitamin_d_mcg": {
+        "value": 0.1,
+        "unit": "mcg"
+      },
+      "iron_mg": {
+        "value": 0.51,
+        "unit": "mg"
+      },
+      "zinc_mg": {
+        "value": 1.64,
+        "unit": "mg"
+      },
+      "b12_mcg": {
+        "value": 1.25,
+        "unit": "mcg"
+      }
+    },
+    "serving_weights_g": {
+      "g": 1,
+      "gram": 1,
+      "grams": 1,
+      "kg": 1000,
+      "kilogram": 1000,
+      "kilograms": 1000,
+      "oz": 28.3495,
+      "ounce": 28.3495,
+      "ounces": 28.3495,
+      "lb": 453.592,
+      "pound": 453.592,
+      "piece": 12,
+      "large": 15,
+      "cup": 145,
+      "serving": 100
+    },
+    "source": {
+      "name": "USDA FoodData Central",
+      "type": "Foundation Foods",
+      "source_id": "175179",
+      "retrieval_date": "2026-11-12",
+      "citation": "U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2026."
+    }
+  },
+  {
+    "id": "usda_fdc_170567",
+    "name": "Nuts, almonds",
+    "common_name": "Raw Almonds",
+    "food_group": "Nut and Seed Products",
+    "aliases": [
+      "raw almonds",
+      "almonds",
+      "badam"
+    ],
+    "nutrients_per_100g": {
+      "calories": {
+        "value": 579,
+        "unit": "kcal"
+      },
+      "protein_g": {
+        "value": 21.15,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "value": 21.55,
+        "unit": "g"
+      },
+      "fat_g": {
+        "value": 49.93,
+        "unit": "g"
+      },
+      "vitamin_d_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      },
+      "iron_mg": {
+        "value": 3.71,
+        "unit": "mg"
+      },
+      "zinc_mg": {
+        "value": 3.12,
+        "unit": "mg"
+      },
+      "b12_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      }
+    },
+    "serving_weights_g": {
+      "g": 1,
+      "gram": 1,
+      "grams": 1,
+      "kg": 1000,
+      "kilogram": 1000,
+      "kilograms": 1000,
+      "oz": 28.3495,
+      "ounce": 28.35,
+      "ounces": 28.3495,
+      "lb": 453.592,
+      "pound": 453.592,
+      "cup": 143,
+      "piece": 1.2,
+      "handful": 30,
+      "serving": 28.35
+    },
+    "source": {
+      "name": "USDA FoodData Central",
+      "type": "SR Legacy",
+      "source_id": "170567",
+      "retrieval_date": "2026-11-12",
+      "citation": "U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2026."
+    }
+  },
+  {
+    "id": "usda_fdc_170187",
+    "name": "Nuts, walnuts, English",
+    "common_name": "English Walnuts",
+    "food_group": "Nut and Seed Products",
+    "aliases": [
+      "english walnuts",
+      "walnuts",
+      "akhrot",
+      "raw walnuts"
+    ],
+    "nutrients_per_100g": {
+      "calories": {
+        "value": 654,
+        "unit": "kcal"
+      },
+      "protein_g": {
+        "value": 15.23,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "value": 13.71,
+        "unit": "g"
+      },
+      "fat_g": {
+        "value": 65.21,
+        "unit": "g"
+      },
+      "vitamin_d_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      },
+      "iron_mg": {
+        "value": 2.91,
+        "unit": "mg"
+      },
+      "zinc_mg": {
+        "value": 3.09,
+        "unit": "mg"
+      },
+      "b12_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      }
+    },
+    "serving_weights_g": {
+      "g": 1,
+      "gram": 1,
+      "grams": 1,
+      "kg": 1000,
+      "kilogram": 1000,
+      "kilograms": 1000,
+      "oz": 28.3495,
+      "ounce": 28.35,
+      "ounces": 28.3495,
+      "lb": 453.592,
+      "pound": 453.592,
+      "cup": 117,
+      "piece": 2.5,
+      "handful": 30,
+      "serving": 28.35
+    },
+    "source": {
+      "name": "USDA FoodData Central",
+      "type": "SR Legacy",
+      "source_id": "170187",
+      "retrieval_date": "2026-11-12",
+      "citation": "U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2026."
+    }
+  },
+  {
+    "id": "usda_fdc_170554",
+    "name": "Seeds, chia seeds, dried",
+    "common_name": "Dried Chia Seeds",
+    "food_group": "Nut and Seed Products",
+    "aliases": [
+      "dried chia seeds",
+      "chia seeds",
+      "chia seed",
+      "chia"
+    ],
+    "nutrients_per_100g": {
+      "calories": {
+        "value": 486,
+        "unit": "kcal"
+      },
+      "protein_g": {
+        "value": 16.54,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "value": 42.12,
+        "unit": "g"
+      },
+      "fat_g": {
+        "value": 30.74,
+        "unit": "g"
+      },
+      "vitamin_d_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      },
+      "iron_mg": {
+        "value": 7.72,
+        "unit": "mg"
+      },
+      "zinc_mg": {
+        "value": 4.58,
+        "unit": "mg"
+      },
+      "b12_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      }
+    },
+    "serving_weights_g": {
+      "g": 1,
+      "gram": 1,
+      "grams": 1,
+      "kg": 1000,
+      "kilogram": 1000,
+      "kilograms": 1000,
+      "oz": 28.35,
+      "ounce": 28.3495,
+      "ounces": 28.3495,
+      "lb": 453.592,
+      "pound": 453.592,
+      "tbsp": 12,
+      "tsp": 4,
+      "serving": 12
+    },
+    "source": {
+      "name": "USDA FoodData Central",
+      "type": "SR Legacy",
+      "source_id": "170554",
+      "retrieval_date": "2026-11-12",
+      "citation": "U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2026."
+    }
+  },
+  {
+    "id": "usda_fdc_174266",
+    "name": "Peanut butter, smooth style, with salt",
+    "common_name": "Smooth Peanut Butter",
+    "food_group": "Legumes and Legume Products",
+    "aliases": [
+      "smooth peanut butter",
+      "peanut butter",
+      "pb"
+    ],
+    "nutrients_per_100g": {
+      "calories": {
+        "value": 588,
+        "unit": "kcal"
+      },
+      "protein_g": {
+        "value": 25.09,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "value": 20,
+        "unit": "g"
+      },
+      "fat_g": {
+        "value": 50.39,
+        "unit": "g"
+      },
+      "vitamin_d_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      },
+      "iron_mg": {
+        "value": 1.93,
+        "unit": "mg"
+      },
+      "zinc_mg": {
+        "value": 2.93,
+        "unit": "mg"
+      },
+      "b12_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      }
+    },
+    "serving_weights_g": {
+      "g": 1,
+      "gram": 1,
+      "grams": 1,
+      "kg": 1000,
+      "kilogram": 1000,
+      "kilograms": 1000,
+      "oz": 28.3495,
+      "ounce": 28.3495,
+      "ounces": 28.3495,
+      "lb": 453.592,
+      "pound": 453.592,
+      "tbsp": 16,
+      "tsp": 5,
+      "serving": 32
+    },
+    "source": {
+      "name": "USDA FoodData Central",
+      "type": "SR Legacy",
+      "source_id": "174266",
+      "retrieval_date": "2026-11-12",
+      "citation": "U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2026."
+    }
+  },
+  {
+    "id": "usda_fdc_171413",
+    "name": "Oil, olive, salad or cooking",
+    "common_name": "Extra Virgin Olive Oil",
+    "food_group": "Fats and Oils",
+    "aliases": [
+      "extra virgin olive oil",
+      "olive oil",
+      "cooking oil"
+    ],
+    "nutrients_per_100g": {
+      "calories": {
+        "value": 884,
+        "unit": "kcal"
+      },
+      "protein_g": {
+        "value": 0,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "value": 0,
+        "unit": "g"
+      },
+      "fat_g": {
+        "value": 100,
+        "unit": "g"
+      },
+      "vitamin_d_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      },
+      "iron_mg": {
+        "value": 0.56,
+        "unit": "mg"
+      },
+      "zinc_mg": {
+        "value": 0,
+        "unit": "mg"
+      },
+      "b12_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      }
+    },
+    "serving_weights_g": {
+      "g": 1,
+      "gram": 1,
+      "grams": 1,
+      "kg": 1000,
+      "kilogram": 1000,
+      "kilograms": 1000,
+      "oz": 28.3495,
+      "ounce": 28.3495,
+      "ounces": 28.3495,
+      "lb": 453.592,
+      "pound": 453.592,
+      "tbsp": 13.5,
+      "tsp": 4.5,
+      "cup": 216,
+      "serving": 13.5
+    },
+    "source": {
+      "name": "USDA FoodData Central",
+      "type": "SR Legacy",
+      "source_id": "171413",
+      "retrieval_date": "2026-11-12",
+      "citation": "U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2026."
+    }
+  },
+  {
+    "id": "usda_fdc_990001",
+    "name": "Artisan Wild Morel Mushroom, fresh, unfortified (Local forage)",
+    "common_name": "Wild Morel Mushroom",
+    "food_group": "Vegetables and Vegetable Products",
+    "aliases": [
+      "wild morel mushroom",
+      "morel",
+      "wild mushroom",
+      "morels",
+      "wild morel"
+    ],
+    "nutrients_per_100g": {
+      "calories": {
+        "value": 31,
+        "unit": "kcal"
+      },
+      "protein_g": {
+        "value": 3.12,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "value": 4.22,
+        "unit": "g"
+      },
+      "fat_g": {
+        "value": 0.57,
+        "unit": "g"
+      },
+      "vitamin_d_mcg": {
+        "value": null,
+        "unit": "mcg"
+      },
+      "iron_mg": {
+        "value": 12.18,
+        "unit": "mg"
+      },
+      "zinc_mg": {
+        "value": 2.03,
+        "unit": "mg"
+      },
+      "b12_mcg": {
+        "value": null,
+        "unit": "mcg"
+      }
+    },
+    "serving_weights_g": {
+      "g": 1,
+      "gram": 1,
+      "grams": 1,
+      "kg": 1000,
+      "kilogram": 1000,
+      "kilograms": 1000,
+      "oz": 28.3495,
+      "ounce": 28.3495,
+      "ounces": 28.3495,
+      "lb": 453.592,
+      "pound": 453.592,
+      "cup": 66,
+      "piece": 15,
+      "serving": 66
+    },
+    "source": {
+      "name": "USDA Foundation Foods Analytical Sub-sample / Regional Composition",
+      "type": "Specialty Analytical Sample",
+      "source_id": "990001",
+      "citation": "Preserves unmeasured micronutrient values as null for verification."
+    }
+  },
+  {
+    "id": "usda_fdc_990002",
+    "name": "Ancient Spelt Grain, heritage sourdough flatbread",
+    "common_name": "Heritage Sourdough Flatbread",
+    "food_group": "Baked Products",
+    "aliases": [
+      "heritage sourdough flatbread",
+      "sourdough flatbread",
+      "spelt flatbread",
+      "ancient grain bread"
+    ],
+    "nutrients_per_100g": {
+      "calories": {
+        "value": 220,
+        "unit": "kcal"
+      },
+      "protein_g": {
+        "value": 8.5,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "value": 42.1,
+        "unit": "g"
+      },
+      "fat_g": {
+        "value": 1.8,
+        "unit": "g"
+      },
+      "vitamin_d_mcg": {
+        "value": null,
+        "unit": "mcg"
+      },
+      "iron_mg": {
+        "value": 1.8,
+        "unit": "mg"
+      },
+      "zinc_mg": {
+        "value": 1.1,
+        "unit": "mg"
+      },
+      "b12_mcg": {
+        "value": 0,
+        "unit": "mcg"
+      }
+    },
+    "serving_weights_g": {
+      "g": 1,
+      "gram": 1,
+      "grams": 1,
+      "kg": 1000,
+      "kilogram": 1000,
+      "kilograms": 1000,
+      "oz": 28.3495,
+      "ounce": 28.3495,
+      "ounces": 28.3495,
+      "lb": 453.592,
+      "pound": 453.592,
+      "slice": 40,
+      "piece": 40,
+      "serving": 40
+    },
+    "source": {
+      "name": "Regional Heritage Grain Composition",
+      "type": "Analytical Heritage Dataset",
+      "source_id": "990002",
+      "citation": "Vitamin D unanalyzed."
+    }
+  },
+  {
+    "id": "usda_fdc_990003",
+    "name": "Handcrafted Wild Berry Preserve, unfortified artisan preserve",
+    "common_name": "Artisan Wild Berry Jam",
+    "food_group": "Sweets",
+    "aliases": [
+      "artisan wild berry jam",
+      "wild berry jam",
+      "artisan jam",
+      "berry preserve"
+    ],
+    "nutrients_per_100g": {
+      "calories": {
+        "value": 238,
+        "unit": "kcal"
+      },
+      "protein_g": {
+        "value": 0.4,
+        "unit": "g"
+      },
+      "carbs_g": {
+        "value": 58,
+        "unit": "g"
+      },
+      "fat_g": {
+        "value": 0.1,
+        "unit": "g"
+      },
+      "vitamin_d_mcg": {
+        "value": null,
+        "unit": "mcg"
+      },
+      "iron_mg": {
+        "value": 0.4,
+        "unit": "mg"
+      },
+      "zinc_mg": {
+        "value": null,
+        "unit": "mg"
+      },
+      "b12_mcg": {
+        "value": null,
+        "unit": "mcg"
+      }
+    },
+    "serving_weights_g": {
+      "g": 1,
+      "gram": 1,
+      "grams": 1,
+      "kg": 1000,
+      "kilogram": 1000,
+      "kilograms": 1000,
+      "oz": 28.3495,
+      "ounce": 28.3495,
+      "ounces": 28.3495,
+      "lb": 453.592,
+      "pound": 453.592,
+      "tbsp": 20,
+      "tsp": 6.7,
+      "serving": 20
+    },
+    "source": {
+      "name": "Artisan Food Standard Profile",
+      "type": "Analytical Batch Record",
+      "source_id": "990003",
+      "citation": "Micronutrients partially unanalyzed."
+    }
+  }
+]

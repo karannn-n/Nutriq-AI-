@@ -2,6 +2,8 @@
 // This utility enables Nutriq to run fully client-side as an interactive demo 
 // on static hosts (like GitHub Pages) when the Render backend is not yet active.
 
+import { searchFoods, calculateFoodNutrients } from './localNutritionEngine';
+
 const DEFAULT_MEALS = [
   {
     id: 1,
@@ -51,9 +53,27 @@ const RDI = {
   b12_mcg: 2.4
 };
 
-// Simple generative simulation of meal parsing
+// Deterministic USDA search simulation with keyword fallbacks
 const simulateMealAnalysis = (description) => {
-  const desc = description.toLowerCase();
+  const desc = (description || '').toLowerCase();
+
+  // Try matching against local USDA FoodData Central dataset first
+  const hits = searchFoods(desc, 1);
+  if (hits.length > 0) {
+    const calc = calculateFoodNutrients(hits[0], 150, 'g');
+    if (calc && calc.nutrients) {
+      return {
+        calories: Math.round(calc.nutrients.calories.value ?? 350),
+        protein_g: calc.nutrients.protein_g.value ?? 15,
+        carbs_g: calc.nutrients.carbs_g.value ?? 35,
+        fat_g: calc.nutrients.fat_g.value ?? 10,
+        vitamin_d_mcg: calc.nutrients.vitamin_d_mcg.value ?? 0,
+        iron_mg: calc.nutrients.iron_mg.value ?? 1.0,
+        zinc_mg: calc.nutrients.zinc_mg.value ?? 0.8,
+        b12_mcg: calc.nutrients.b12_mcg.value ?? 0.2,
+      };
+    }
+  }
   
   let calories = 350;
   let protein_g = 15;

@@ -50,9 +50,9 @@ jobs:
       - name: Build Frontend SPA
         run: npm run build
         env:
-          VITE_API_URL: ${{ secrets.VITE_API_URL }}
-          VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
-          VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
+          VITE_API_URL: ${{ secrets.VITE_API_URL || 'https://nutriq-backend.onrender.com' }}
+          VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL || 'https://yaxfgzlgthafrfkeisja.supabase.co' }}
+          VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlheGZnemxndGhhZnJma2Vpc2phIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTA2OTAwMzgsImV4cCI6MjEwNjI2NjAzOH0.X74YlWLVPjzPr8VMseXzOlq_w0OaOYZJPhaHB5J2AiE' }}
 
       # 5. Deploy dist/ to gh-pages branch (Only on main push, not PRs)
       - name: Deploy to GitHub Pages

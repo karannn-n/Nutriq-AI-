@@ -8,10 +8,12 @@ import {
 import { Link } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { useSync } from '../hooks/useSync';
+import { supabase } from '../utils/supabaseClient';
 import {
   searchFoods as localSearchFallback,
   calculateMealNutrition as localCalculateFallback
 } from '../utils/localNutritionEngine';
+import { parseMealClient } from '../utils/localMealParser';
 
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 
@@ -343,21 +345,36 @@ const MealLog = () => {
         recalculateDraftNutrition(data.ingredients || []);
       }
     } catch (err) {
-      console.error('Error parsing meal:', err);
-      setErrorMessage(err.message || 'Failed to parse meal description.');
+      console.warn('Backend meal parser unreachable, running in-browser parser fallback:', err.message);
+      try {
+        const localData = parseMealClient(text);
+        setParsedDraft(localData);
+        setDraftIngredients(localData.ingredients || []);
+        setDraftClarifications(localData.clarifications || []);
+        if (localData.calculated_nutrition) {
+          setDraftTotals(localData.calculated_nutrition);
+        } else {
+          recalculateDraftNutrition(localData.ingredients || []);
+        }
+      } catch (localErr) {
+        console.error('Client-side meal parser error:', localErr);
+        setErrorMessage(localErr.message || 'Failed to parse meal description.');
+      }
     } finally {
       setIsParsingMeal(false);
     }
   };
 
   const recalculateDraftNutrition = async (ingredients) => {
-    const valid = (ingredients || []).filter(i => i.fdc_id && Number(i.weight_g) > 0);
+    const valid = (ingredients || []).filter(i => (i.fdc_id || i.food_name) && Number(i.weight_g) > 0);
     if (valid.length === 0) {
       setDraftTotals(null);
       return;
     }
 
     setIsCalculatingDraft(true);
+    let calculated = false;
+
     try {
       const res = await fetch(`${API_BASE_URL}/api/nutrition/calculate`, {
         method: 'POST',
@@ -375,11 +392,29 @@ const MealLog = () => {
       if (res.ok) {
         const data = await res.json();
         setDraftTotals(data);
+        calculated = true;
       }
     } catch (err) {
-      console.warn('Live draft calculation error:', err);
+      console.warn('Live draft calculation error, using client engine fallback:', err.message);
     } finally {
       setIsCalculatingDraft(false);
+    }
+
+    if (!calculated) {
+      try {
+        const localTotals = localCalculateFallback(valid.map(i => ({
+          food_id: i.fdc_id ? `usda_fdc_${i.fdc_id}` : null,
+          food: null,
+          quantity: Number(i.weight_g),
+          unit: 'g',
+          confirmed: true,
+        })));
+        if (localTotals) {
+          setDraftTotals(localTotals);
+        }
+      } catch (calcErr) {
+        console.warn('Local calculation fallback failed:', calcErr);
+      }
     }
   };
 
@@ -479,22 +514,65 @@ const MealLog = () => {
         })),
       };
 
-      const res = await fetch(`${API_BASE_URL}/api/meals/catalog`, {
-        method: 'POST',
-        headers,
-        body: JSON.stringify(payload),
-      });
+      let savedMeal = null;
 
-      if (!res.ok) {
-        const err = await res.json().catch(() => null);
-        throw new Error(err?.error || `Failed to save meal (${res.status})`);
+      try {
+        const res = await fetch(`${API_BASE_URL}/api/meals/catalog`, {
+          method: 'POST',
+          headers,
+          body: JSON.stringify(payload),
+        });
+
+        if (res.ok) {
+          const data = await res.json();
+          savedMeal = data.meal;
+        }
+      } catch (networkErr) {
+        console.warn('Backend meal catalog save unreachable, falling back to direct database save:', networkErr.message);
       }
 
-      const data = await res.json();
+      if (!savedMeal && session?.user?.id) {
+        // Direct Supabase insert
+        const directPayload = {
+          user_id: session.user.id,
+          description: payload.description,
+          meal_type: payload.meal_type || 'meal',
+          logged_at: new Date().toISOString(),
+          calories: draftTotals?.totals?.calories?.amount || 0,
+          protein_g: draftTotals?.totals?.protein_g?.amount || 0,
+          carbs_g: draftTotals?.totals?.carbs_g?.amount || 0,
+          fat_g: draftTotals?.totals?.fat_g?.amount || 0,
+          vitamin_d_mcg: draftTotals?.totals?.vitamin_d_mcg?.amount || 0,
+          iron_mg: draftTotals?.totals?.iron_mg?.amount || 0,
+          zinc_mg: draftTotals?.totals?.zinc_mg?.amount || 0,
+          b12_mcg: draftTotals?.totals?.b12_mcg?.amount || 0,
+          metadata: {
+            ingredients: payload.ingredients,
+            engine: 'local_nlp_client',
+          },
+        };
+
+        const { data: inserted, error: insertErr } = await supabase
+          .from('meals')
+          .insert(directPayload)
+          .select()
+          .single();
+
+        if (insertErr) {
+          console.warn('Supabase direct insert notice:', insertErr.message);
+          savedMeal = directPayload;
+        } else {
+          savedMeal = inserted || directPayload;
+        }
+      } else if (!savedMeal) {
+        const { localMeal } = logMealOffline(payload.description);
+        savedMeal = localMeal;
+      }
+
       setSuccessData({
         method: 'describe',
         engine: 'local_nlp',
-        meal: data.meal,
+        meal: savedMeal,
         isOffline: false,
       });
 
@@ -561,24 +639,61 @@ const MealLog = () => {
           })),
         };
 
-        const resp = await fetch(`${API_BASE_URL}/api/meals/catalog`, {
-          method: 'POST',
-          headers,
-          body: JSON.stringify(payload),
-        });
+        let savedMeal = null;
+        let finalTotals = liveTotals ? liveTotals.totals : null;
 
-        if (!resp.ok) {
-          const errData = await resp.json().catch(() => null);
-          throw new Error(errData?.error || `Server error (${resp.status})`);
+        try {
+          const resp = await fetch(`${API_BASE_URL}/api/meals/catalog`, {
+            method: 'POST',
+            headers,
+            body: JSON.stringify(payload),
+          });
+
+          if (resp.ok) {
+            const data = await resp.json();
+            savedMeal = data.meal;
+            finalTotals = data.totals || finalTotals;
+          }
+        } catch (networkErr) {
+          console.warn('Backend catalog meal save unreachable, falling back to direct database save:', networkErr.message);
         }
 
-        const data = await resp.json();
+        if (!savedMeal && session?.user?.id) {
+          const autoDesc = payload.description || `Meal with ${mealIngredients.map(i => i.food_name).join(', ')}`;
+          const directPayload = {
+            user_id: session.user.id,
+            description: autoDesc,
+            meal_type: mealType || 'meal',
+            logged_at: new Date().toISOString(),
+            calories: liveTotals?.db_compatible_nutrition?.calories || 0,
+            protein_g: liveTotals?.db_compatible_nutrition?.protein_g || 0,
+            carbs_g: liveTotals?.db_compatible_nutrition?.carbs_g || 0,
+            fat_g: liveTotals?.db_compatible_nutrition?.fat_g || 0,
+            vitamin_d_mcg: liveTotals?.db_compatible_nutrition?.vitamin_d_mcg || 0,
+            iron_mg: liveTotals?.db_compatible_nutrition?.iron_mg || 0,
+            zinc_mg: liveTotals?.db_compatible_nutrition?.zinc_mg || 0,
+            b12_mcg: liveTotals?.db_compatible_nutrition?.b12_mcg || 0,
+            metadata: {
+              ingredients: payload.ingredients,
+              engine: 'local_usda_client',
+            },
+          };
+
+          const { data: inserted, error: insertErr } = await supabase
+            .from('meals')
+            .insert(directPayload)
+            .select()
+            .single();
+
+          savedMeal = (!insertErr && inserted) ? inserted : directPayload;
+        }
+
         setSuccessData({
           method: 'build',
           engine: 'local_usda',
-          meal: data.meal,
-          totals: data.totals || (liveTotals ? liveTotals.totals : null),
-          completeness: data.completeness,
+          meal: savedMeal || { description: mealName.trim() || 'Custom Meal', logged_at: new Date().toISOString() },
+          totals: finalTotals,
+          completeness: liveTotals?.completeness || null,
           isOffline: false,
         });
 

@@ -30,3 +30,26 @@ export const supabase = createClient(
     },
   }
 );
+
+// OAuth redirects happen before the SDK can report a disabled provider.
+// Check the public Auth settings first so the form can display the error.
+export const ensureGoogleSignInEnabled = async () => {
+  let response;
+  try {
+    response = await fetch(`${supabaseUrl.replace(/\/$/, '')}/auth/v1/settings`, {
+      headers: { apikey: supabaseAnonKey },
+      signal: AbortSignal.timeout(10000),
+    });
+  } catch {
+    throw new Error('Unable to connect to Google sign-in. Please try again.');
+  }
+
+  if (!response.ok) {
+    throw new Error('Unable to check Google sign-in availability. Please try again.');
+  }
+
+  const settings = await response.json();
+  if (settings.external?.google !== true) {
+    throw new Error('Google sign-in is not enabled for this app yet. Please use email and password, or contact the app administrator.');
+  }
+};

@@ -216,6 +216,33 @@ This script sets up:
 
 ## Authentication & Row-Level Security
 
+### Enable Google sign-in
+
+If Google sign-in returns `Unsupported provider: provider is not enabled`, Google
+is disabled in the Supabase project configured by `VITE_SUPABASE_URL`. Frontend
+credentials alone do not enable OAuth providers.
+
+1. In [Google Auth Platform](https://console.cloud.google.com/auth/clients), configure
+   the consent screen and create an OAuth client with application type **Web application**.
+2. In the client's **Authorized redirect URIs**, add the callback URL shown by
+   Supabase's Google provider: `https://<project-ref>.supabase.co/auth/v1/callback`.
+3. In **Supabase Dashboard > Authentication > Sign In / Providers > Google**, enable
+   Google, enter the Google OAuth client ID and client secret, and save. Keep the
+   client secret in Supabase; do not add it to frontend `VITE_*` variables.
+4. In **Authentication > URL Configuration**, set the production Site URL and add
+   the app's dashboard return URLs to the redirect allow list. With this repo's
+   Vite base path, examples are
+   `http://localhost:5173/Nutriq-AI-/app/dashboard` and
+   `https://<your-host>/Nutriq-AI-/app/dashboard`.
+5. If the Google consent screen is in testing mode, add your Google account as a
+   test user, then retry **Continue with Google**.
+
+Nutriq checks public Auth settings before redirecting so a disabled Google provider
+displays an error on the form. Provider configuration must still be completed in
+Supabase before Google accounts can sign in or register.
+
+See the [Supabase Google sign-in guide](https://supabase.com/docs/guides/auth/social-login/auth-google).
+
 - All user registration and session management is handled by **Supabase Auth** via standard JWT tokens.
 - Protected frontend routes require an active session verified in `ProtectedRoute.jsx`.
 - When communicating with the backend, the client includes the JWT token:

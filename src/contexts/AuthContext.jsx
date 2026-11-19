@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect } from 'react';
-import { supabase, isSupabaseConfigured } from '../utils/supabaseClient';
+import { supabase, isSupabaseConfigured, ensureGoogleSignInEnabled } from '../utils/supabaseClient';
 
 export const AuthContext = createContext(null);
 
@@ -175,6 +175,12 @@ export const AuthProvider = ({ children }) => {
       throw new Error(
         'Supabase is not configured yet. Please configure VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY in your .env file.'
       );
+    }
+    try {
+      await ensureGoogleSignInEnabled();
+    } catch (error) {
+      setAuthError(error.message);
+      throw error;
     }
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider: 'google',

@@ -367,6 +367,16 @@ const MealHistory = () => {
                 <div style={{ flex: '1 1 280px' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px', flexWrap: 'wrap' }}>
                     <span style={{ fontSize: '1.05rem', fontWeight: 600, color: 'var(--text-main)' }}>{meal.description}</span>
+                    {meal.meal_ingredients && meal.meal_ingredients.length > 0 && (
+                      <span style={{ padding: '2px 8px', borderRadius: '12px', background: 'rgba(16, 185, 129, 0.12)', color: 'var(--accent-primary)', fontSize: '0.72rem', fontWeight: 600 }}>
+                        {meal.meal_ingredients.length} ingredients (USDA)
+                      </span>
+                    )}
+                    {meal.meal_type && (
+                      <span style={{ padding: '2px 8px', borderRadius: '12px', background: 'rgba(0,0,0,0.06)', color: 'var(--text-muted)', fontSize: '0.72rem', fontWeight: 600, textTransform: 'capitalize' }}>
+                        {meal.meal_type}
+                      </span>
+                    )}
                     {meal.isPendingSync && (
                       <span style={{ padding: '2px 8px', borderRadius: '12px', background: 'rgba(234, 88, 12, 0.15)', color: '#ea580c', fontSize: '0.72rem', fontWeight: 600 }}>
                         Pending Cloud Sync
@@ -505,6 +515,65 @@ const MealHistory = () => {
                   </div>
                 ))}
               </div>
+
+              {/* Ingredients Breakdown (Local Nutrition Engine) */}
+              {selectedMeal.meal_ingredients && selectedMeal.meal_ingredients.length > 0 && (
+                <div style={{ background: 'rgba(255,255,255,0.7)', borderRadius: '14px', padding: '18px', border: '1px solid var(--glass-border)', marginBottom: '24px' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
+                    <h4 style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--text-main)', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                      <Utensils size={16} color="var(--accent-primary)" />
+                      <span>Verified Ingredients Breakdown ({selectedMeal.meal_ingredients.length})</span>
+                    </h4>
+                    <span style={{ fontSize: '0.72rem', fontWeight: 700, padding: '2px 8px', borderRadius: '6px', background: 'rgba(16, 185, 129, 0.12)', color: 'var(--accent-primary)' }}>
+                      USDA LOCAL ENGINE
+                    </span>
+                  </div>
+
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                    {selectedMeal.meal_ingredients.map((ing, idx) => {
+                      const cal = ing.nutrient_snapshot?.calories?.value;
+                      const prot = ing.nutrient_snapshot?.protein_g?.value;
+                      const carbs = ing.nutrient_snapshot?.carbs_g?.value;
+                      const fat = ing.nutrient_snapshot?.fat_g?.value;
+
+                      return (
+                        <div
+                          key={ing.id || idx}
+                          style={{
+                            display: 'flex',
+                            justifyContent: 'space-between',
+                            alignItems: 'center',
+                            background: '#ffffff',
+                            padding: '10px 14px',
+                            borderRadius: '10px',
+                            border: '1px solid #f0f0f0',
+                          }}
+                        >
+                          <div>
+                            <div style={{ fontWeight: 600, fontSize: '0.9rem', color: 'var(--text-main)' }}>
+                              {ing.food_name}
+                            </div>
+                            <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>
+                              {ing.portion_description || `${ing.quantity_g}g`} • {ing.quantity_g} grams
+                            </div>
+                          </div>
+
+                          {cal !== undefined && cal !== null && (
+                            <div style={{ textAlign: 'right' }}>
+                              <div style={{ fontWeight: 700, fontSize: '0.88rem', color: 'var(--accent-primary)' }}>
+                                {Math.round(cal)} kcal
+                              </div>
+                              <div style={{ fontSize: '0.72rem', color: 'var(--text-muted)' }}>
+                                P: {prot || 0}g • C: {carbs || 0}g • F: {fat || 0}g
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
 
               {/* RDI Benchmarks comparison */}
               <div style={{ background: 'rgba(42,140,110,0.08)', borderRadius: '14px', padding: '16px', marginBottom: '24px' }}>

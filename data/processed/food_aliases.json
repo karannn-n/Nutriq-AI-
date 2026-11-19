@@ -343,8 +343,8 @@
     "clarification_prompt": "Is the spinach raw in a salad or cooked/boiled?",
     "matches": [
       {
-        "fdc_id": 170457,
-        "common_name": "Cooked Spinach (Boiled)",
+        "fdc_id": 168463,
+        "common_name": "Cooked Spinach (drained, without salt)",
         "prep": "cooked, boiled, drained",
         "confidence": 0.95
       },
@@ -370,8 +370,8 @@
         "confidence": 0.95
       },
       {
-        "fdc_id": 170457,
-        "common_name": "Cooked Spinach",
+        "fdc_id": 168463,
+        "common_name": "Cooked Spinach (drained, without salt)",
         "prep": "cooked, boiled, drained",
         "confidence": 0.95
       }
@@ -688,8 +688,8 @@
     "ambiguous": false,
     "matches": [
       {
-        "fdc_id": 172462,
-        "common_name": "Peanut Butter (Smooth Style)",
+        "fdc_id": 2758989,
+        "common_name": "Peanut butter (Creamy)",
         "confidence": 0.98
       }
     ]

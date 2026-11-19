@@ -15,6 +15,7 @@ import {
   BarChart3,
   ShieldCheck,
   Activity,
+  Sparkles,
 } from 'lucide-react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
@@ -57,8 +58,9 @@ const AuthPage = ({ initialMode = 'register' }) => {
   const [resetMode, setResetMode] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
+  const [demoSubmitting, setDemoSubmitting] = useState(false);
 
-  const { signIn, signUp, signInWithGoogle, resetPassword, user, isSupabaseConfigured } = useAuth();
+  const { signIn, signUp, signInWithGoogle, signInDemo, resetPassword, user, isSupabaseConfigured } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
   const reduce = useReducedMotion();
@@ -141,6 +143,18 @@ const AuthPage = ({ initialMode = 'register' }) => {
     } catch (err) {
       setErrorMessage(err.message || 'Google sign-in failed. Please try again.');
       setGoogleSubmitting(false);
+    }
+  };
+
+  const handleDemoSignIn = async () => {
+    setErrorMessage('');
+    setDemoSubmitting(true);
+    try {
+      await signInDemo();
+      navigate(from, { replace: true });
+    } catch (err) {
+      setErrorMessage(err.message || 'Demo sign-in failed. Please try again.');
+      setDemoSubmitting(false);
     }
   };
 
@@ -514,7 +528,7 @@ const AuthPage = ({ initialMode = 'register' }) => {
                 <button
                   type="button"
                   onClick={handleGoogleSignIn}
-                  disabled={googleSubmitting || submitting}
+                  disabled={googleSubmitting || submitting || demoSubmitting}
                   className="auth-btn-google"
                 >
                   {googleSubmitting ? (
@@ -531,6 +545,37 @@ const AuthPage = ({ initialMode = 'register' }) => {
                     <>
                       <GoogleIcon />
                       <span>Continue with Google</span>
+                    </>
+                  )}
+                </button>
+
+                <button
+                  type="button"
+                  onClick={handleDemoSignIn}
+                  disabled={demoSubmitting || submitting || googleSubmitting}
+                  className="auth-btn-google"
+                  style={{
+                    marginTop: '10px',
+                    background: 'rgba(52, 211, 153, 0.12)',
+                    borderColor: 'rgba(52, 211, 153, 0.45)',
+                    color: '#34D399',
+                    fontWeight: 600,
+                  }}
+                >
+                  {demoSubmitting ? (
+                    <>
+                      <motion.div
+                        animate={{ rotate: 360 }}
+                        transition={{ repeat: Infinity, duration: 1, ease: 'linear' }}
+                      >
+                        <Loader2 size={18} />
+                      </motion.div>
+                      <span>Entering Live Demo...</span>
+                    </>
+                  ) : (
+                    <>
+                      <Sparkles size={18} color="#34D399" />
+                      <span>Explore Demo Account (Instant Access)</span>
                     </>
                   )}
                 </button>

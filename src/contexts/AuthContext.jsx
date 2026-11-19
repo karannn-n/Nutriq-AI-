@@ -116,6 +116,9 @@ export const AuthProvider = ({ children }) => {
       );
     }
 
+    const base = import.meta.env.BASE_URL || '/';
+    const redirectPrefix = `${window.location.origin}${base.endsWith('/') ? base : base + '/'}`;
+
     const { data, error } = await supabase.auth.signUp({
       email,
       password,
@@ -123,6 +126,7 @@ export const AuthProvider = ({ children }) => {
         data: {
           full_name: fullName,
         },
+        emailRedirectTo: `${redirectPrefix}login`,
       },
     });
 
@@ -182,10 +186,12 @@ export const AuthProvider = ({ children }) => {
       setAuthError(error.message);
       throw error;
     }
+    const base = import.meta.env.BASE_URL || '/';
+    const redirectPrefix = `${window.location.origin}${base.endsWith('/') ? base : base + '/'}`;
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider: 'google',
       options: {
-        redirectTo: `${window.location.origin}${import.meta.env.BASE_URL}app/dashboard`,
+        redirectTo: `${redirectPrefix}app/dashboard`,
       },
     });
     if (error) {
@@ -193,6 +199,14 @@ export const AuthProvider = ({ children }) => {
       throw error;
     }
     return data;
+  };
+
+  // Instant Demo Account Sign-in (for zero-setup instant evaluation)
+  const signInDemo = async () => {
+    return signIn({
+      email: 'demo@nutriq.app',
+      password: 'NutriqDemoUser2026!',
+    });
   };
 
   // Password reset request
@@ -248,6 +262,7 @@ export const AuthProvider = ({ children }) => {
     signUp,
     signIn,
     signInWithGoogle,
+    signInDemo,
     resetPassword,
     signOut,
     getAuthHeaders,

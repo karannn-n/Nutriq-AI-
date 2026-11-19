@@ -18,8 +18,16 @@ const path = require('path');
 const fs = require('fs');
 const { DatabaseSync } = require('node:sqlite');
 
-// Locate foods.db
-const DB_PATH = path.resolve(__dirname, '../../data/indexes/foods.db');
+// Locate foods.db across local and production deployment environments
+const candidatePaths = [
+  process.env.FOODS_DB_PATH,
+  path.resolve(__dirname, '../../data/indexes/foods.db'),
+  path.resolve(__dirname, '../data/indexes/foods.db'),
+  path.resolve(__dirname, './data/indexes/foods.db'),
+  path.resolve(process.cwd(), 'data/indexes/foods.db'),
+  path.resolve(process.cwd(), '../data/indexes/foods.db'),
+].filter(Boolean);
+const DB_PATH = candidatePaths.find(p => fs.existsSync(p)) || candidatePaths[0];
 
 class ValidationError extends Error {
   constructor(message, field) {

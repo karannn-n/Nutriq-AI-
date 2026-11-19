@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Outlet, Link, useLocation, useNavigate } from 'react-router-dom';
 import { 
   Activity, LayoutDashboard, Utensils, ClipboardList, PieChart, Settings, 
@@ -13,11 +13,13 @@ const AppLayout = () => {
   const navigate = useNavigate();
   const { user, profile, signOut } = useAuth();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [prevPath, setPrevPath] = useState(location.pathname);
 
   // Close mobile drawer on route navigation
-  useEffect(() => {
+  if (prevPath !== location.pathname) {
+    setPrevPath(location.pathname);
     setMobileMenuOpen(false);
-  }, [location.pathname]);
+  }
 
   const navItems = [
     { name: 'Dashboard', path: '/app/dashboard', icon: <LayoutDashboard size={18} />, badge: 'Live', badgeType: 'pulse' },

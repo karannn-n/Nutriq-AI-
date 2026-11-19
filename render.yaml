@@ -4,10 +4,12 @@ services:
     env: node
     plan: free
     rootDir: backend
-    buildCommand: npm install
+    buildCommand: npm install && (cp -r ../data ./data || true)
     startCommand: node server.js
     healthCheckPath: /api/health
     envVars:
+      - key: NODE_VERSION
+        value: 22.11.0
       - key: NODE_ENV
         value: production
       - key: PORT

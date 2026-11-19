@@ -5,12 +5,11 @@ import {
   Database, Sparkles, Plus, Trash2, HelpCircle, Check, RefreshCw, ChevronDown, Info,
   Search, Utensils, Edit3, ArrowRight
 } from 'lucide-react';
-import { useNavigate, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { useSync } from '../hooks/useSync';
 import {
   searchFoods as localSearchFallback,
-  getFoodById as localGetByIdFallback,
   calculateMealNutrition as localCalculateFallback
 } from '../utils/localNutritionEngine';
 
@@ -18,7 +17,6 @@ const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 
 const MealLog = () => {
   // ─── 1. Navigation & Auth State ──────────────────────────────────────────
-  const navigate = useNavigate();
   const { session } = useAuth();
   const { isOnline, logMealOffline } = useSync();
 
